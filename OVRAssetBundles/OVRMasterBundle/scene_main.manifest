@@ -1,0 +1,88 @@
+ManifestFileVersion: 0
+CRC: 54291283
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: cd3c92c30047bbf24a56626826ccb5d9
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 6c4a7fd87576e85507c2f53bb13f288e
+  IncrementalBuildHash:
+    serializedVersion: 2
+    Hash: cd3c92c30047bbf24a56626826ccb5d9
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 20
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 23
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 33
+  Script: {instanceID: 0}
+- Class: 43
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 65
+  Script: {instanceID: 0}
+- Class: 81
+  Script: {instanceID: 0}
+- Class: 82
+  Script: {instanceID: 0}
+- Class: 83
+  Script: {instanceID: 0}
+- Class: 89
+  Script: {instanceID: 0}
+- Class: 104
+  Script: {instanceID: 0}
+- Class: 108
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 11500000, guid: 7e933e81d3c20c74ea6fdc708a67e3a5, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: cb7623a8f0b49cf4dbaa40aea4d4be64, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 54c16b381e28e8d479237771d234dbae, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 73eac66b128fc8749a21623225c34541, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 5cc5c234723e3a54d8dd09b131117743, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: df9f338034892c44ebb62d97894772f1, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 5178bc8574ce2bf4388e787a2e2af326, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 2606bf2f0c914a7aba4390f29ba2eb6e, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: f273abee0604ad2409c9bbc9a60e461e, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: a7b47e36715521d4e8a30d2c5b6e83e2, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 2609c54f376cffc4da1ab9401cc1a36f, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 998a5646185efb9488265f3a2f35a99a, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+- Class: 137
+  Script: {instanceID: 0}
+- Class: 157
+  Script: {instanceID: 0}
+- Class: 196
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/Projects/Blindfolded/Scenes/Main.unity
+Dependencies:
+- C:/Users/Daniel/Documents/GitHub/Visio-Blindfolded/OVRAssetBundles/OVRMasterBundle/asset_fbx0
+- C:/Users/Daniel/Documents/GitHub/Visio-Blindfolded/OVRAssetBundles/OVRMasterBundle/asset_mat0
+- C:/Users/Daniel/Documents/GitHub/Visio-Blindfolded/OVRAssetBundles/OVRMasterBundle/asset_prefab0
+- C:/Users/Daniel/Documents/GitHub/Visio-Blindfolded/OVRAssetBundles/OVRMasterBundle/asset_wav0

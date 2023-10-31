@@ -1,0 +1,22 @@
+ManifestFileVersion: 0
+CRC: 390969789
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: c57fc8a3baf35ceae45ffe85b17dd47d
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 2612ac43db082a73502ee80f2eceb73f
+  IncrementalBuildHash:
+    serializedVersion: 2
+    Hash: c57fc8a3baf35ceae45ffe85b17dd47d
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/SteamVR/InteractionSystem/Samples/Textures/checker.png
+- Assets/Oculus/VR/Textures/HandTracking/HandTracking_uvmap_2048.png
+- Assets/SteamVR/InteractionSystem/Samples/Models/black_floor_metal_MET.png
+Dependencies: []
