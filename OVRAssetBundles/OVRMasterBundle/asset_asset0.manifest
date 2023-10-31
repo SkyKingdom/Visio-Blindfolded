@@ -1,0 +1,26 @@
+ManifestFileVersion: 0
+CRC: 50229454
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: aeed795df700852b6ce048a4f0fd6e9b
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: d33ec4177aeb15c5ffd001bb3383c9f4
+  IncrementalBuildHash:
+    serializedVersion: 2
+    Hash: aeed795df700852b6ce048a4f0fd6e9b
+HashAppended: 0
+ClassTypes:
+- Class: 114
+  Script: {fileID: 11500000, guid: e90911e410742a1498a167540c7865bf, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers:
+- AssemblyName: SteamVR
+  ClassName: Valve.VR.SteamVR_Skeleton_Pose_Hand
+Assets:
+- Assets/SteamVR/InteractionSystem/Poses/fallback_relaxed.asset
+- Assets/SteamVR/InteractionSystem/Poses/fallback_point.asset
+- Assets/SteamVR/InteractionSystem/Poses/fallback_fist.asset
+Dependencies: []

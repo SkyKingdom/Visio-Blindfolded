@@ -1,0 +1,27 @@
+ManifestFileVersion: 0
+CRC: 2581645583
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 81dc8f18fb19634430eda9e1edf91bb1
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: b30fce1a9ad74efb72be6c308c56e365
+  IncrementalBuildHash:
+    serializedVersion: 2
+    Hash: 81dc8f18fb19634430eda9e1edf91bb1
+HashAppended: 0
+ClassTypes:
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/Oculus/VR/Materials/BasicHandMaterial.mat
+- Assets/SteamVR/InteractionSystem/Samples/Models/floor.mat
+Dependencies:
+- C:/Users/Daniel/Documents/GitHub/Visio-Blindfolded/OVRAssetBundles/OVRMasterBundle/asset_jpg0
+- C:/Users/Daniel/Documents/GitHub/Visio-Blindfolded/OVRAssetBundles/OVRMasterBundle/asset_png0

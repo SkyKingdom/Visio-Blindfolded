@@ -1,0 +1,20 @@
+ManifestFileVersion: 0
+CRC: 4010616612
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 5be2b60b21507085a66bf7585e6c3f89
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 2612ac43db082a73502ee80f2eceb73f
+  IncrementalBuildHash:
+    serializedVersion: 2
+    Hash: 5be2b60b21507085a66bf7585e6c3f89
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/SteamVR/InteractionSystem/Samples/Models/black_floor_metal_NRM.jpg
+Dependencies: []
