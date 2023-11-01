@@ -23,7 +23,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Oculus/Interaction/Samples/Scenes/Features/TouchHandGrab.unity
     guid: be6ac2db53044a540a337805c97f39df
-  - enabled: 1
+  - enabled: 0
     path: Assets/Oculus/VR/Scenes/UI.unity
     guid: 1f4d3ae64a10d434db219de8b14348e1
   m_configObjects:
