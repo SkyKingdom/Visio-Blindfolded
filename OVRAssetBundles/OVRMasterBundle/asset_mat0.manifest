@@ -1,15 +1,15 @@
 ManifestFileVersion: 0
-CRC: 3822585485
+CRC: 3693100695
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: e394d29d1695b766f6f534e4b439b025
+    Hash: 6c7e17b72e71f256e13ecd2e7821178e
   TypeTreeHash:
     serializedVersion: 2
     Hash: b30fce1a9ad74efb72be6c308c56e365
   IncrementalBuildHash:
     serializedVersion: 2
-    Hash: e394d29d1695b766f6f534e4b439b025
+    Hash: 6c7e17b72e71f256e13ecd2e7821178e
 HashAppended: 0
 ClassTypes:
 - Class: 21
@@ -20,8 +20,21 @@ ClassTypes:
   Script: {instanceID: 0}
 SerializeReferenceClassIdentifiers: []
 Assets:
-- Assets/Oculus/VR/Materials/CubeMaterial.mat
-- Assets/Oculus/VR/Materials/GazePointer.mat
+- Assets/Oculus/VR/Meshes/OculusTouchForQuestAndRiftS/Materials/OculusTouchForQuestAndRiftS_Material.mat
+- Assets/Oculus/VR/Meshes/MetaQuestTouchPlus/Materials/MetaQuestTouchPlusMATphong_left.mat
+- Assets/Oculus/VR/Meshes/MetaQuestTouchPro/Materials/MetaQuestProLeft_Material.mat
+- Assets/Oculus/VR/Meshes/OculusTouchForRift/Materials/OculusTouchForRift_Material.mat
+- Assets/SteamVR/InteractionSystem/Samples/Models/floor.mat
+- Assets/Oculus/Interaction/Runtime/Materials/OculusHand.mat
+- Assets/Oculus/VR/Meshes/MetaQuestTouchPro/Materials/batteryIndicator_mat.mat
+- Assets/Oculus/SampleFramework/Usage/HandsTrainExample/Materials/XingLightMaterial.mat
+- Assets/Oculus/VR/Meshes/OculusTouchForQuest2/Materials/OculusTouchForQuest2_MAT.mat
+- Assets/Oculus/VR/Meshes/MetaQuestTouchPlus/Materials/MetaQuestTouchPlusMATphong_right.mat
+- Assets/Oculus/VR/Meshes/MetaQuestTouchPro/Materials/MetaQuestProRight_Material.mat
+- Assets/Oculus/Interaction/Runtime/Materials/GrabDebugSphere.mat
+- Assets/Oculus/Interaction/Runtime/Materials/Unlit Material.mat
 Dependencies:
+- C:/Users/Daniel/Documents/GitHub/Visio-Blindfolded/OVRAssetBundles/OVRMasterBundle/asset_jpg0
 - C:/Users/Daniel/Documents/GitHub/Visio-Blindfolded/OVRAssetBundles/OVRMasterBundle/asset_png0
-- C:/Users/Daniel/Documents/GitHub/Visio-Blindfolded/OVRAssetBundles/OVRMasterBundle/asset_resources
+- C:/Users/Daniel/Documents/GitHub/Visio-Blindfolded/OVRAssetBundles/OVRMasterBundle/asset_shader0
+- C:/Users/Daniel/Documents/GitHub/Visio-Blindfolded/OVRAssetBundles/OVRMasterBundle/asset_tga0
