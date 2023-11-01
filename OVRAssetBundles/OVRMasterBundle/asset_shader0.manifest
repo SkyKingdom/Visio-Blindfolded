@@ -1,22 +1,23 @@
 ManifestFileVersion: 0
-CRC: 709223019
+CRC: 982551685
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: ccb5b8b3b411eece2251af3fc840a45f
+    Hash: ad941cb292d131380e2dea6302449515
   TypeTreeHash:
     serializedVersion: 2
     Hash: 0df1dec30b5d061d422d3e6493d27647
   IncrementalBuildHash:
     serializedVersion: 2
-    Hash: ccb5b8b3b411eece2251af3fc840a45f
+    Hash: ad941cb292d131380e2dea6302449515
 HashAppended: 0
 ClassTypes:
 - Class: 48
   Script: {instanceID: 0}
 SerializeReferenceClassIdentifiers: []
 Assets:
-- Assets/SteamVR/InteractionSystem/Hints/Shaders/ControllerButtonHints.shader
-- Assets/SteamVR/InteractionSystem/Teleport/Shaders/Highlight.shader
-- Assets/SteamVR/InteractionSystem/Core/Shaders/Silhouette.shader
+- Assets/Oculus/Interaction/Runtime/Shaders/UnlitTransparentColor.shader
+- Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile.shader
+- Assets/Oculus/SampleFramework/Usage/HandsTrainExample/Shaders/XingLightShader.shader
+- Assets/Oculus/Interaction/Runtime/Shaders/OculusHand.shader
 Dependencies: []
