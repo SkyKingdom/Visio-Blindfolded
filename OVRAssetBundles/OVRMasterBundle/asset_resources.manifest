@@ -1,15 +1,15 @@
 ManifestFileVersion: 0
-CRC: 2136888418
+CRC: 1358177628
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: a479580da8ce8b0a88077b365fec2925
+    Hash: a4f2658a818fdb871465712f08e73c26
   TypeTreeHash:
     serializedVersion: 2
     Hash: ea5bd919c0c27ee9735e6bb99bfb0971
   IncrementalBuildHash:
     serializedVersion: 2
-    Hash: a479580da8ce8b0a88077b365fec2925
+    Hash: a4f2658a818fdb871465712f08e73c26
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -224,5 +224,4 @@ Assets:
 - Assets/Oculus/VR/Resources/Texture2D Blit.shader
 - Assets/TextMesh Pro/Examples & Extras/Resources/Fonts & Materials/Bangers SDF.asset
 - Assets/Oculus/VR/Resources/Unlit Transparent Color.shader
-Dependencies:
-- C:/Users/Daniel/Documents/GitHub/Visio-Blindfolded/OVRAssetBundles/OVRMasterBundle/asset_png0
+Dependencies: []

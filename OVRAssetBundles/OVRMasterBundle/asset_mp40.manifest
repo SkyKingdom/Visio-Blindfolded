@@ -1,0 +1,20 @@
+ManifestFileVersion: 0
+CRC: 1766354301
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 631dbd4dc56060d2af01368d8fcdf40b
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: c12678a98877549a3fe7bb52917258ad
+  IncrementalBuildHash:
+    serializedVersion: 2
+    Hash: 631dbd4dc56060d2af01368d8fcdf40b
+HashAppended: 0
+ClassTypes:
+- Class: 329
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/Oculus/Interaction/Samples/Objects/Environment/Tooltips/DialogVideos/Instruction_TransformerScale.mp4
+Dependencies: []

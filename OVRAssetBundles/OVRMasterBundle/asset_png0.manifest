@@ -1,22 +1,24 @@
 ManifestFileVersion: 0
-CRC: 390969789
+CRC: 3504136658
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: c57fc8a3baf35ceae45ffe85b17dd47d
+    Hash: 22eef40d5e07805ebd2ec02366187b2f
   TypeTreeHash:
     serializedVersion: 2
-    Hash: 2612ac43db082a73502ee80f2eceb73f
+    Hash: 2d8df09e698f722ada1caa03d3413830
   IncrementalBuildHash:
     serializedVersion: 2
-    Hash: c57fc8a3baf35ceae45ffe85b17dd47d
+    Hash: 22eef40d5e07805ebd2ec02366187b2f
 HashAppended: 0
 ClassTypes:
 - Class: 28
   Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
 SerializeReferenceClassIdentifiers: []
 Assets:
-- Assets/SteamVR/InteractionSystem/Samples/Textures/checker.png
-- Assets/Oculus/VR/Textures/HandTracking/HandTracking_uvmap_2048.png
-- Assets/SteamVR/InteractionSystem/Samples/Models/black_floor_metal_MET.png
+- Assets/Oculus/VR/Textures/cube_texture.png
+- Assets/Oculus/VR/Textures/GazeRing.png
+- Assets/Oculus/VR/Textures/windowgui.png
 Dependencies: []

@@ -1,20 +1,20 @@
 ManifestFileVersion: 0
-CRC: 1904819597
+CRC: 678762734
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 6aa7bd9af80eccee7105cc7d6a0911db
+    Hash: c59ef813847786e48b2b2f6d3c5c57fe
   TypeTreeHash:
     serializedVersion: 2
     Hash: 2d9da41d144468ef771ac0bfebf61c5d
   IncrementalBuildHash:
     serializedVersion: 2
-    Hash: 6aa7bd9af80eccee7105cc7d6a0911db
+    Hash: c59ef813847786e48b2b2f6d3c5c57fe
 HashAppended: 0
 ClassTypes:
 - Class: 84
   Script: {instanceID: 0}
 SerializeReferenceClassIdentifiers: []
 Assets:
-- Assets/SteamVR/Textures/overlay.renderTexture
+- Assets/Oculus/Interaction/Samples/Objects/Environment/Tooltips/DialogVideos/DialogVideos.renderTexture
 Dependencies: []
