@@ -1,10 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
 public class DevConsoleLogDisplay : MonoBehaviour
 {
+    [SerializeField] ScrollRect Scroller;
+    public float scrollSpeed = 1.0f;
 
     TextMeshProUGUI consoleTxt;
     string timestamp = System.DateTime.Now.ToString("HH:mm:ss");
@@ -18,10 +21,34 @@ public class DevConsoleLogDisplay : MonoBehaviour
         Application.logMessageReceived += HandleLog;
 
         Debug.Log("Hello World");
+        Debug.Log("Hello World");
+        Debug.Log("Hello World");
+        Debug.Log("Hello World");
+        Debug.Log("Hello World");        
+        Debug.Log("Hello World");
+        Debug.Log("Hello World");
+        Debug.Log("Hello World");
+        Debug.Log("Hello World");
+        Debug.Log("Hello World");        
+        Debug.Log("Hello World");
+        Debug.Log("Hello World");
+        Debug.Log("Hello World");
+        Debug.Log("Hello World");
+        Debug.Log("Hello World");
     }
     private void Update()
     {
-        LogMessage("Test");
+
+        //Scroll behaviour
+        // Get input from your VR controller for vertical scrolling (e.g., thumbstick input)
+        float verticalInput = Input.GetAxis("Vertical");
+        //Debug.Log(Input.GetAxis("Vertical"));
+        // Adjust the scroll position based on input
+        float currentScroll = Scroller.verticalNormalizedPosition;
+        currentScroll += verticalInput * scrollSpeed * Time.deltaTime;
+        currentScroll = Mathf.Clamp01(currentScroll);
+
+        Scroller.verticalNormalizedPosition = currentScroll;
     }
 
     void HandleLog(string logString, string stackTrace, LogType type)

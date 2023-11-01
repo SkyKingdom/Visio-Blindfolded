@@ -271,6 +271,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e848432541980b43afaab3b828a4d70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Scroller: {fileID: 1401203647}
+  scrollSpeed: 1
 --- !u!114 &105810828
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -967,14 +969,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Content: {fileID: 105810824}
-  m_Horizontal: 0
+  m_Horizontal: 1
   m_Vertical: 1
   m_MovementType: 1
   m_Elasticity: 0.1
   m_Inertia: 1
   m_DecelerationRate: 0.135
   m_ScrollSensitivity: 1
-  m_Viewport: {fileID: 0}
+  m_Viewport: {fileID: 1401203644}
   m_HorizontalScrollbar: {fileID: 0}
   m_VerticalScrollbar: {fileID: 0}
   m_HorizontalScrollbarVisibility: 0
