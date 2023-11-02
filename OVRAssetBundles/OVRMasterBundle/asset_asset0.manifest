@@ -1,15 +1,15 @@
 ManifestFileVersion: 0
-CRC: 98764987
+CRC: 776714888
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: ed3e3b855f53ca22e65fd4a175d5c2fb
+    Hash: 5cde2fb73b39aa40ee92e5c207fb6e7e
   TypeTreeHash:
     serializedVersion: 2
     Hash: 9f499a41de517e2411008adc0f03364d
   IncrementalBuildHash:
     serializedVersion: 2
-    Hash: ed3e3b855f53ca22e65fd4a175d5c2fb
+    Hash: 5cde2fb73b39aa40ee92e5c207fb6e7e
 HashAppended: 0
 ClassTypes:
 - Class: 21
@@ -46,6 +46,7 @@ SerializeReferenceClassIdentifiers:
 - AssemblyName: UnityEngine.TextCoreFontEngineModule
   ClassName: UnityEngine.TextCore.GlyphRect
 Assets:
+- Assets/Oculus/Interaction/Samples/Fonts/Roboto-Bold SDF.asset
 - Assets/Oculus/Interaction/Samples/Fonts/Roboto-Medium SDF.asset
 - Assets/Oculus/Interaction/Samples/Fonts/Roboto-Regular SDF.asset
 Dependencies:

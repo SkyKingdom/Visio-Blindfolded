@@ -1,5 +1,5 @@
 ManifestFileVersion: 0
-CRC: 3584211109
+CRC: 3069042021
 AssetBundleManifest:
   AssetBundleInfos:
     Info_0:
@@ -45,14 +45,17 @@ AssetBundleManifest:
       Name: asset_shader0
       Dependencies: {}
     Info_8:
-      Name: asset_jpg0
+      Name: asset_psd0
       Dependencies: {}
     Info_9:
-      Name: asset_tga0
+      Name: asset_jpg0
       Dependencies: {}
     Info_10:
-      Name: asset_wav0
+      Name: asset_tga0
       Dependencies: {}
     Info_11:
+      Name: asset_wav0
+      Dependencies: {}
+    Info_12:
       Name: asset_ttf0
       Dependencies: {}

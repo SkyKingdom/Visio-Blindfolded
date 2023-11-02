@@ -20,21 +20,7 @@ public class DevConsoleLogDisplay : MonoBehaviour
         consoleTxt = GetComponent<TextMeshProUGUI>();
         Application.logMessageReceived += HandleLog;
 
-        Debug.Log("Hello World");
-        Debug.Log("Hello World");
-        Debug.Log("Hello World");
-        Debug.Log("Hello World");
-        Debug.Log("Hello World");        
-        Debug.Log("Hello World");
-        Debug.Log("Hello World");
-        Debug.Log("Hello World");
-        Debug.Log("Hello World");
-        Debug.Log("Hello World");        
-        Debug.Log("Hello World");
-        Debug.Log("Hello World");
-        Debug.Log("Hello World");
-        Debug.Log("Hello World");
-        Debug.Log("Hello World");
+        InvokeRepeating("PrintStats", 5, 10);
     }
     private void Update()
     {
@@ -49,6 +35,11 @@ public class DevConsoleLogDisplay : MonoBehaviour
         currentScroll = Mathf.Clamp01(currentScroll);
 
         Scroller.verticalNormalizedPosition = currentScroll;
+    }
+
+    void PrintStats()
+    {
+        Debug.Log(Input.GetAxis("Vertical"));
     }
 
     void HandleLog(string logString, string stackTrace, LogType type)
