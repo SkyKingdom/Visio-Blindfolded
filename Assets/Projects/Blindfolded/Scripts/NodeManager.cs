@@ -20,7 +20,7 @@ public class NodeManager : MonoBehaviour
                 EditorGUI.indentLevel++;
 
                 script.RandomSelectedMasterNode = EditorGUILayout.IntField("RandomSlectedMasterNode", script.RandomSelectedMasterNode);
-                EditorGUILayout.LabelField("The startup has failed: ", $"{script.SelectingNodeFailCheck} out of {script.SelectingNodeFailCheck + 1} tasks");
+                EditorGUILayout.LabelField("The startup has failed: ", $"{script.SelectingNodeFailCheck} out of {1} tasks");
                 EditorGUILayout.LabelField("Story has Spawned", $"{script.masterCurrentStoryLength} out of {script.masterNodeStoryLength}");
 
                 EditorGUI.indentLevel--;
@@ -34,6 +34,10 @@ public class NodeManager : MonoBehaviour
     private int NodePromtListLength;
 
     [Header("Story")]
+    public int StoryProgressionNumber;
+    public bool StoryHasReachedWaypoint;
+    public string CurrentObjectiveNodeString;
+
     public ScriptableObject SelectedNodeStory;
     public List<ScriptableObject> ThisStoryNodeList = new List<ScriptableObject>();
 
@@ -47,6 +51,11 @@ public class NodeManager : MonoBehaviour
     void Start()
     {
         SelectingNodeStory();
+        StoryProgressionBookmark();
+    }
+    private void Update()
+    {
+        StoryProgressionBookmark(); 
     }
 
     private void SelectingNodeStory()
@@ -69,7 +78,7 @@ public class NodeManager : MonoBehaviour
         }
         else
         {
-            Debug.LogError("Fatal Error: Level failed to spawn task.");
+            Debug.LogError("Fata/l Error: Level failed to spawn task.");
             return;
         }
 
@@ -91,20 +100,17 @@ public class NodeManager : MonoBehaviour
 
             if (ThisStoryNodeList.Count < masterNodeStoryLength)
             {
-                // Select a random connecting node
                 int randomConnectingNodeIndex = Random.Range(0, connectingNodes.Count);
                 ScriptableObject nextNode = connectingNodes[randomConnectingNodeIndex];
                 ThisStoryNodeList.Add(nextNode);
 
-                // Continue building the story from the selected connecting node
                 BuildStory(nextNode);
             }
             else if (ThisStoryNodeList.Count == masterNodeStoryLength)
             {
-                // Story length is reached, add the LeadConcludingNode and conclude the story
                 ThisStoryNodeList.Add(masterNodeSO.ConclusionNode);
                 masterCurrentStoryLength = masterNodeStoryLength;
-                BuildStory(null); // Terminate the recursive process
+                BuildStory(null);
             }
         }
         else if (currentNode is ObjectiveNodeSO)
@@ -114,21 +120,54 @@ public class NodeManager : MonoBehaviour
 
             if (ThisStoryNodeList.Count < masterNodeStoryLength)
             {
-                // Select a random connecting node from ObjectiveNodeSO
                 int randomConnectingNodeIndex = Random.Range(0, connectingNodes.Count);
                 ScriptableObject nextNode = connectingNodes[randomConnectingNodeIndex];
                 ThisStoryNodeList.Add(nextNode);
 
-                // Continue building the story from the selected connecting node
                 BuildStory(nextNode);
             }
             else if (ThisStoryNodeList.Count == masterNodeStoryLength)
             {
-                // Story length is reached, add the LeadConcludingNode and conclude the story
                 ThisStoryNodeList.Add(objectiveNodeSO.LeadConcludingNode);
                 masterCurrentStoryLength = masterNodeStoryLength;
-                BuildStory(null); // Terminate the recursive process
+                BuildStory(null);
             }
+        }
+    }
+
+    public void StoryProgressionBookmark()
+    {
+        if (StoryHasReachedWaypoint && StoryProgressionNumber != masterCurrentStoryLength + 1)
+        {
+            SelectedNodeStory = ThisStoryNodeList[StoryProgressionNumber];
+
+            CurrentObjectiveNodeString = string.Empty;
+
+            switch (SelectedNodeStory)
+            {
+                case MasterNodeSO masterNode:
+                    CurrentObjectiveNodeString = masterNode.LocationNode;
+                    break;
+                case ObjectiveNodeSO objectiveNode:
+                    CurrentObjectiveNodeString = objectiveNode.LocationNode;
+                    break;
+                case ConclusionNodeSO conclusionNode:
+                    CurrentObjectiveNodeString = conclusionNode.LocationNode;
+                    break;
+                default:
+                    Debug.Log("Failed Fataly.");
+                    break;
+            }
+
+            StoryProgressionNumber++;
+            StoryHasReachedWaypoint = !StoryHasReachedWaypoint;
+            Debug.Log(StoryProgressionNumber + "Out of" + masterNodeStoryLength + 1);
+        }
+        if (StoryHasReachedWaypoint && StoryProgressionNumber == masterNodeStoryLength + 1)
+        {
+            StoryProgressionNumber++;
+            StoryHasReachedWaypoint = !StoryHasReachedWaypoint;
+            Debug.LogError("Story has ended.");
         }
     }
 }
