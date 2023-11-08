@@ -8,9 +8,6 @@ public class ObjectiveNodeSO : ScriptableObject
     [Header("Connecting nodes")]
     public List<ScriptableObject> ConntectingNodes = new List<ScriptableObject>();
 
-    [Header("End leading Node")]
-    public ScriptableObject LeadConcludingNode;
-
     [Header("Master Node Location")]
     public string LocationNode;
 
