@@ -21,7 +21,7 @@ public class NodeManager : MonoBehaviour
 
                 script.RandomSelectedMasterNode = EditorGUILayout.IntField("RandomSlectedMasterNode", script.RandomSelectedMasterNode);
                 EditorGUILayout.LabelField("The startup has failed: ", $"{script.SelectingNodeFailCheck} out of {1} tasks");
-                EditorGUILayout.LabelField("Story has Spawned", $"{script.masterCurrentStoryLength} out of {script.masterNodeStoryLength}");
+                EditorGUILayout.LabelField("Story has Spawned", $"{script.masterCurrentStoryLength + 1} out of {script.masterNodeStoryLength + 1}");
 
                 EditorGUI.indentLevel--;
             }
@@ -30,7 +30,7 @@ public class NodeManager : MonoBehaviour
     }
 
     [Header("Connecting nodes")]
-    public List<ScriptableObject> NodePrompts = new List<ScriptableObject>();
+    public List<ScriptableObject> StoryPrompts = new List<ScriptableObject>();
     private int NodePromtListLength;
 
     [Header("Story")]
@@ -38,8 +38,10 @@ public class NodeManager : MonoBehaviour
     public bool StoryHasReachedWaypoint;
     public string CurrentObjectiveNodeString;
 
-    public ScriptableObject SelectedNodeStory;
-    public List<ScriptableObject> ThisStoryNodeList = new List<ScriptableObject>();
+    [Header("Story Tasks")]
+    public ScriptableObject CurrentStoryNodeTask;
+    public ScriptableObject CurrentStoryEndNode;
+    public List<ScriptableObject> ThisStoryTaskList = new List<ScriptableObject>();
 
     private int RandomSelectedMasterNode;
     private MasterNodeSO masternodeSO;
@@ -62,18 +64,18 @@ public class NodeManager : MonoBehaviour
     {
         if (RandomSelectedMasterNode == 0)
         {
-            NodePromtListLength = NodePrompts.Count;
+            NodePromtListLength = StoryPrompts.Count;
             RandomSelectedMasterNode = Random.Range(0, NodePromtListLength);
-            SelectedNodeStory = NodePrompts[RandomSelectedMasterNode];
-            BuildStory(SelectedNodeStory);
+            CurrentStoryNodeTask = StoryPrompts[RandomSelectedMasterNode];
+            BuildStory(CurrentStoryNodeTask);
         }
         else if (SelectingNodeFailCheck == 0)
         {
             SelectingNodeFailCheck++;
             Debug.LogError("Thrown Exception: Level failed to spawn task, number of tasks: " + NodePromtListLength);
-            NodePromtListLength = NodePrompts.Count;
+            NodePromtListLength = StoryPrompts.Count;
             RandomSelectedMasterNode = Random.Range(0, NodePromtListLength);
-            SelectedNodeStory = NodePrompts[RandomSelectedMasterNode];
+            CurrentStoryNodeTask = StoryPrompts[RandomSelectedMasterNode];
             SelectingNodeStory();
         }
         else
@@ -95,20 +97,21 @@ public class NodeManager : MonoBehaviour
         {
             MasterNodeSO masterNodeSO = (MasterNodeSO)currentNode;
             masterNodeStoryLength = (masterNodeSO.StoryLength + 1);
-            ThisStoryNodeList.Add(masterNodeSO);
+            ThisStoryTaskList.Add(masterNodeSO);
+            CurrentStoryEndNode = masterNodeSO.ConclusionNode;
             List<ScriptableObject> connectingNodes = masterNodeSO.ConntectingNodes;
 
-            if (ThisStoryNodeList.Count < masterNodeStoryLength)
+            if (ThisStoryTaskList.Count < masterNodeStoryLength)
             {
                 int randomConnectingNodeIndex = Random.Range(0, connectingNodes.Count);
                 ScriptableObject nextNode = connectingNodes[randomConnectingNodeIndex];
-                ThisStoryNodeList.Add(nextNode);
+                ThisStoryTaskList.Add(nextNode);
 
                 BuildStory(nextNode);
             }
-            else if (ThisStoryNodeList.Count == masterNodeStoryLength)
+            else if (ThisStoryTaskList.Count == masterNodeStoryLength)
             {
-                ThisStoryNodeList.Add(masterNodeSO.ConclusionNode);
+                ThisStoryTaskList.Add(masterNodeSO.ConclusionNode);
                 masterCurrentStoryLength = masterNodeStoryLength;
                 BuildStory(null);
             }
@@ -118,17 +121,17 @@ public class NodeManager : MonoBehaviour
             ObjectiveNodeSO objectiveNodeSO = (ObjectiveNodeSO)currentNode;
             List<ScriptableObject> connectingNodes = objectiveNodeSO.ConntectingNodes;
 
-            if (ThisStoryNodeList.Count < masterNodeStoryLength)
+            if (ThisStoryTaskList.Count < masterNodeStoryLength)
             {
                 int randomConnectingNodeIndex = Random.Range(0, connectingNodes.Count);
                 ScriptableObject nextNode = connectingNodes[randomConnectingNodeIndex];
-                ThisStoryNodeList.Add(nextNode);
+                ThisStoryTaskList.Add(nextNode);
 
                 BuildStory(nextNode);
             }
-            else if (ThisStoryNodeList.Count == masterNodeStoryLength)
+            else if (ThisStoryTaskList.Count == masterNodeStoryLength)
             {
-                ThisStoryNodeList.Add(objectiveNodeSO.LeadConcludingNode);
+                ThisStoryTaskList.Add(CurrentStoryEndNode);
                 masterCurrentStoryLength = masterNodeStoryLength;
                 BuildStory(null);
             }
@@ -139,11 +142,11 @@ public class NodeManager : MonoBehaviour
     {
         if (StoryHasReachedWaypoint && StoryProgressionNumber != masterCurrentStoryLength + 1)
         {
-            SelectedNodeStory = ThisStoryNodeList[StoryProgressionNumber];
+            CurrentStoryNodeTask = ThisStoryTaskList[StoryProgressionNumber];
 
             CurrentObjectiveNodeString = string.Empty;
 
-            switch (SelectedNodeStory)
+            switch (CurrentStoryNodeTask)
             {
                 case MasterNodeSO masterNode:
                     CurrentObjectiveNodeString = masterNode.LocationNode;
