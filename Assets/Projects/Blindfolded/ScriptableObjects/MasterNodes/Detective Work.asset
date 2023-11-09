@@ -15,8 +15,8 @@ MonoBehaviour:
   ConntectingNodes:
   - {fileID: 11400000, guid: 962e3b37e374f644ca4c7bbec1203e84, type: 2}
   - {fileID: 11400000, guid: 85a426ae7d510764d9e76b6951aa456f, type: 2}
-  StoryLength: 3
-  ConclusionNode: {fileID: 11400000, guid: 4fb14296d02e74549a745582c7138a75, type: 2}
+  StoryLength: 2
+  ConclusionNode: {fileID: 11400000, guid: 8864a1252fcef7046828461295c7a104, type: 2}
   LocationNode: Node_1
   VocalProgressionLog:
   - {fileID: 0}
