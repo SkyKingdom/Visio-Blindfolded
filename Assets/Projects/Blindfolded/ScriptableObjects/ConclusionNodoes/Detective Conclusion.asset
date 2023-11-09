@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27e03fe098dadd04f83b074ff0498dfa, type: 3}
   m_Name: Detective Conclusion
   m_EditorClassIdentifier: 
-  LocationNode: 
+  LocationNode: Node_24
   VocalProgressionLog: []
