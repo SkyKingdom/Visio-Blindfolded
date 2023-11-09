@@ -29,6 +29,10 @@ public class NodeManager : MonoBehaviour
         }
     }
 
+    [Header("Level generation")]
+    [SerializeField] SeedManager Seed; 
+    System.Random CurrentSeed;
+
     [Header("Connecting nodes")]
     public List<ScriptableObject> StoryPrompts = new List<ScriptableObject>();
     private int NodePromtListLength;
@@ -52,6 +56,7 @@ public class NodeManager : MonoBehaviour
 
     void Start()
     {
+        CurrentSeed = Seed.LevelSeed;
         SelectingNodeStory();
         StoryProgressionBookmark();
     }
@@ -65,7 +70,7 @@ public class NodeManager : MonoBehaviour
         if (RandomSelectedMasterNode == 0)
         {
             NodePromtListLength = StoryPrompts.Count;
-            RandomSelectedMasterNode = Random.Range(0, NodePromtListLength);
+            RandomSelectedMasterNode = CurrentSeed.Next(0, NodePromtListLength);
             CurrentStoryNodeTask = StoryPrompts[RandomSelectedMasterNode];
             BuildStory(CurrentStoryNodeTask);
         }
@@ -74,7 +79,7 @@ public class NodeManager : MonoBehaviour
             SelectingNodeFailCheck++;
             Debug.LogError("Thrown Exception: Level failed to spawn task, number of tasks: " + NodePromtListLength);
             NodePromtListLength = StoryPrompts.Count;
-            RandomSelectedMasterNode = Random.Range(0, NodePromtListLength);
+            RandomSelectedMasterNode = CurrentSeed.Next(0, NodePromtListLength);
             CurrentStoryNodeTask = StoryPrompts[RandomSelectedMasterNode];
             SelectingNodeStory();
         }
@@ -103,7 +108,7 @@ public class NodeManager : MonoBehaviour
 
             if (ThisStoryTaskList.Count < masterNodeStoryLength)
             {
-                int randomConnectingNodeIndex = Random.Range(0, connectingNodes.Count);
+                int randomConnectingNodeIndex = CurrentSeed.Next(0, connectingNodes.Count);
                 ScriptableObject nextNode = connectingNodes[randomConnectingNodeIndex];
                 ThisStoryTaskList.Add(nextNode);
 
@@ -123,7 +128,7 @@ public class NodeManager : MonoBehaviour
 
             if (ThisStoryTaskList.Count < masterNodeStoryLength)
             {
-                int randomConnectingNodeIndex = Random.Range(0, connectingNodes.Count);
+                int randomConnectingNodeIndex = CurrentSeed.Next(0, connectingNodes.Count);
                 ScriptableObject nextNode = connectingNodes[randomConnectingNodeIndex];
                 ThisStoryTaskList.Add(nextNode);
 
