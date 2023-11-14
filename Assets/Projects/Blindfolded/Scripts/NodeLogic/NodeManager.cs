@@ -5,6 +5,7 @@ using UnityEditor;
 
 public class NodeManager : MonoBehaviour
 {
+#if UNITY_EDITOR
     [CustomEditor(typeof(NodeManager))]
     public class NodeManagerEditor : Editor
     {
@@ -28,6 +29,7 @@ public class NodeManager : MonoBehaviour
             DrawDefaultInspector();
         }
     }
+#endif
 
     [Header("Level generation")]
     [SerializeField] SeedManager Seed; 

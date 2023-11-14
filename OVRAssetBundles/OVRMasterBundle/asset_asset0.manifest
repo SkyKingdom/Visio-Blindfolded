@@ -1,53 +1,39 @@
 ManifestFileVersion: 0
-CRC: 776714888
+CRC: 3907097958
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 5cde2fb73b39aa40ee92e5c207fb6e7e
+    Hash: 55797967b2348a88c0625e6c5f365029
   TypeTreeHash:
     serializedVersion: 2
-    Hash: 9f499a41de517e2411008adc0f03364d
+    Hash: 8e87b06ef332709c4547e287290122d6
   IncrementalBuildHash:
     serializedVersion: 2
-    Hash: 5cde2fb73b39aa40ee92e5c207fb6e7e
+    Hash: 55797967b2348a88c0625e6c5f365029
 HashAppended: 0
 ClassTypes:
-- Class: 21
-  Script: {instanceID: 0}
 - Class: 28
   Script: {instanceID: 0}
-- Class: 48
-  Script: {instanceID: 0}
 - Class: 114
-  Script: {fileID: 11500000, guid: 71c1514a6bd24e1e882cebbe1904ce04, type: 3}
+  Script: {fileID: 11500000, guid: 52b156339780f13419e74eb509cd4993, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 27e03fe098dadd04f83b074ff0498dfa, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 22487712fc2fece4783f536df7059cd2, type: 3}
 - Class: 115
   Script: {instanceID: 0}
-SerializeReferenceClassIdentifiers:
-- AssemblyName: Unity.TextMeshPro
-  ClassName: TMPro.FaceInfo_Legacy
-- AssemblyName: Unity.TextMeshPro
-  ClassName: TMPro.FontAssetCreationSettings
-- AssemblyName: Unity.TextMeshPro
-  ClassName: TMPro.KerningTable
-- AssemblyName: Unity.TextMeshPro
-  ClassName: TMPro.TMP_Character
-- AssemblyName: Unity.TextMeshPro
-  ClassName: TMPro.TMP_FontFeatureTable
-- AssemblyName: Unity.TextMeshPro
-  ClassName: TMPro.TMP_FontWeightPair
-- AssemblyName: Unity.TextMeshPro
-  ClassName: TMPro.TMP_Glyph
-- AssemblyName: UnityEngine.TextCoreFontEngineModule
-  ClassName: UnityEngine.TextCore.FaceInfo
-- AssemblyName: UnityEngine.TextCoreFontEngineModule
-  ClassName: UnityEngine.TextCore.Glyph
-- AssemblyName: UnityEngine.TextCoreFontEngineModule
-  ClassName: UnityEngine.TextCore.GlyphMetrics
-- AssemblyName: UnityEngine.TextCoreFontEngineModule
-  ClassName: UnityEngine.TextCore.GlyphRect
+- Class: 238
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
 Assets:
-- Assets/Oculus/Interaction/Samples/Fonts/Roboto-Bold SDF.asset
-- Assets/Oculus/Interaction/Samples/Fonts/Roboto-Medium SDF.asset
-- Assets/Oculus/Interaction/Samples/Fonts/Roboto-Regular SDF.asset
-Dependencies:
-- C:/Users/Daniel/Documents/GitHub/Visio-Blindfolded/OVRAssetBundles/OVRMasterBundle/asset_shader0
+- Assets/Projects/Blindfolded/ScriptableObjects/MasterNodes/Leaving School.asset
+- Assets/Projects/Blindfolded/ScriptableObjects/MasterNodes/Detective Work.asset
+- Assets/Projects/Blindfolded/ScriptableObjects/ObjectiveNodes/StoryTest_2.asset
+- Assets/Projects/Blindfolded/ScriptableObjects/ConclusionNodoes/Detective Conclusion.asset
+- Assets/Projects/Blindfolded/ScriptableObjects/ObjectiveNodes/StoryTest_1.asset
+- Assets/Projects/Blindfolded/Scenes/Main/NavMesh-NavMesh.asset
+- Assets/Projects/Blindfolded/ScriptableObjects/ConclusionNodoes/Hide & Seek Conclusion.asset
+- Packages/com.unity.probuilder/Content/Icons/Scripts/MeshFilter Icon.asset
+- Assets/Projects/Blindfolded/ScriptableObjects/MasterNodes/Hide & Seek.asset
+- Assets/Projects/Blindfolded/ScriptableObjects/ConclusionNodoes/Leaving School Ending.asset
+Dependencies: []

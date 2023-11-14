@@ -1,15 +1,15 @@
 ManifestFileVersion: 0
-CRC: 3693100695
+CRC: 612594154
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 6c7e17b72e71f256e13ecd2e7821178e
+    Hash: ed9d635130b33f7e9fb9fe947b9fdef5
   TypeTreeHash:
     serializedVersion: 2
     Hash: b30fce1a9ad74efb72be6c308c56e365
   IncrementalBuildHash:
     serializedVersion: 2
-    Hash: 6c7e17b72e71f256e13ecd2e7821178e
+    Hash: ed9d635130b33f7e9fb9fe947b9fdef5
 HashAppended: 0
 ClassTypes:
 - Class: 21
@@ -20,21 +20,7 @@ ClassTypes:
   Script: {instanceID: 0}
 SerializeReferenceClassIdentifiers: []
 Assets:
-- Assets/Oculus/VR/Meshes/OculusTouchForQuestAndRiftS/Materials/OculusTouchForQuestAndRiftS_Material.mat
-- Assets/Oculus/VR/Meshes/MetaQuestTouchPlus/Materials/MetaQuestTouchPlusMATphong_left.mat
-- Assets/Oculus/VR/Meshes/MetaQuestTouchPro/Materials/MetaQuestProLeft_Material.mat
-- Assets/Oculus/VR/Meshes/OculusTouchForRift/Materials/OculusTouchForRift_Material.mat
-- Assets/SteamVR/InteractionSystem/Samples/Models/floor.mat
-- Assets/Oculus/Interaction/Runtime/Materials/OculusHand.mat
-- Assets/Oculus/VR/Meshes/MetaQuestTouchPro/Materials/batteryIndicator_mat.mat
-- Assets/Oculus/SampleFramework/Usage/HandsTrainExample/Materials/XingLightMaterial.mat
-- Assets/Oculus/VR/Meshes/OculusTouchForQuest2/Materials/OculusTouchForQuest2_MAT.mat
-- Assets/Oculus/VR/Meshes/MetaQuestTouchPlus/Materials/MetaQuestTouchPlusMATphong_right.mat
-- Assets/Oculus/VR/Meshes/MetaQuestTouchPro/Materials/MetaQuestProRight_Material.mat
-- Assets/Oculus/Interaction/Runtime/Materials/GrabDebugSphere.mat
-- Assets/Oculus/Interaction/Runtime/Materials/Unlit Material.mat
+- Packages/com.unity.probuilder/Content/Resources/Materials/ProBuilderDefault.mat
 Dependencies:
-- C:/Users/Daniel/Documents/GitHub/Visio-Blindfolded/OVRAssetBundles/OVRMasterBundle/asset_jpg0
 - C:/Users/Daniel/Documents/GitHub/Visio-Blindfolded/OVRAssetBundles/OVRMasterBundle/asset_png0
 - C:/Users/Daniel/Documents/GitHub/Visio-Blindfolded/OVRAssetBundles/OVRMasterBundle/asset_shader0
-- C:/Users/Daniel/Documents/GitHub/Visio-Blindfolded/OVRAssetBundles/OVRMasterBundle/asset_tga0
