@@ -6,16 +6,19 @@ public class TaskVerifier : MonoBehaviour
 {
     public string Task_Number;
     public NodeManager nodeManager;
+    [SerializeField]bool RequireNodeContact;
+    [SerializeField]bool RequireEventCompleted;
+    bool EventCompleted = false;
+    bool NodeContacted = false;
 
     public void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player") && nodeManager.StoryProgressionNumber != 7)
+        if (other.CompareTag("Player"))
         {
-            if (nodeManager.CurrentObjectiveNodeString == Task_Number)
+            NodeContacted = true;
+            if (!RequireEventCompleted || RequireEventCompleted && EventCompleted)
             {
-                Debug.Log("Hit");
-                nodeManager.StoryHasReachedWaypoint = (true);
-                nodeManager.StoryProgressionBookmark();
+                CompleteTask();
             }
         }
     }
