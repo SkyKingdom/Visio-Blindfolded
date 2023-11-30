@@ -19,4 +19,31 @@ public class TaskVerifier : MonoBehaviour
             }
         }
     }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            NodeContacted = false;
+        }
+    }
+
+    public void EventComplete()
+    {
+        EventCompleted = true;
+        if (!RequireNodeContact || RequireNodeContact && NodeContacted)
+        {
+            CompleteTask();
+        }
+    }
+
+    void CompleteTask()
+    {
+        if (nodeManager.StoryProgressionNumber != 7 && nodeManager.CurrentObjectiveNodeString == Task_Number)
+        {
+            Debug.Log("Hit");
+            nodeManager.StoryHasReachedWaypoint = (true);
+            nodeManager.StoryProgressionBookmark();
+        }
+    }
 }
