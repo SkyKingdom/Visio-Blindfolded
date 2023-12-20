@@ -15,7 +15,8 @@ GameObject:
   - component: {fileID: 6472733608334565311}
   - component: {fileID: 2851995080346604564}
   - component: {fileID: 7330542041514962170}
-  m_Layer: 0
+  - component: {fileID: 5332547225318129028}
+  m_Layer: 9
   m_Name: SingleDoor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -97,7 +98,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2383547447348448406}
   serializedVersion: 4
-  m_Mass: 1
+  m_Mass: 150
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -153,8 +154,8 @@ HingeJoint:
   m_BreakTorque: Infinity
   m_EnableCollision: 1
   m_EnablePreprocessing: 1
-  m_MassScale: 1
-  m_ConnectedMassScale: 1
+  m_MassScale: 150
+  m_ConnectedMassScale: 64.73
 --- !u!65 &2851995080346604564
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -174,8 +175,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.0000001, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 7.6460943, y: 1, z: 0.9999999}
+  m_Center: {x: -1.1291951, y: -0.000000113076645, z: 0.00000045450895}
 --- !u!208 &7330542041514962170
 NavMeshObstacle:
   m_ObjectHideFlags: 0
@@ -183,7 +184,7 @@ NavMeshObstacle:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2383547447348448406}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Shape: 1
   m_Extents: {x: 0.5, y: 0.5, z: 0.5}
@@ -192,6 +193,19 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 0, z: 0}
   m_TimeToStationary: 0.5
+--- !u!114 &5332547225318129028
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2383547447348448406}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 071144f5c2ea86d47b4f9d7fe47f550d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pushForce: 10
 --- !u!1 &3327061375351493653
 GameObject:
   m_ObjectHideFlags: 0
@@ -203,8 +217,7 @@ GameObject:
   - component: {fileID: 8742858896030031816}
   - component: {fileID: 7898366581263076372}
   - component: {fileID: 3563794347584223338}
-  - component: {fileID: 4921655662242922254}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: DoorHandle_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -276,27 +289,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &4921655662242922254
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3327061375351493653}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.0000001, y: 1, z: 1}
-  m_Center: {x: 0.00000023841858, y: -0.00000011920929, z: 0}
 --- !u!1 &6699632577857358629
 GameObject:
   m_ObjectHideFlags: 0
@@ -308,8 +300,7 @@ GameObject:
   - component: {fileID: 8812293758897089021}
   - component: {fileID: 6961233026459922459}
   - component: {fileID: 775212517425293065}
-  - component: {fileID: 6635948916900912976}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: DoorHandle_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -381,24 +372,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &6635948916900912976
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6699632577857358629}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.0000001, y: 1, z: 1}
-  m_Center: {x: 0.00000023841858, y: -0.00000011920929, z: 0}
