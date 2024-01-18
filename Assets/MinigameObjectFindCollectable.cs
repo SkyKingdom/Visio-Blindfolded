@@ -9,7 +9,7 @@ public class MinigameObjectFindCollectable : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             GetComponentInParent<MinigameBase>().OnMinigameComplete.Invoke();
-            gameObject.SetActive(false);
+            //gameObject.SetActive(false);
         }
     }
 }
