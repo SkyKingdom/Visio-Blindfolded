@@ -6,4 +6,5 @@ using UnityEngine.Events;
 public class MinigameBase : MonoBehaviour
 {
     public UnityEvent OnMinigameComplete;
+    public UnityEvent MiniGameReset;
 }

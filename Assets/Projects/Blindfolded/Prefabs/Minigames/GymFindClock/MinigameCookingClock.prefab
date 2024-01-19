@@ -114,6 +114,33 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 4304446147158346478}
         m_TargetAssemblyTypeName: MinigameFindObjectV2, Assembly-CSharp
+        m_MethodName: CompleteMinigame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: TaskVerifier, Assembly-CSharp
+        m_MethodName: EventComplete
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  MiniGameReset:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4304446147158346478}
+        m_TargetAssemblyTypeName: MinigameFindObjectV2, Assembly-CSharp
         m_MethodName: ResetMinigame
         m_Mode: 1
         m_Arguments:
@@ -125,26 +152,13 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   ObjectToFind: {fileID: 61271715375074014}
-  SpawnPoints:
-  - {fileID: 4226554291521841534}
-  - {fileID: 2988478904817188338}
-  - {fileID: 3425624053735634179}
-  - {fileID: 5913391109094242446}
-  - {fileID: 8423094160472868376}
-  - {fileID: 1000792772015081435}
-  - {fileID: 8143224822414121008}
-  - {fileID: 1403906363952973217}
-  - {fileID: 4521037843015157581}
-  - {fileID: 5289181023366806096}
-  - {fileID: 4828135155084085277}
-  - {fileID: 2071326291663715299}
-  - {fileID: 3727819329070002074}
-  - {fileID: 2563407085204785022}
-  - {fileID: 7058239499440467482}
-  - {fileID: 2504217870594804190}
-  - {fileID: 4799142181089228823}
+  Interiors:
+  - {fileID: 898825544761014289, guid: 9b4ea8ee7ea2e7e42921e3b7af34fe11, type: 3}
+  - {fileID: 2366968876491435434, guid: 1c7880fe09fa6124088af4e7098e0d64, type: 3}
+  SpawnPoints: []
   SoundObj: {fileID: 2247639927507963945}
   VictorySoundObj: {fileID: 7943662664127481623}
+  ScoreReqForComplete: 0
 --- !u!1 &2071326291663715299
 GameObject:
   m_ObjectHideFlags: 0
@@ -691,7 +705,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1568166869711726201
 Transform:
   m_ObjectHideFlags: 0
