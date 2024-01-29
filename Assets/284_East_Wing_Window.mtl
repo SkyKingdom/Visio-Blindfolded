@@ -1,0 +1,8 @@
+newmtl LowerWallColor
+Kd 0.1137255 0.1568627 0.2470588
+d 1
+
+newmtl red
+Kd 1 0.08018868 0.1529411
+d 1
+
