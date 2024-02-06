@@ -137,6 +137,7 @@ PlayerSettings:
   loadStoreDebugModeEnabled: 0
   bundleVersion: OVRTransitionAPKVersion
   preloadedAssets:
+  - {fileID: 0}
   - {fileID: 11400000, guid: bed949c14635bb04bb944899ec8d93fb, type: 2}
   metroInputSource: 0
   wsaTransparentSwapchain: 0
@@ -248,7 +249,7 @@ PlayerSettings:
   clonedFromGUID: 3c72c65a16f0acb438eed22b8b16c24a
   templatePackageId: com.unity.template.urp-blank@3.0.2
   templateDefaultScene: Assets/Scenes/SampleScene.unity
-  useCustomMainManifest: 0
+  useCustomMainManifest: 1
   useCustomLauncherManifest: 0
   useCustomMainGradleTemplate: 0
   useCustomLauncherGradleManifest: 0
