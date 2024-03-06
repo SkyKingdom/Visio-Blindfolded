@@ -16,7 +16,7 @@ public class AudioManager : Manager
     /// <param name="name"></param>
     /// <param name="fromLocation"></param>
     /// <param name="shouldLoop"></param>
-    public void PlaySound(string name, Vector3 fromLocation, bool shouldLoop, float volume)
+    public void PlaySound(string name, UnityEngine.Vector3 fromLocation, bool shouldLoop, float volume)
     {
         GameObject source = new();
         //Seperate into methods
