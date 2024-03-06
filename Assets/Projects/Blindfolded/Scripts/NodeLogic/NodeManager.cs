@@ -3,91 +3,39 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 
-public class NodeManager : MonoBehaviour
+public class NodeManager : Manager
 {
-#if UNITY_EDITOR
-    [CustomEditor(typeof(NodeManager))]
-    public class NodeManagerEditor : Editor
+    public override void Start()
     {
-        private bool errorHandlingFoldout = true;
-
-        public override void OnInspectorGUI()
-        {
-            NodeManager script = (NodeManager)target;
-            errorHandlingFoldout = EditorGUILayout.Foldout(errorHandlingFoldout, "Error Handling");
-
-            if (errorHandlingFoldout)
-            {
-                EditorGUI.indentLevel++;
-
-                script.RandomSelectedMasterNode = EditorGUILayout.IntField("RandomSlectedMasterNode", script.RandomSelectedMasterNode);
-                EditorGUILayout.LabelField("The startup has failed: ", $"{script.SelectingNodeFailCheck} out of {1} tasks");
-                EditorGUILayout.LabelField("Story has Spawned", $"{script.masterCurrentStoryLength + 1} out of {script.masterNodeStoryLength + 1}");
-
-                EditorGUI.indentLevel--;
-            }
-            DrawDefaultInspector();
-        }
-    }
-#endif
-
-    [Header("Level generation")]
-    [SerializeField] SeedManager Seed; 
-    System.Random CurrentSeed;
-
-    [Header("Connecting nodes")]
-    public List<ScriptableObject> StoryPrompts = new List<ScriptableObject>();
-    private int NodePromtListLength;
-
-    [Header("Story")]
-    public int StoryProgressionNumber;
-    public bool StoryHasReachedWaypoint;
-    public string CurrentObjectiveNodeString;
-
-    [Header("Story Tasks")]
-    public ScriptableObject CurrentStoryNodeTask;
-    public ScriptableObject CurrentStoryEndNode;
-    public List<ScriptableObject> ThisStoryTaskList = new List<ScriptableObject>();
-
-    private int RandomSelectedMasterNode;
-    private MasterNodeSO masternodeSO;
-
-    private int SelectingNodeFailCheck;
-    private int masterNodeStoryLength;
-    private int masterCurrentStoryLength;
-
-    void Start()
-    {
-        CurrentSeed = Seed.LevelSeed;
         SelectingNodeStory();
         StoryProgressionBookmark();
     }
-    private void Update()
+    public override void Update()
     {
-        StoryProgressionBookmark(); 
+        StoryProgressionBookmark();
     }
 
     private void SelectingNodeStory()
     {
-        if (RandomSelectedMasterNode == 0)
+        if (gameManager.RandomSelectedMasterNode == 0)
         {
-            NodePromtListLength = StoryPrompts.Count;
-            RandomSelectedMasterNode = CurrentSeed.Next(0, NodePromtListLength);
-            CurrentStoryNodeTask = StoryPrompts[RandomSelectedMasterNode];
-            BuildStory(CurrentStoryNodeTask);
+            gameManager.NodePromtListLength = gameManager.StoryPrompts.Count;
+            gameManager.RandomSelectedMasterNode = gameManager.LevelSeed.Next(0, gameManager.NodePromtListLength);
+            gameManager.CurrentStoryNodeTask = gameManager.StoryPrompts[gameManager.RandomSelectedMasterNode];
+            BuildStory(gameManager.CurrentStoryNodeTask);
         }
-        else if (SelectingNodeFailCheck == 0)
+        else if (gameManager.SelectingNodeFailCheck == 0)
         {
-            SelectingNodeFailCheck++;
-            Debug.LogError("Thrown Exception: Level failed to spawn task, number of tasks: " + NodePromtListLength);
-            NodePromtListLength = StoryPrompts.Count;
-            RandomSelectedMasterNode = CurrentSeed.Next(0, NodePromtListLength);
-            CurrentStoryNodeTask = StoryPrompts[RandomSelectedMasterNode];
+            gameManager.SelectingNodeFailCheck++;
+            Debug.LogError("Thrown Exception: Level failed to spawn task, number of tasks: " + gameManager.NodePromtListLength);
+            gameManager.NodePromtListLength = gameManager.StoryPrompts.Count;
+            gameManager.RandomSelectedMasterNode = gameManager.LevelSeed.Next(0, gameManager.NodePromtListLength);
+            gameManager.CurrentStoryNodeTask = gameManager.StoryPrompts[gameManager.RandomSelectedMasterNode];
             SelectingNodeStory();
         }
         else
         {
-            Debug.LogError("Fata/l Error: Level failed to spawn task.");
+            Debug.LogError("Fatal Error: Level failed to spawn task.");
             return;
         }
 
@@ -103,23 +51,23 @@ public class NodeManager : MonoBehaviour
         if (currentNode is MasterNodeSO)
         {
             MasterNodeSO masterNodeSO = (MasterNodeSO)currentNode;
-            masterNodeStoryLength = (masterNodeSO.StoryLength + 1);
-            ThisStoryTaskList.Add(masterNodeSO);
-            CurrentStoryEndNode = masterNodeSO.ConclusionNode;
+            gameManager.masterNodeStoryLength = (masterNodeSO.StoryLength + 1);
+            gameManager.ThisStoryTaskList.Add(masterNodeSO);
+            gameManager.CurrentStoryEndNode = masterNodeSO.ConclusionNode;
             List<ScriptableObject> connectingNodes = masterNodeSO.ConntectingNodes;
 
-            if (ThisStoryTaskList.Count < masterNodeStoryLength)
+            if (gameManager.ThisStoryTaskList.Count < gameManager.masterNodeStoryLength)
             {
-                int randomConnectingNodeIndex = CurrentSeed.Next(0, connectingNodes.Count);
+                int randomConnectingNodeIndex = gameManager.LevelSeed.Next(0, connectingNodes.Count);
                 ScriptableObject nextNode = connectingNodes[randomConnectingNodeIndex];
-                ThisStoryTaskList.Add(nextNode);
+                gameManager.ThisStoryTaskList.Add(nextNode);
 
                 BuildStory(nextNode);
             }
-            else if (ThisStoryTaskList.Count == masterNodeStoryLength)
+            else if (gameManager.ThisStoryTaskList.Count == gameManager.masterNodeStoryLength)
             {
-                ThisStoryTaskList.Add(masterNodeSO.ConclusionNode);
-                masterCurrentStoryLength = masterNodeStoryLength;
+                gameManager.ThisStoryTaskList.Add(masterNodeSO.ConclusionNode);
+                gameManager.masterCurrentStoryLength = gameManager.masterNodeStoryLength;
                 BuildStory(null);
             }
         }
@@ -128,18 +76,18 @@ public class NodeManager : MonoBehaviour
             ObjectiveNodeSO objectiveNodeSO = (ObjectiveNodeSO)currentNode;
             List<ScriptableObject> connectingNodes = objectiveNodeSO.ConntectingNodes;
 
-            if (ThisStoryTaskList.Count < masterNodeStoryLength)
+            if (gameManager.ThisStoryTaskList.Count < gameManager.masterNodeStoryLength)
             {
-                int randomConnectingNodeIndex = CurrentSeed.Next(0, connectingNodes.Count);
+                int randomConnectingNodeIndex = gameManager.LevelSeed.Next(0, connectingNodes.Count);
                 ScriptableObject nextNode = connectingNodes[randomConnectingNodeIndex];
-                ThisStoryTaskList.Add(nextNode);
+                gameManager.ThisStoryTaskList.Add(nextNode);
 
                 BuildStory(nextNode);
             }
-            else if (ThisStoryTaskList.Count == masterNodeStoryLength)
+            else if (gameManager.ThisStoryTaskList.Count == gameManager.masterNodeStoryLength)
             {
-                ThisStoryTaskList.Add(CurrentStoryEndNode);
-                masterCurrentStoryLength = masterNodeStoryLength;
+                gameManager.ThisStoryTaskList.Add(gameManager.CurrentStoryEndNode);
+                gameManager.masterCurrentStoryLength = gameManager.masterNodeStoryLength;
                 BuildStory(null);
             }
         }
@@ -147,36 +95,41 @@ public class NodeManager : MonoBehaviour
 
     public void StoryProgressionBookmark()
     {
-        if (StoryHasReachedWaypoint && StoryProgressionNumber != masterCurrentStoryLength + 1)
+        if (gameManager.StoryHasReachedWaypoint && gameManager.StoryProgressionNumber != gameManager.masterCurrentStoryLength + 1)
         {
-            CurrentStoryNodeTask = ThisStoryTaskList[StoryProgressionNumber];
+            gameManager.CurrentStoryNodeTask = gameManager.ThisStoryTaskList[gameManager.StoryProgressionNumber];
 
-            CurrentObjectiveNodeString = string.Empty;
+            gameManager.CurrentObjectiveNodeString = string.Empty;
 
-            switch (CurrentStoryNodeTask)
+            switch (gameManager.CurrentStoryNodeTask)
             {
                 case MasterNodeSO masterNode:
-                    CurrentObjectiveNodeString = masterNode.LocationNode;
+                    gameManager.CurrentObjectiveNodeString = masterNode.LocationNode;
                     break;
                 case ObjectiveNodeSO objectiveNode:
-                    CurrentObjectiveNodeString = objectiveNode.LocationNode;
+                    gameManager.CurrentObjectiveNodeString = objectiveNode.LocationNode;
+                    if (objectiveNode.hasMinigame)
+                    {
+                        GameManager.GetManager<MinigamesManager>().PickRandom();
+                    }
+                    //Add minigames setup here?
                     break;
                 case ConclusionNodeSO conclusionNode:
-                    CurrentObjectiveNodeString = conclusionNode.LocationNode;
+                    gameManager.CurrentObjectiveNodeString = conclusionNode.LocationNode;
                     break;
                 default:
                     Debug.Log("Failed Fataly.");
                     break;
             }
 
-            StoryProgressionNumber++;
-            StoryHasReachedWaypoint = !StoryHasReachedWaypoint;
-            Debug.Log(StoryProgressionNumber + "Out of" + masterNodeStoryLength + 1);
+            gameManager.StoryProgressionNumber++;
+            gameManager.StoryHasReachedWaypoint = !gameManager.StoryHasReachedWaypoint;
+            Debug.Log(gameManager.StoryProgressionNumber + "Out of" + gameManager.masterNodeStoryLength + 1);
         }
-        if (StoryHasReachedWaypoint && StoryProgressionNumber == masterNodeStoryLength + 1)
+        if (gameManager.StoryHasReachedWaypoint && gameManager.StoryProgressionNumber == gameManager.masterNodeStoryLength + 1)
         {
-            StoryProgressionNumber++;
-            StoryHasReachedWaypoint = !StoryHasReachedWaypoint;
+            gameManager.StoryProgressionNumber++;
+            gameManager.StoryHasReachedWaypoint = !gameManager.StoryHasReachedWaypoint;
             Debug.LogError("Story has ended.");
         }
     }

@@ -11,6 +11,10 @@ public class ObjectiveNodeSO : ScriptableObject
     [Header("Master Node Location")]
     public string LocationNode;
 
+    [Header("Minigames")]
+    public bool hasMinigame;
+    
+
     [Header("Audio List")]
     public List<AudioClip> VocalProgressionLog;
 }
