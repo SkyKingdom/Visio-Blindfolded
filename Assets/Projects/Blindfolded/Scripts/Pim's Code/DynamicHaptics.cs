@@ -21,7 +21,7 @@ public class DynamicHaptics : MonoBehaviour
         switch (other.tag)
         {
             case "Grass":
-                Haptics(1000f, 500f, 0.5f, true, false);
+                Haptics(4000f, 4000f, 0.5f, true, false);
                 //Play a sound.
                 break;
             case "Gravel":
@@ -51,7 +51,7 @@ public class DynamicHaptics : MonoBehaviour
         LayerMask layer = LayerMask.NameToLayer("Wall");
         if (collision.collider.gameObject.layer == layer)
         {
-            Haptics(500f, 100f, 0.5f, true, false);
+            Haptics(2000f, 2000f, 0.5f, true, false);
         }
     }
 

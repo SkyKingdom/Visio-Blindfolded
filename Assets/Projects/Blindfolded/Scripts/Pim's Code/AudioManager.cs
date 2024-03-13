@@ -22,7 +22,7 @@ public class AudioManager : Manager
         //Seperate into methods
         AudioSource audioSource = source.AddComponent<AudioSource>();
         SphereCollider collider = source.AddComponent<SphereCollider>();
-        SteamAudioSource steamAudio = source.AddComponent<SteamAudioSource>();
+        // SteamAudioSource steamAudio = source.AddComponent<SteamAudioSource>();
         audioSource.spatialize = true;
         audioSource.spatialBlend = 1;
         //Min Distance is the same as it was before i started this project.
@@ -37,7 +37,6 @@ public class AudioManager : Manager
             audioSource.Play();
         }
 
-
         if (shouldLoop)
         {
             audioSource.loop = true;
@@ -49,8 +48,8 @@ public class AudioManager : Manager
             Object.Destroy(source, audioSource.clip.length);
         }
         audioSource.rolloffMode = AudioRolloffMode.Logarithmic;
-       
-       
+
+
         audioSources.Add(audioSource);
         source.transform.position = fromLocation;
     }
