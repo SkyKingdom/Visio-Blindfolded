@@ -137,7 +137,7 @@ PlayerSettings:
   loadStoreDebugModeEnabled: 0
   bundleVersion: OVRTransitionAPKVersion
   preloadedAssets:
-  - {fileID: 11400000, guid: bed949c14635bb04bb944899ec8d93fb, type: 2}
+  - {fileID: 0}
   metroInputSource: 0
   wsaTransparentSwapchain: 0
   m_HolographicPauseOnTrackingLoss: 1
@@ -510,7 +510,9 @@ PlayerSettings:
       m_SubKind: 
   m_BuildTargetBatching: []
   m_BuildTargetShaderSettings: []
-  m_BuildTargetGraphicsJobs: []
+  m_BuildTargetGraphicsJobs:
+  - m_BuildTarget: WindowsStandaloneSupport
+    m_GraphicsJobs: 0
   m_BuildTargetGraphicsJobMode: []
   m_BuildTargetGraphicsAPIs:
   - m_BuildTarget: iOSSupport
