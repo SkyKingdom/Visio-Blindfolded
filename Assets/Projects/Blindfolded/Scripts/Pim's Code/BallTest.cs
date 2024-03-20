@@ -16,7 +16,6 @@ public class BallTest : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        OVRInput.Update();
         Debug.LogWarning("Calling Update"); 
         if (prefab != null)
         {

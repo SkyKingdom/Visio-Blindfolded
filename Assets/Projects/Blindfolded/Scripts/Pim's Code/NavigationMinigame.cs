@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class NavigationMinigame : Minigame
 {
-    private bool isRunning = false;
-    private bool inIt = false;
+    
     public override void CurrentlyRunning()
     {
        isRunning = true;
