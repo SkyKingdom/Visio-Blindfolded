@@ -7,6 +7,9 @@ public abstract class Minigame : MonoBehaviour
 {
     public UnityEvent OnMinigameComplete;
 
+    protected bool isRunning = false;
+    protected bool inIt = false;
+
     public int currentScore;
     public int maxScore;
     public string nodeLocation;

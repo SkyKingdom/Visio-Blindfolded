@@ -38,7 +38,6 @@ public class NodeManager : Manager
             Debug.LogError("Fatal Error: Level failed to spawn task.");
             return;
         }
-
     }
 
     private void BuildStory(ScriptableObject currentNode)

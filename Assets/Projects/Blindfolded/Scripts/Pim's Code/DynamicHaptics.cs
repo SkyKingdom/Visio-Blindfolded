@@ -57,6 +57,7 @@ public class DynamicHaptics : MonoBehaviour
 
     private void OnCollisionExit(Collision collision)
     {
+        
         OVRInput.SetControllerVibration(0, 0, OVRInput.Controller.LTouch);
         OVRInput.SetControllerVibration(0, 0, OVRInput.Controller.RTouch);
     }

@@ -9,6 +9,10 @@ public class GameManager : MonoBehaviour
     private static Manager[] managers;
 
     [Header("-----------------------------------------------------------------------")]
+    [Header("Player Reference")]
+    [Space(5)]
+    public GameObject player;
+    [Header("-----------------------------------------------------------------------")]
     [Header("Minigame Manager Variables")]
     [Space(5)]
     public Minigame[] minigames;

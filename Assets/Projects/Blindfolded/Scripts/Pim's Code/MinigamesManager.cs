@@ -20,6 +20,7 @@ public class MinigamesManager : Manager
             gameManager.currentMinigame.CurrentlyRunning();
         }
     }
+
     //Picks a random minigame and takes into account if it already played the minigame.
     public void PickRandom()
     {
@@ -30,6 +31,7 @@ public class MinigamesManager : Manager
         gameManager.currentMinigame.EntryPoint();
     }
 
+    //Pick a minigame by name
     public void PickByName(string name) 
     {
         for (int i = 0; i < gameManager.minigames.Length; i++)

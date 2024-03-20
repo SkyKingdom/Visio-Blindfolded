@@ -15,6 +15,7 @@ public class MinigameDetectCollision : MonoBehaviour
             //Relocate per minigame
             GameManager.instance.currentMinigame.RelocateToNode();
 
+            GameManager.GetManager<AudioManager>().ClearAllSounds();
             //Disable Sound per minigame
             Destroy(gameObject);
         }

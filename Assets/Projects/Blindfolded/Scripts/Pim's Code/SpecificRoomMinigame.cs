@@ -4,14 +4,8 @@ using UnityEngine;
 
 public class SpecificRoomMinigame : Minigame
 {
-
-    private bool isRunning;
-    private bool inIt;
+    //Make some kind of room node
     public Transform[] rooms;
-
-
-
-
 
 
     public override void EntryPoint()

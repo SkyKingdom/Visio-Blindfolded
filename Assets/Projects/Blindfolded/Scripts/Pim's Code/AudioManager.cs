@@ -7,7 +7,7 @@ using UnityEngine;
 public class AudioManager : Manager
 {
     //All of the audio is stored in this list for easy access
-    public List<AudioSource> audioSources = new List<AudioSource>();
+    public List<GameObject> audioSources = new List<GameObject>();
 
     /// <summary>
     /// Plays a sound based on location given and has logic for multiple sound types. 
@@ -22,6 +22,7 @@ public class AudioManager : Manager
         //Seperate into methods
         AudioSource audioSource = source.AddComponent<AudioSource>();
         SphereCollider collider = source.AddComponent<SphereCollider>();
+        
         // SteamAudioSource steamAudio = source.AddComponent<SteamAudioSource>();
         audioSource.spatialize = true;
         audioSource.spatialBlend = 1;
@@ -29,6 +30,7 @@ public class AudioManager : Manager
         audioSource.minDistance = 11.16278f;
         audioSource.maxDistance = 500f;
         audioSource.name = name;
+        source.name = name;
         float volumeValue = volume / 100;
         audioSource.volume = volumeValue;
         audioSource.clip = gameManager.GetComponent<AudioLibrary>().GetClip(name);
@@ -41,6 +43,7 @@ public class AudioManager : Manager
         {
             audioSource.loop = true;
             source.AddComponent<MinigameDetectCollision>();
+            collider.isTrigger = true;
         }
         else
         {
@@ -50,7 +53,7 @@ public class AudioManager : Manager
         audioSource.rolloffMode = AudioRolloffMode.Logarithmic;
 
 
-        audioSources.Add(audioSource);
+        audioSources.Add(source);
         source.transform.position = fromLocation;
     }
 
@@ -66,11 +69,36 @@ public class AudioManager : Manager
             {
                 if (audioSources[i].name == name)
                 {
-                    audioSources[i].Stop();
+                    audioSources[i].GetComponent<AudioSource>().Stop();
                 }
             }
         }
     }
+
+    public GameObject getAudioByName(string name) 
+    {
+        for (int i = 0; i < audioSources.Count; i++)
+        {
+            if (audioSources[i].name == name)
+            {
+                return audioSources[i];
+            }
+        }
+        return null;
+    }
+
+    public bool IsInList(string name) 
+    {
+        for (int i = 0; i < audioSources.Count; i++)
+        {
+            if (audioSources[i].name == name)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
 
     public void ClearAllSounds()
     {
