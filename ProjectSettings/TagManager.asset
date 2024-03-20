@@ -6,6 +6,9 @@ TagManager:
   tags:
   - SeedManager
   - Hand
+  - Floor
+  - Grass
+  - Wall
   layers:
   - Default
   - TransparentFX

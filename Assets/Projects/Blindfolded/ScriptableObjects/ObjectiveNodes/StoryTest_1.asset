@@ -15,6 +15,6 @@ MonoBehaviour:
   ConntectingNodes:
   - {fileID: 11400000, guid: 85a426ae7d510764d9e76b6951aa456f, type: 2}
   - {fileID: 11400000, guid: 85a426ae7d510764d9e76b6951aa456f, type: 2}
-  LeadConcludingNode: {fileID: 11400000, guid: 4fb14296d02e74549a745582c7138a75, type: 2}
   LocationNode: Node_26
+  hasMinigame: 0
   VocalProgressionLog: []

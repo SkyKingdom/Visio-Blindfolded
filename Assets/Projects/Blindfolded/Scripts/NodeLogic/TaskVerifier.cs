@@ -5,18 +5,24 @@ using UnityEngine;
 public class TaskVerifier : MonoBehaviour
 {
     public string Task_Number;
-    public NodeManager nodeManager;
-    [SerializeField]bool RequireNodeContact;
-    [SerializeField]bool RequireEventCompleted;
+    [SerializeField] bool RequireNodeContact;
+    [SerializeField] bool RequireEventCompleted;
     bool EventCompleted = false;
     bool NodeContacted = false;
+    [SerializeField] bool isMinigame;
+    [SerializeField] string roomName;
+    [SerializeField] string minigameName;
 
     public void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
             NodeContacted = true;
-            if (!RequireEventCompleted || RequireEventCompleted && EventCompleted)
+            if (isMinigame)
+            {
+                GameManager.GetManager<MinigamesManager>().PickByName(minigameName);
+            }
+            else if (!RequireEventCompleted || RequireEventCompleted && EventCompleted)
             {
                 CompleteTask();
             }
@@ -42,11 +48,11 @@ public class TaskVerifier : MonoBehaviour
 
     void CompleteTask()
     {
-        if (nodeManager.StoryProgressionNumber != 7 && nodeManager.CurrentObjectiveNodeString == Task_Number)
+        if (GameManager.instance.StoryProgressionNumber != 7 && GameManager.instance.CurrentObjectiveNodeString == Task_Number)
         {
             Debug.Log("Hit");
-            nodeManager.StoryHasReachedWaypoint = (true);
-            nodeManager.StoryProgressionBookmark();
+            GameManager.instance.StoryHasReachedWaypoint = true;
+            GameManager.GetManager<NodeManager>().StoryProgressionBookmark();
         }
     }
 }
