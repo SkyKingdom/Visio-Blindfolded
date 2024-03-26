@@ -39,11 +39,13 @@ public class MinigameFindObjectV2 : MinigameBase
         ResetMinigame();
     }
 
+    //Completed whole minigame
     public void CompleteMinigame()
     {
         gameObject.SetActive(false);
     }
 
+    //Same as relocate
     public void ResetMinigame()
     {
         VictorySoundObj.transform.position = ObjectToFind.transform.position;

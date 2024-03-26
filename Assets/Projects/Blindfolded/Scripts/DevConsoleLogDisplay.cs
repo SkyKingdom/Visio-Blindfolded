@@ -31,7 +31,6 @@ public class DevConsoleLogDisplay : MonoBehaviour
         float currentScroll = Scroller.verticalNormalizedPosition;
         currentScroll += verticalInput * scrollSpeed * Time.deltaTime;
         currentScroll = Mathf.Clamp01(currentScroll);
-
         Scroller.verticalNormalizedPosition = currentScroll;
     }
 

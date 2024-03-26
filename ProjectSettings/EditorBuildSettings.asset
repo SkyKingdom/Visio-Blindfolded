@@ -35,6 +35,9 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Samples/Meta XR Core SDK/59.0.0/Sample Scenes/HandTest_Custom.unity
     guid: c884d076d6398b54492bcc64bbe30bf5
+  - enabled: 0
+    path: Assets/Projects/Blindfolded/Scenes/PimScene2.unity
+    guid: 97d9486cc46a76d47af552d0193da02a
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 932ecb46481153844b5815df68f76bbd,
       type: 2}
