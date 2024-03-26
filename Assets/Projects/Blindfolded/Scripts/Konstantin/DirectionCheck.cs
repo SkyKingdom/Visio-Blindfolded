@@ -7,6 +7,8 @@ public class DirectionCheck : MonoBehaviour
 
     public bool isLeft = false;
     public bool isRight = false;
+    public bool isFront = false;
+    public bool isBack = false;
 
     void Update()
     {
@@ -55,6 +57,54 @@ public class DirectionCheck : MonoBehaviour
                         Debug.Log("Player is directly in front or behind of the object.");
                     }
                 }
+
+                //Uncoment the code below and replace within the if hit.collider statement to add fron and back detection
+
+                //// Determine if the player is on the left, right, front, or back side
+                //Vector3 objectForward = transform.forward;
+                //float dotProductForward = Vector3.Dot(objectForward, directionToPlayer);
+                //Vector3 objectRight = transform.right;
+                //float dotProductRight = Vector3.Dot(objectRight, directionToPlayer);
+
+
+                //// Define the threshold angle for considering the player in front, behind, left or right
+                //float angleThreshold = Mathf.Cos(Mathf.Deg2Rad * 30); // 30 degrees threshold
+
+                //if (dotProductForward > angleThreshold) //(dotProduct > 0)
+                //{
+                //    isFront = false;
+                //    isBack = true;
+                //    isLeft = false;
+                //    isRight = false;
+                //    Debug.Log("Player is in front of the object./The sound came from behind");
+                //    //Debug.Log("Player is on the right side of the object./The sound came from the left.");
+                //}
+                //else if (dotProductForward < -angleThreshold)
+                //{
+                //    isFront = true;
+                //    isBack = false;
+                //    isLeft = false;
+                //    isRight = false;
+                //    Debug.Log("Player is behind the object./The sound came from in front");
+                //    //Debug.Log("Player is on the left side of the object./The sound came from the right.");
+                //}
+                //else if (dotProductRight > angleThreshold)
+                //{
+                //    isFront = false;
+                //    isBack = false;
+                //    isLeft = true;
+                //    isRight = false;
+                //    Debug.Log("Player is on the right side of the object./ The sound came from the left.");
+                //    //Debug.Log("Player is directly in front or behind of the object.");
+                //}
+                //else if (dotProductRight < -angleThreshold)
+                //{
+                //    isFront = false;
+                //    isBack = false;
+                //    isLeft = false;
+                //    isRight = true;
+                //    Debug.Log("Player is on the left side of the object./ The sound came from the right");
+                //}
             }
         }
     }
