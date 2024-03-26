@@ -12,15 +12,17 @@ public class TaskVerifier : MonoBehaviour
     [SerializeField] bool isMinigame;
     [SerializeField] string roomName;
     [SerializeField] string minigameName;
+    [SerializeField] bool isTriggerd = false;
 
     public void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
             NodeContacted = true;
-            if (isMinigame)
+            if (isMinigame && !isTriggerd)
             {
                 GameManager.GetManager<MinigamesManager>().PickByName(minigameName);
+                isTriggerd = true;
             }
             else if (!RequireEventCompleted || RequireEventCompleted && EventCompleted)
             {

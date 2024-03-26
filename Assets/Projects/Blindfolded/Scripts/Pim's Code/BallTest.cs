@@ -8,7 +8,7 @@ public class BallTest : MonoBehaviour
     public float speed;
 
     // Start is called before the first frame update
-    void Start()
+    public void Start()
     {
 
     }
@@ -16,7 +16,7 @@ public class BallTest : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.LogWarning("Calling Update"); 
+        Debug.LogWarning("Calling Update");
         if (prefab != null)
         {
             if (OVRInput.GetDown(OVRInput.Button.SecondaryIndexTrigger))

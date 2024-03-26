@@ -1,7 +1,6 @@
-using SteamAudio;
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
+using Unity.VisualScripting.FullSerializer;
 using UnityEngine;
 
 public class AudioManager : Manager
@@ -16,12 +15,14 @@ public class AudioManager : Manager
     /// <param name="name"></param>
     /// <param name="fromLocation"></param>
     /// <param name="shouldLoop"></param>
-    public void PlaySound(string name, UnityEngine.Vector3 fromLocation, bool shouldLoop, float volume)
+    public void PlaySound(string name, Vector3 fromLocation, bool shouldLoop, float volume)
     {
         GameObject source = new();
         //Seperate into methods
         AudioSource audioSource = source.AddComponent<AudioSource>();
         SphereCollider collider = source.AddComponent<SphereCollider>();
+        LayerMask mask = 2;
+        collider.transform.gameObject.layer = mask;
         
         // SteamAudioSource steamAudio = source.AddComponent<SteamAudioSource>();
         audioSource.spatialize = true;
@@ -49,12 +50,24 @@ public class AudioManager : Manager
         {
             audioSource.loop = false;
             Object.Destroy(source, audioSource.clip.length);
+
         }
         audioSource.rolloffMode = AudioRolloffMode.Logarithmic;
-
-
         audioSources.Add(source);
-        source.transform.position = fromLocation;
+        if (fromLocation != null)
+        {
+            source.transform.position = fromLocation;
+        }
+       
+    }
+
+
+    public void RemoveFromlist(GameObject source) 
+    {
+        if (IsInList(source.GetComponent<AudioSource>().name))
+        {
+            audioSources.Remove(source);
+        }
     }
 
     /// <summary>
@@ -79,9 +92,12 @@ public class AudioManager : Manager
     {
         for (int i = 0; i < audioSources.Count; i++)
         {
-            if (audioSources[i].name == name)
+            if (audioSources[i] != null)
             {
-                return audioSources[i];
+                if (audioSources[i].name == name)
+                {
+                    return audioSources[i];
+                }
             }
         }
         return null;
@@ -91,9 +107,12 @@ public class AudioManager : Manager
     {
         for (int i = 0; i < audioSources.Count; i++)
         {
-            if (audioSources[i].name == name)
+            if (audioSources[i] != null)
             {
-                return true;
+                if (audioSources[i].name == name)
+                {
+                    return true;
+                }
             }
         }
         return false;
@@ -102,6 +121,7 @@ public class AudioManager : Manager
 
     public void ClearAllSounds()
     {
+        Debug.Log("Cleared all sounds");
         for (int i = 0; i < audioSources.Count; i++)
         {
             Object.Destroy(audioSources[i]);
