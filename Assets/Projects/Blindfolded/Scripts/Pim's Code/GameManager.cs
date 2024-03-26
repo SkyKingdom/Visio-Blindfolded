@@ -90,6 +90,20 @@ public class GameManager : MonoBehaviour
         };
     }
 
+    public void OutputAudioSources() 
+    {
+        for (int i = 0; i < GetManager<AudioManager>().audioSources.Count; i++)
+        {
+            if (GetManager<AudioManager>().audioSources[i]!= null)
+            {
+                print(GetManager<AudioManager>().audioSources[i].ToString() + " | AudioSource active");
+            }
+        }
+
+        print(GetManager<AudioManager>().audioSources.Count + "| Audiosources count");
+    
+    }
+
     public static T GetManager<T>() where T : Manager
     {
         for (int i = 0; i < managers.Length; i++)
@@ -122,6 +136,7 @@ public class GameManager : MonoBehaviour
         {
             managers[i].Update();
         }
+        OutputAudioSources();
     }
 
     public void StartMiniGame()
