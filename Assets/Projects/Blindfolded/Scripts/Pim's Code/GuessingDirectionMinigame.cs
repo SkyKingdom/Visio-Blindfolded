@@ -14,6 +14,8 @@ public class GuessingDirectionMinigame : Minigame
 
     public bool isLeft;
     public bool isRight;
+    public bool isFront;
+    public bool isBack;
 
     public bool canGuess = false;
 
@@ -82,26 +84,50 @@ public class GuessingDirectionMinigame : Minigame
             Debug.LogError(hit.collider.transform.name);
             if (hit.collider.transform == GameManager.instance.player.transform)
             {
-                Vector3 objectRight = locationToFind.right;
-                float dotProduct = Vector3.Dot(objectRight, directionToPlayer);
+                //// Determine if the player is on the left, right, front, or back side
+                Vector3 objectForward = transform.forward;
+                float dotProductForward = Vector3.Dot(objectForward, directionToPlayer);
+                Vector3 objectRight = transform.right;
+                float dotProductRight = Vector3.Dot(objectRight, directionToPlayer);
 
-                if (dotProduct > 0)
+
+                // Define the threshold angle for considering the player in front, behind, left or right
+                float angleThreshold = Mathf.Cos(Mathf.Deg2Rad * 30); // 30 degrees threshold
+
+                if (dotProductForward > angleThreshold) //(dotProduct > 0)
                 {
+                    isFront = false;
+                    isBack = true;
+                    isLeft = false;
+                    isRight = false;
+                    Debug.Log("Player is in front of the object./The sound came from behind");
+                    //Debug.Log("Player is on the right side of the object./The sound came from the left.");
+                }
+                else if (dotProductForward < -angleThreshold)
+                {
+                    isFront = true;
+                    isBack = false;
+                    isLeft = false;
+                    isRight = false;
+                    Debug.Log("Player is behind the object./The sound came from in front");
+                    //Debug.Log("Player is on the left side of the object./The sound came from the right.");
+                }
+                else if (dotProductRight > angleThreshold)
+                {
+                    isFront = false;
+                    isBack = false;
                     isLeft = true;
                     isRight = false;
-                    Debug.Log("Player is on the right side of the object./The sound came from the left.");
+                    Debug.Log("Player is on the right side of the object./ The sound came from the left.");
+                    //Debug.Log("Player is directly in front or behind of the object.");
                 }
-                else if (dotProduct < 0)
+                else if (dotProductRight < -angleThreshold)
                 {
+                    isFront = false;
+                    isBack = false;
                     isLeft = false;
                     isRight = true;
-                    Debug.Log("Player is on the left side of the object./The sound came from the right.");
-                }
-                else
-                {
-                    isLeft = false;
-                    isRight = false;
-                    Debug.Log("Player is directly in front or behind of the object.");
+                    Debug.Log("Player is on the left side of the object./ The sound came from the right");
                 }
                 PlayVoicePrompt();
             }

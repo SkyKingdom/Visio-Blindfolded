@@ -13,6 +13,9 @@ public class TaskVerifier : MonoBehaviour
     [SerializeField] string roomName;
     [SerializeField] string minigameName;
     [SerializeField] bool isTriggerd = false;
+    [SerializeField] bool IsTeleport = false;
+    [SerializeField] Levels.levels destination;
+
 
     public void OnTriggerEnter(Collider other)
     {
@@ -28,7 +31,16 @@ public class TaskVerifier : MonoBehaviour
             {
                 CompleteTask();
             }
+
+            if (IsTeleport)
+            {
+                GameManager.SceneLoader(destination);
+            }
+
         }
+
+
+
     }
 
     private void OnTriggerExit(Collider other)

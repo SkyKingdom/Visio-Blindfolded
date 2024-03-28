@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -77,6 +78,12 @@ public class GameManager : MonoBehaviour
 #endif
 
 
+    public static void SceneLoader(Levels.levels level) 
+    {
+        SceneManager.LoadScene((int)level);
+    }
+
+
     GameManager()
     {
         instance = this;
@@ -88,6 +95,11 @@ public class GameManager : MonoBehaviour
           new SeedManager(),
           new NodeManager(),
         };
+    }
+
+    public void Awake()
+    {
+        DontDestroyOnLoad(this);
     }
 
     public void OutputAudioSources() 
@@ -143,4 +155,14 @@ public class GameManager : MonoBehaviour
     {
         GetManager<MinigamesManager>().PickRandom();
     }
+}
+public class Levels 
+{
+    public enum levels 
+    {
+        //Scenes should be in order as the build settings.
+        Main,
+        Crossing
+    }
+ 
 }
