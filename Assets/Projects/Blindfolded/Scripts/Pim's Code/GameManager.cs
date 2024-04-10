@@ -111,9 +111,7 @@ public class GameManager : MonoBehaviour
                 print(GetManager<AudioManager>().audioSources[i].ToString() + " | AudioSource active");
             }
         }
-
         print(GetManager<AudioManager>().audioSources.Count + "| Audiosources count");
-    
     }
 
     public static T GetManager<T>() where T : Manager

@@ -15,7 +15,7 @@ public class AudioManager : Manager
     /// <param name="name"></param>
     /// <param name="fromLocation"></param>
     /// <param name="shouldLoop"></param>
-    public void PlaySound(string name, Vector3 fromLocation, bool shouldLoop, float volume)
+    public float PlaySound(string name, Vector3 fromLocation, bool shouldLoop, float volume)
     {
         GameObject source = new();
         //Seperate into methods
@@ -58,7 +58,7 @@ public class AudioManager : Manager
         {
             source.transform.position = fromLocation;
         }
-       
+        return audioSource.clip.length;
     }
 
 

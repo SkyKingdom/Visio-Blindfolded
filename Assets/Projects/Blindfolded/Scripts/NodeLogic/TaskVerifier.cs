@@ -38,9 +38,6 @@ public class TaskVerifier : MonoBehaviour
             }
 
         }
-
-
-
     }
 
     private void OnTriggerExit(Collider other)
