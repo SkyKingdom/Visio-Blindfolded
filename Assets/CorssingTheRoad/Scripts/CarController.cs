@@ -12,10 +12,13 @@ public class CarController : MonoBehaviour
     public float playerDistance = 1f; //Distance at which the car stops before the player
     public float accelerationRate = 0.1f; //Rate at which the car accelerates
 
-    private bool isMoving = true; // Flag to indicate whether the car is moving
+    public bool isMoving = true; // Flag to indicate whether the car is moving
+
+    public bool isThere = true;
 
     public float carFront = 5f;
     public GameObject carFrontEmpty;
+
     // Method to set the speed of the car
     public void SetSpeed(float newSpeed)
     {
@@ -24,43 +27,49 @@ public class CarController : MonoBehaviour
 
     void Update()
     {
-        //Move the car forward along its local z-axis
-        if (isMoving)
+       if (ScreensActivation.instance.isActive)
         {
-            // Move the car forward along its local z-axis
-            transform.Translate(Vector3.forward * speed * Time.deltaTime);
+            //Move the car forward along its local z-axis
+            if (isMoving)
+            {
+                // Move the car forward along its local z-axis
+                transform.Translate(Vector3.forward * speed * Time.deltaTime);
+            }
         }
     }
 
     private void FixedUpdate()
     {
-        // Check for obstacles (cars) in front of the car
-        RaycastHit hit;
-        if (Physics.Raycast(transform.position, transform.forward, out hit, stopDistance))
+        if (ScreensActivation.instance.isActive)
         {
-            if (hit.collider.CompareTag("Car"))
+            // Check for obstacles (cars) in front of the car
+            RaycastHit hit;
+            if (Physics.Raycast(transform.position, transform.forward, out hit, stopDistance))
             {
-                // If the distance to the car in front is less than stopDistance, stop the car
-                isMoving = false;
+                if (hit.collider.CompareTag("Car"))
+                {
+                    // If the distance to the car in front is less than stopDistance, stop the car
+                    isMoving = false;
+                }
             }
-        }
-        else
-        {
-            // If there are no obstacles ahead, accelerate the car
-            isMoving = true;
-            Accelerate();
-        }
-
-        // Check for obstacles (cars) in front of the car
-        RaycastHit hit2;
-        if (Physics.SphereCast(carFrontEmpty.transform.position, carFront, carFrontEmpty.transform.forward, out hit2, playerDistance))
-        {
-            if (hit2.collider.CompareTag("Player"))
+            else
             {
-                speed = 0f;
-                //Add a LoseScreen from a ScreensActivation
-                ScreensActivation.instance.ActivateLoseScreen();
-                
+                // If there are no obstacles ahead, accelerate the car
+                isMoving = true;
+                Accelerate();
+            }
+
+            // Check for obstacles (cars) in front of the car
+            RaycastHit hit2;
+            if (Physics.SphereCast(carFrontEmpty.transform.position, carFront, carFrontEmpty.transform.forward, out hit2, playerDistance))
+            {
+                if (hit2.collider.CompareTag("Player"))
+                {
+                    speed = 0f;
+                    //Add a LoseScreen from a ScreensActivation
+                    ScreensActivation.instance.ActivateLoseScreen();
+
+                }
             }
         }
     }

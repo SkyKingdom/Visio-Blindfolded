@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ScreensActivation : MonoBehaviour
 {
-    public static ScreensActivation instance; // Singleton instance
+    public static ScreensActivation instance { get; private set; } // Singleton instance
 
     public GameObject winScreenCanvas;
     public GameObject loseScreenCanvas;
@@ -15,6 +15,11 @@ public class ScreensActivation : MonoBehaviour
 
     private bool winSoundPlayed = false;
     private bool loseSoundPlayed = false;
+
+    public bool isActive = true;
+
+    public List<CarController> carsInScene = new List<CarController>();
+
     void Awake()
     {
         if (instance == null)
@@ -25,6 +30,8 @@ public class ScreensActivation : MonoBehaviour
         {
             Destroy(gameObject); // Destroy any additional instances
         }
+
+        carsInScene.Clear();
     }
 
     public void ActivateLoseScreen() //Referenced in CarController Script
@@ -64,8 +71,8 @@ public class ScreensActivation : MonoBehaviour
     {
         yield return new WaitForSeconds(winSound.clip.length);
 
-        // Stop all objects' movement and sound
-        Time.timeScale = 0f; // Pause the game
+        stopCarsInScene();
+        //Time.timeScale = 0f; // Pause the game
         AudioListener.pause = true; // Pause all audio
         StopAllCoroutines(); // Stop any ongoing coroutines. Actually I don't need this I think it just protective measurments
     }
@@ -74,10 +81,22 @@ public class ScreensActivation : MonoBehaviour
     {
         yield return new WaitForSeconds(loseSound.clip.length);
 
-        // Stop all objects' movement and sound
-        Time.timeScale = 0f; // Pause the game
+        stopCarsInScene();
+        //Time.timeScale = 0f; // Pause the game
         AudioListener.pause = true; // Pause all audio
         StopAllCoroutines(); // Stop any ongoing coroutines. Actually I don't need this I think it just protective measurments
+    }
+
+    private void stopCarsInScene()
+    {
+        // Stop all cars in scene from moving 
+        for (int i = 0; i < carsInScene.Count; i++)
+        {
+            if (carsInScene[i].isThere)
+            {
+                isActive = false;
+            }
+        }
     }
 }
 

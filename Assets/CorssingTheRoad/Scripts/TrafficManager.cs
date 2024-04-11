@@ -24,14 +24,21 @@ public class TrafficManager : MonoBehaviour
     {
         while (true)
         {
-            float spawnDelay = GetSpawnDelay();
-            yield return new WaitForSeconds(spawnDelay);
-
-            // Check if there's enough space to spawn a car
-            if (CheckSpaceForCar())
+            if (ScreensActivation.instance.isActive)
             {
-                // Spawn a car
-                SpawnCar();
+                float spawnDelay = GetSpawnDelay();
+                yield return new WaitForSeconds(spawnDelay);
+
+                // Check if there's enough space to spawn a car
+                if (CheckSpaceForCar())
+                {
+                    // Spawn a car
+                    SpawnCar();
+                }
+            }
+            else
+            {
+                break;
             }
         }
     }
@@ -89,6 +96,8 @@ public class TrafficManager : MonoBehaviour
 
         // Get the CarController component from the spawned car
         CarController carController = newCar.GetComponent<CarController>();
+
+        ScreensActivation.instance.carsInScene.Add(carController);
 
         // Set the speed of the car using the CarController's SetSpeed method
         carController.SetSpeed(Random.Range(carController.minSpeed, carController.maxSpeed));
