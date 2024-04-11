@@ -17,11 +17,11 @@ public class ButtonsController : MonoBehaviour
     }
 
     //// Method to handle back to school button click
-    //public void BackToSchoolButtonClicked()
-    //{
-    //    // Load the main menu scene or any other desired scene
-    //    SceneManager.LoadScene("MainMenu"); // Replace "MainMenu" with your scene name
-    //}
+    public void BackToSchoolButtonClicked()
+    {
+        // Load the main menu scene or any other desired scene
+        GameManager.SceneLoader(Levels.levels.Main); // Replace "MainMenu" with your scene name
+    }
 
     // Method to handle quit button click
     public void QuitButtonClicked()
