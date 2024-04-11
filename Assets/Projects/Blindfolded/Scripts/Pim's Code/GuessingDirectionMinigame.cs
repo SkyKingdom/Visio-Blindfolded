@@ -33,13 +33,10 @@ public class GuessingDirectionMinigame : Minigame
 
     public override void EntryPoint()
     {
-        RelocateToNode();
-
         //Put audio for the beginning here.
         float explainingAudio = GameManager.GetManager<AudioManager>().PlaySound("directionexplain", GameManager.instance.player.transform.position, false, 1);
-
-
-
+        StartCoroutine(GenericVoicePrompt(explainingAudio));
+        RelocateToNode();
     }
 
     public override void CurrentlyRunning()
@@ -70,12 +67,12 @@ public class GuessingDirectionMinigame : Minigame
         print("gets here IsRunning");
         int random = UnityEngine.Random.Range(0, locationsToFind.Length);
         locationToFind = locationsToFind[random];
-        GameManager.GetManager<AudioManager>().PlaySound(sounds[randomSound], locationToFind.position, false, randomVolume);
+        float soundTime = GameManager.GetManager<AudioManager>().PlaySound(sounds[randomSound], locationToFind.position, false, randomVolume);
         //Add voice prompt
         print("Sounds length: " + GameManager.GetManager<AudioManager>().audioSources.Count);
         if (GameManager.GetManager<AudioManager>().IsInList(sounds[randomSound]))
         {
-            timer.SetTimer(GameManager.GetManager<AudioManager>().getAudioByName(sounds[randomSound]).GetComponent<AudioSource>().clip.length);
+            timer.SetTimer(soundTime);
         }
 
     }
@@ -156,7 +153,7 @@ public class GuessingDirectionMinigame : Minigame
                     isFront && OVRInput.GetDown(OVRInput.Button.PrimaryHandTrigger) ||
                     isBack && OVRInput.GetDown(OVRInput.Button.PrimaryHandTrigger))
                 {
-                    GameManager.GetManager<AudioManager>().PlaySound("voiceguessright", new Vector3(GameManager.instance.player.transform.position.x, GameManager.instance.player.transform.position.y + 5, GameManager.instance.player.transform.position.z), false, 100);
+                    float soundTime = GameManager.GetManager<AudioManager>().PlaySound("voiceguessright", new Vector3(GameManager.instance.player.transform.position.x, GameManager.instance.player.transform.position.y + 5, GameManager.instance.player.transform.position.z), false, 100);
                     Debug.Log("Correct guess!"); //add voice prompts for feedback
                     currentScore++;
                     canGuess = false;
@@ -165,14 +162,14 @@ public class GuessingDirectionMinigame : Minigame
                         OnMinigameComplete.Invoke();
                         GameManager.GetManager<MinigamesManager>().DisableMinigame();
                     }
-                    waitingTimer.SetTimer(3);
+                    waitingTimer.SetTimer(soundTime);
                 }
                 else
                 {
-                    GameManager.GetManager<AudioManager>().PlaySound("voiceguesswrong", new Vector3(GameManager.instance.player.transform.position.x, GameManager.instance.player.transform.position.y + 5, GameManager.instance.player.transform.position.z), false, 100);
+                    float soundTime = GameManager.GetManager<AudioManager>().PlaySound("voiceguesswrong", new Vector3(GameManager.instance.player.transform.position.x, GameManager.instance.player.transform.position.y + 5, GameManager.instance.player.transform.position.z), false, 100);
                     Debug.Log("Incorrect guess.");
                     canGuess = false;
-                    waitingTimer.SetTimer(3);
+                    waitingTimer.SetTimer(soundTime);
 
                 }
             }
@@ -190,23 +187,20 @@ public class GuessingDirectionMinigame : Minigame
 
     IEnumerator WaitForVoicePromptToEnd()
     {
-        GameManager.GetManager<AudioManager>().PlaySound("voicestart", new Vector3(GameManager.instance.player.transform.position.x, GameManager.instance.player.transform.position.y + 5, GameManager.instance.player.transform.position.z), false, 100);
-
-        float waitingTime = 0;
-        if (GameManager.GetManager<AudioManager>().IsInList("voicestart"))
-        {
-            GameObject audioObject = GameManager.GetManager<AudioManager>().getAudioByName("voicestart");
-            waitingTime = audioObject.GetComponent<AudioSource>().clip.length;
-        }
-        else
-        {
-            waitingTime = 1f;
-        }
-        yield return new WaitForSeconds(waitingTime); // Wait for the voice prompt to finish playing
+        float soundTime = GameManager.GetManager<AudioManager>().PlaySound("voicestart", new Vector3(GameManager.instance.player.transform.position.x, GameManager.instance.player.transform.position.y + 5, GameManager.instance.player.transform.position.z), false, 100);
+        yield return new WaitForSeconds(soundTime); // Wait for the voice prompt to finish playing
         isPlayingVoicePrompt = false;
         canGuess = true;
     }
 
+
+
+    IEnumerator GenericVoicePrompt(float time)
+    {
+        isPlayingVoicePrompt = true;
+        yield return new WaitForSecondsRealtime(time);
+        isPlayingVoicePrompt = false;
+    }
 
 
 
