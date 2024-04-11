@@ -2654,11 +2654,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   carPrefabs:
   - {fileID: 2383870008951422323, guid: 0bdab39f9a1eb44489bcf000686e4989, type: 3}
+  - {fileID: 2383870008951422323, guid: 56ddc8a3c785e224384e65d1c7cc6e01, type: 3}
+  - {fileID: 2383870008951422323, guid: a683519e0584a9045905b24767f9af71, type: 3}
+  - {fileID: 2383870008951422323, guid: 2bfc07f2c2e67c04288d864418235ce6, type: 3}
   carSounds:
-  - {fileID: 8300000, guid: 354c37cd61ec24bbcbbc7921d0a71bc1, type: 3}
+  - {fileID: 8300000, guid: c60b8ac4916103d41abbb35a9287ff09, type: 3}
   - {fileID: 8300000, guid: cf81cbb09d9674f46ae0bc9f562caa8c, type: 3}
   - {fileID: 8300000, guid: 1ddf75c4b5cd9b9469f634ec80086bef, type: 3}
-  - {fileID: 8300000, guid: 5ac6fe579e904064b92a0c15d2cc1222, type: 3}
+  - {fileID: 8300000, guid: 2883b27e450c9164496330700b848f3f, type: 3}
   spawnPoint: {fileID: 647612536}
   minSpawnDelay: 0.5
   maxSpawnDelay: 20
