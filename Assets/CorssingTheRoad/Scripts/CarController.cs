@@ -59,13 +59,13 @@ public class CarController : MonoBehaviour
                 Accelerate();
             }
 
-            // Check for obstacles (cars) in front of the car
+            // Check for obstacles (player) in front of the car
             RaycastHit hit2;
             if (Physics.SphereCast(carFrontEmpty.transform.position, carFront, carFrontEmpty.transform.forward, out hit2, playerDistance))
             {
                 if (hit2.collider.CompareTag("Player"))
                 {
-                    speed = 0f;
+                    speed = 0f; //Double check i think it could be removed
                     //Add a LoseScreen from a ScreensActivation
                     ScreensActivation.instance.ActivateLoseScreen();
 

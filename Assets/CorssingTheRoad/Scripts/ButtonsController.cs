@@ -12,8 +12,8 @@ public class ButtonsController : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 
         // Stop all objects' movement and sound
-        Time.timeScale = 1f; // Pause the game
-        AudioListener.pause = false; // Pause all audio
+        //Time.timeScale = 1f; // UnPause the game
+        AudioListener.pause = false; // UnPause all audio
     }
 
     //// Method to handle back to school button click
