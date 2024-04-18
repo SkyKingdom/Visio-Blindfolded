@@ -34,9 +34,12 @@ public class GuessingDirectionMinigame : Minigame
     public override void EntryPoint()
     {
         //Put audio for the beginning here.
-        float explainingAudio = GameManager.GetManager<AudioManager>().PlaySound("directionexplain", GameManager.instance.player.transform.position, false, 1);
+        float explainingAudio = GameManager.GetManager<AudioManager>().PlaySound("directionexplain", new Vector3(GameManager.instance.player.transform.position.x
+            , GameManager.instance.player.transform.position.y + 2
+            , GameManager.instance.player.transform.position.z)
+            , false, 1);
         StartCoroutine(GenericVoicePrompt(explainingAudio));
-        RelocateToNode();
+        waitingTimer.SetTimer(explainingAudio + 1);
     }
 
     public override void CurrentlyRunning()
@@ -159,6 +162,7 @@ public class GuessingDirectionMinigame : Minigame
                     canGuess = false;
                     if (currentScore >= maxScore)
                     {
+                        GameManager.GetManager<AudioManager>().PlaySound("directionend", GameManager.instance.player.transform.position, false, 1f);
                         OnMinigameComplete.Invoke();
                         GameManager.GetManager<MinigamesManager>().DisableMinigame();
                     }
