@@ -24,21 +24,24 @@ public class TrafficManager : MonoBehaviour
     {
         while (true)
         {
-            if (ScreensActivation.instance.isActive)
+            if (ScreensActivation.instance != null)
             {
-                float spawnDelay = GetSpawnDelay();
-                yield return new WaitForSeconds(spawnDelay);
-
-                // Check if there's enough space to spawn a car
-                if (CheckSpaceForCar())
+                if (ScreensActivation.instance.isActive)
                 {
-                    // Spawn a car
-                    SpawnCar();
+                    float spawnDelay = GetSpawnDelay();
+                    yield return new WaitForSeconds(spawnDelay);
+
+                    // Check if there's enough space to spawn a car
+                    if (CheckSpaceForCar())
+                    {
+                        // Spawn a car
+                        SpawnCar();
+                    }
                 }
-            }
-            else
-            {
-                break;
+                else
+                {
+                    break;
+                }
             }
         }
     }
