@@ -85,7 +85,7 @@ public class GuessingDirectionMinigame : Minigame
     {
         Vector3 directionToPlayer = GameManager.instance.player.transform.position - locationToFind.position;
         RaycastHit hit;
-
+        //Add a LayerMask to detect the player better.
         if (Physics.Raycast(locationToFind.position, directionToPlayer, out hit))
         {
             Debug.LogError(hit.collider.transform.name);
@@ -154,7 +154,7 @@ public class GuessingDirectionMinigame : Minigame
                 if (isLeft && OVRInput.GetDown(OVRInput.Button.PrimaryIndexTrigger) ||
                     isRight && OVRInput.GetDown(OVRInput.Button.SecondaryIndexTrigger) ||
                     isFront && OVRInput.GetDown(OVRInput.Button.PrimaryHandTrigger) ||
-                    isBack && OVRInput.GetDown(OVRInput.Button.PrimaryHandTrigger))
+                    isBack && OVRInput.GetDown(OVRInput.Button.SecondaryHandTrigger))
                 {
                     float soundTime = GameManager.GetManager<AudioManager>().PlaySound("voiceguessright", new Vector3(GameManager.instance.player.transform.position.x, GameManager.instance.player.transform.position.y + 5, GameManager.instance.player.transform.position.z), false, 100);
                     Debug.Log("Correct guess!"); //add voice prompts for feedback
