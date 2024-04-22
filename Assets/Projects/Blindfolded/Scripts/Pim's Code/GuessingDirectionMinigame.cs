@@ -9,6 +9,7 @@ public class GuessingDirectionMinigame : Minigame
 {
 
     [SerializeField] private string[] sounds;
+    public LayerMask canHit;
     private Timer timer;
     private Timer waitingTimer;
 
@@ -37,7 +38,7 @@ public class GuessingDirectionMinigame : Minigame
         float explainingAudio = GameManager.GetManager<AudioManager>().PlaySound("directionexplain", new Vector3(GameManager.instance.player.transform.position.x
             , GameManager.instance.player.transform.position.y + 2
             , GameManager.instance.player.transform.position.z)
-            , false, 1);
+            , false, 100);
         StartCoroutine(GenericVoicePrompt(explainingAudio));
         waitingTimer.SetTimer(explainingAudio + 1);
     }
@@ -86,7 +87,7 @@ public class GuessingDirectionMinigame : Minigame
         Vector3 directionToPlayer = GameManager.instance.player.transform.position - locationToFind.position;
         RaycastHit hit;
         //Add a LayerMask to detect the player better.
-        if (Physics.Raycast(locationToFind.position, directionToPlayer, out hit))
+        if (Physics.Raycast(locationToFind.position,  directionToPlayer, out hit, 100, canHit))
         {
             Debug.LogError(hit.collider.transform.name);
             if (hit.collider.transform == GameManager.instance.player.transform)
