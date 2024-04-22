@@ -108,9 +108,9 @@ MonoBehaviour:
   uiBounds:
     serializedVersion: 2
     x: 722
-    y: -260
-    width: 2082
-    height: 2149
+    y: -259
+    width: 2081
+    height: 2147
 --- !u!114 &114350483966674976
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -228,7 +228,7 @@ VisualEffectResource:
     m_UpdateMode: 0
     m_PreWarmDeltaTime: 0.05
     m_PreWarmStepCount: 0
-    m_InitialEventName: OnPlay
+    m_InitialEventName: 
     m_InstancingMode: 0
     m_InstancingCapacity: 64
 --- !u!114 &8926484042661614555
