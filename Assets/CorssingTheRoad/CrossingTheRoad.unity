@@ -726,7 +726,7 @@ Transform:
   m_GameObject: {fileID: 324539462}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.81, y: 0, z: 0}
+  m_LocalPosition: {x: 3.85, y: 0, z: 0}
   m_LocalScale: {x: 2.5468, y: 2.5468, z: 37.77159}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5281,7 +5281,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   winScreenCanvas: {fileID: 141761437}
-  loseScreenCanvas: {fileID: 840586834}
+  loseScreenCanvas: {fileID: 1509149585}
   winSound: {fileID: 141761443}
   loseSound: {fileID: 1509149591}
   isActive: 1
