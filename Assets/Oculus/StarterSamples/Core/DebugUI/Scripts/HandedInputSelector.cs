@@ -16,8 +16,8 @@ using System;
 
 public class HandedInputSelector : MonoBehaviour
 {
-    OVRCameraRig m_CameraRig;
-    OVRInputModule m_InputModule;
+   [SerializeField] OVRCameraRig m_CameraRig;
+    [SerializeField] OVRInputModule m_InputModule;
 
     void Start()
     {
