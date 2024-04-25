@@ -18,6 +18,7 @@ public class ActivatePortal : MonoBehaviour
         if (other.CompareTag("Player")) // Assuming your player has a "Player" tag
         {
             // Play the Visual Effect
+            //Add audio effect.
             vfx.Play();
             animationTimer.SetTimer(2);
         }
