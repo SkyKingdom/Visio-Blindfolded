@@ -174,7 +174,6 @@ public class Levels
     public enum levels 
     {
         //Scenes should be in order as the build settings.
-        Loading,
         Main,
         Crossing
     }
