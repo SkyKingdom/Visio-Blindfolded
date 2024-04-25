@@ -19,7 +19,7 @@ public class ActivatePortal : MonoBehaviour
         {
             // Play the Visual Effect
             vfx.Play();
-            animationTimer.SetTimer(3);
+            animationTimer.SetTimer(2);
         }
     }
 
