@@ -13,6 +13,8 @@ public class ScreensActivation : MonoBehaviour
     public AudioSource winSound;
     public AudioSource loseSound;
 
+    [SerializeField] private LineRenderer laserPointer;
+
     private bool winSoundPlayed = false;
     private bool loseSoundPlayed = false;
 
@@ -40,7 +42,7 @@ public class ScreensActivation : MonoBehaviour
         {
             //Show the lose screen canvas
             loseScreenCanvas.SetActive(true);
-
+            laserPointer.gameObject.SetActive(true);
             // Play the lose sound
             loseSound.Play();
             loseSoundPlayed = true;
@@ -58,6 +60,7 @@ public class ScreensActivation : MonoBehaviour
             {
                 // Show the win screen canvas
                 winScreenCanvas.SetActive(true);
+                laserPointer.gameObject.SetActive(true);
                 // Play the win sound
                 winSound.Play();
                 winSoundPlayed = true;

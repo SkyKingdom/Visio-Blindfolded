@@ -55,17 +55,17 @@ public class TrafficManager : MonoBehaviour
         float initialSpawnDuration = 4f; // Adjust as needed
 
         // Check if the elapsed time is within the initial spawn duration the idea is to have the cars at first spawn a bit more often and then be random between min and max value
-    if (time < initialSpawnDuration)
-    {
-        // Gradually decrease the spawn delay during the initial spawn duration
-        float decreasedDelay = Mathf.Clamp(initialSpawnDelay + time * spawnDelayIncreaseRate, minSpawnDelay, maxSpawnDelay);
-        return decreasedDelay;
-    }
-    else
-    {
-        // Return a random spawn delay within the specified range
-        return Random.Range(minSpawnDelay, maxSpawnDelay);
-    }
+        if (time < initialSpawnDuration)
+        {
+            // Gradually decrease the spawn delay during the initial spawn duration
+            float decreasedDelay = Mathf.Clamp(initialSpawnDelay + time * spawnDelayIncreaseRate, minSpawnDelay, maxSpawnDelay);
+            return decreasedDelay;
+        }
+        else
+        {
+            // Return a random spawn delay within the specified range
+            return Random.Range(minSpawnDelay, maxSpawnDelay);
+        }
         //return Mathf.Clamp(initialSpawnDelay + time * spawnDelayIncreaseRate, minSpawnDelay, maxSpawnDelay); //If we want to have an increase
         //return Mathf.Clamp(initialSpawnDelay + time, minSpawnDelay, maxSpawnDelay); //No increase but idk
         //return Random.Range(minSpawnDelay, maxSpawnDelay); //I think that's the best way to do it
@@ -75,7 +75,8 @@ public class TrafficManager : MonoBehaviour
     {
         // Cast a ray forward to check for space
         RaycastHit hit;
-        if (!Physics.Raycast(spawnPoint.position, spawnPoint.forward, out hit, spawnDistance))
+        if (!Physics.Raycast(spawnPoint.position, spawnPoint.
+            forward, out hit, spawnDistance))
         {
             // There's enough space to spawn a car
             Debug.DrawRay(spawnPoint.position, spawnPoint.forward * spawnDistance, Color.green);

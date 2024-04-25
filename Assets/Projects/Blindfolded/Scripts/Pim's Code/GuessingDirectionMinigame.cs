@@ -86,12 +86,15 @@ public class GuessingDirectionMinigame : Minigame
     {
         Vector3 directionToPlayer = GameManager.instance.player.transform.position - locationToFind.position;
         RaycastHit hit;
+      
         //Add a LayerMask to detect the player better.
         if (Physics.Raycast(locationToFind.position,  directionToPlayer, out hit, 100, canHit))
         {
+            
             Debug.LogError(hit.collider.transform.name);
             if (hit.collider.transform == GameManager.instance.player.transform)
             {
+               
                 //// Determine if the player is on the left, right, front, or back side
                 Vector3 objectForward = transform.forward;
                 float dotProductForward = Vector3.Dot(objectForward, directionToPlayer);
