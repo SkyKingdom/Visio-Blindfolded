@@ -34,7 +34,7 @@ public class MinigamesManager : Manager
     //Pick a minigame by name
     public void PickByName(string name) 
     {
-        for (int i = 0; i < gameManager.minigames.Length; i++)
+        for (int i = 0; i < gameManager.minigames.Count; i++)
         {
             if (gameManager.minigames[i].name == name)
             {
@@ -60,7 +60,7 @@ public class MinigamesManager : Manager
     //Rolls a minigame till it finds one that has not been done already.
     public int RollTillValid()
     {
-        int random = Random.Range(0, gameManager.minigames.Length);
+        int random = Random.Range(0, gameManager.minigames.Count);
         if (alreadyPlayed.Count > 0)
         {
             for (int i = 0; i < alreadyPlayed.Count; i++)

@@ -29,7 +29,6 @@ public class GuessingDirectionMinigame : Minigame
     {
         timer = new Timer();
         waitingTimer = new Timer();
-
     }
 
     public override void EntryPoint()

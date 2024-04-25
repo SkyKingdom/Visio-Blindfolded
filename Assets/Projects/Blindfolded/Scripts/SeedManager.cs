@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SeedManager : Manager
 {
-    public SeedManager()
+    public override void Awake() 
     {
         if (gameManager.AutoGenerateSeed)
         {
@@ -12,5 +12,6 @@ public class SeedManager : Manager
         }
 
         gameManager.LevelSeed = new System.Random(gameManager.Seed);
+
     }
 }

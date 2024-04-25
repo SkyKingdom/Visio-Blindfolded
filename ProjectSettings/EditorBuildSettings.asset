@@ -18,10 +18,10 @@ EditorBuildSettings:
     path: Assets/Samples/Meta XR Core SDK/59.0.0/Sample Scenes/VirtualKeyboard.unity
     guid: c9684441ee1da1244a223118fdaa5d13
   - enabled: 0
-    path: Assets/Oculus/Interaction/Samples/Scenes/Examples/TransformerExamples.unity
+    path: Assets/Samples/Meta XR Interaction SDK OVR Samples/64.0.0/Example Scenes/TransformerExamples.unity
     guid: 7475942f60c376744ba1ec487d140105
   - enabled: 0
-    path: Assets/Oculus/Interaction/Samples/Scenes/Features/TouchHandGrab.unity
+    path: Assets/Samples/Meta XR Interaction SDK OVR Samples/64.0.0/Feature Scenes/TouchHandGrab.unity
     guid: be6ac2db53044a540a337805c97f39df
   - enabled: 0
     path: Assets/Samples/Meta XR Core SDK/59.0.0/Sample Scenes/UI.unity
