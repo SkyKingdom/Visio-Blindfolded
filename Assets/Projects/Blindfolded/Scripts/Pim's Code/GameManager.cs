@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 using UnityEngine.SceneManagement;
+using UnityEngine.Audio;
 
 public class GameManager : MonoBehaviour
 {
@@ -20,6 +21,7 @@ public class GameManager : MonoBehaviour
     public Minigame currentMinigame;
     public List<GameObject> nodes;
     public bool startOnAwake;
+    public AudioMixer mixer;
     //Maybe something like a node group (to randomize nodes in a certain area.
 
     [Header("-----------------------------------------------------------------------")]

@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using Unity.VisualScripting.FullSerializer;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class AudioManager : Manager
 {
@@ -23,8 +25,12 @@ public class AudioManager : Manager
         SphereCollider collider = source.AddComponent<SphereCollider>();
         LayerMask mask = 2;
         collider.transform.gameObject.layer = mask;
-        
-        // SteamAudioSource steamAudio = source.AddComponent<SteamAudioSource>();
+
+        // Instead of doing this, use audiomixer
+        AudioMixerGroup[] group = GameManager.instance.mixer.FindMatchingGroups("Group1");
+        audioSource.outputAudioMixerGroup = group[0];
+        AtmokySource atmoky = audioSource.AddComponent<AtmokySource>();
+        //Added atmoky settings.
         audioSource.spatialize = true;
         audioSource.spatialBlend = 1;
         //Min Distance is the same as it was before i started this project.
@@ -62,7 +68,7 @@ public class AudioManager : Manager
     }
 
 
-    public void RemoveFromlist(GameObject source) 
+    public void RemoveFromlist(GameObject source)
     {
         if (IsInList(source.GetComponent<AudioSource>().name))
         {
@@ -88,7 +94,7 @@ public class AudioManager : Manager
         }
     }
 
-    public GameObject getAudioByName(string name) 
+    public GameObject getAudioByName(string name)
     {
         for (int i = 0; i < audioSources.Count; i++)
         {
@@ -103,7 +109,7 @@ public class AudioManager : Manager
         return null;
     }
 
-    public bool IsInList(string name) 
+    public bool IsInList(string name)
     {
         for (int i = 0; i < audioSources.Count; i++)
         {
