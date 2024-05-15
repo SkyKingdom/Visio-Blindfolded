@@ -76,10 +76,8 @@ public class GuessingDirectionMinigame : Minigame
         float soundTime = GameManager.GetManager<AudioManager>().PlaySound(sounds[randomSound], locationToFind.position, false, randomVolume);
         //Add voice prompt
         print("Sounds length: " + GameManager.GetManager<AudioManager>().audioSources.Count);
-        if (GameManager.GetManager<AudioManager>().IsInList(sounds[randomSound]))
-        {
-            timer.SetTimer(soundTime);
-        }
+        timer.SetTimer(soundTime);
+
 
     }
 
