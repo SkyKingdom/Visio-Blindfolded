@@ -25,4 +25,12 @@ public abstract class Minigame : MonoBehaviour
 
     public virtual void RelocateToNode() { }
 
+    public virtual void Reset() 
+    {
+        inIt = false;
+        isRunning = false;
+        currentScore = 0;
+        locationToFind = null;
+    }
+
 }

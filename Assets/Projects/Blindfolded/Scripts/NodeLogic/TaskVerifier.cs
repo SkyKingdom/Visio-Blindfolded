@@ -45,7 +45,17 @@ public class TaskVerifier : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             NodeContacted = false;
+
+            if (isMinigame && GameManager.instance.currentMinigame != null)
+            {
+                GameManager.GetManager<MinigamesManager>().DisableMinigame();
+            }
+
+
         }
+
+       
+
     }
 
     public void EventComplete()

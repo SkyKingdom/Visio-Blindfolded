@@ -36,6 +36,7 @@ public class MinigamesManager : Manager
     {
         for (int i = 0; i < gameManager.minigames.Count; i++)
         {
+        
             if (gameManager.minigames[i].name == name)
             {
                 gameManager.currentMinigame = gameManager.minigames[i];
@@ -54,6 +55,8 @@ public class MinigamesManager : Manager
     //Disables the currently running minigame
     public void DisableMinigame()
     {
+        gameManager.currentMinigame.Reset();
+        ClearList();
         gameManager.currentMinigame = null;
     }
 
