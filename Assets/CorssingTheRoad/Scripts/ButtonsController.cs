@@ -16,6 +16,24 @@ public class ButtonsController : MonoBehaviour
         AudioListener.pause = false; // UnPause all audio
     }
 
+    public void LoadNextLevel() //Has to be TESTED
+    {
+        // Get the index of the next scene in the build order
+        int nextSceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
+
+        // Check if there's a scene at the next index
+        if (nextSceneIndex < SceneManager.sceneCountInBuildSettings)
+        {
+            // Load the next scene
+            SceneManager.LoadScene(nextSceneIndex);
+        }
+        else
+        {
+            // If there's no next scene, you can handle it accordingly
+            Debug.LogWarning("No next scene available.");
+        }
+    }
+
     //// Method to handle back to school button click
     public void BackToSchoolButtonClicked()
     {

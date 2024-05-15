@@ -3555,6 +3555,16 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2842684577991408114, guid: 4a567030bafa5fb47b29977b4ea9d656,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: LoadNextLevel
+      objectReference: {fileID: 0}
+    - target: {fileID: 2842684577991408114, guid: 4a567030bafa5fb47b29977b4ea9d656,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: ButtonsController, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 3423982951580374772, guid: 4a567030bafa5fb47b29977b4ea9d656,
         type: 3}
       propertyPath: m_Layer
