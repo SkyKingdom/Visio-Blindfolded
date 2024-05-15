@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 using UnityEngine.SceneManagement;
+using UnityEngine.Audio;
 
 public class GameManager : MonoBehaviour
 {
@@ -16,10 +17,11 @@ public class GameManager : MonoBehaviour
     [Header("-----------------------------------------------------------------------")]
     [Header("Minigame Manager Variables")]
     [Space(5)]
-    public Minigame[] minigames;
+    public List<Minigame> minigames;
     public Minigame currentMinigame;
     public List<GameObject> nodes;
     public bool startOnAwake;
+    public AudioMixer mixer;
     //Maybe something like a node group (to randomize nodes in a certain area.
 
     [Header("-----------------------------------------------------------------------")]
@@ -52,6 +54,8 @@ public class GameManager : MonoBehaviour
     public int SelectingNodeFailCheck;
     public int masterNodeStoryLength;
     public int masterCurrentStoryLength;
+
+
 #if UNITY_EDITOR
     [CustomEditor(typeof(GameManager))]
     public class NodeManagerEditor : Editor
@@ -86,7 +90,13 @@ public class GameManager : MonoBehaviour
 
     GameManager()
     {
-        instance = this;
+        if (instance == null)
+        {
+            instance = this;
+        }
+        
+
+       
 
         managers = new Manager[]
         {
@@ -99,7 +109,10 @@ public class GameManager : MonoBehaviour
 
     public void Awake()
     {
-        DontDestroyOnLoad(this);
+        for (int i = 0; i < managers.Length; i++)
+        {
+            managers[i].Awake();
+        }
     }
 
     public void OutputAudioSources() 
@@ -129,6 +142,8 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     public void Start()
     {
+
+       
         for (int i = 0; i < managers.Length; i++)
         {
             managers[i].Start();
