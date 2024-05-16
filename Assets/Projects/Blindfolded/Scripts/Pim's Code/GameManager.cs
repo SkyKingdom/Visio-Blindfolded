@@ -94,9 +94,6 @@ public class GameManager : MonoBehaviour
         {
             instance = this;
         }
-        
-
-       
 
         managers = new Manager[]
         {
@@ -107,13 +104,7 @@ public class GameManager : MonoBehaviour
         };
     }
 
-    public void Awake()
-    {
-        for (int i = 0; i < managers.Length; i++)
-        {
-            managers[i].Awake();
-        }
-    }
+   
 
     public void OutputAudioSources() 
     {
@@ -137,6 +128,14 @@ public class GameManager : MonoBehaviour
             }
         }
         return default;
+    }
+    
+    public void Awake()
+    {
+        for (int i = 0; i < managers.Length; i++)
+        {
+            managers[i].Awake();
+        }
     }
 
     // Start is called before the first frame update

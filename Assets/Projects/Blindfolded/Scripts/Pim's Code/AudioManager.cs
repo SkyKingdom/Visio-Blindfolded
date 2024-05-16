@@ -60,7 +60,7 @@ public class AudioManager : Manager
         }
         audioSource.rolloffMode = AudioRolloffMode.Logarithmic;
         audioSources.Add(source);
-        if (fromLocation != null)
+        if (fromLocation != null || fromLocation != Vector3.zero)
         {
             source.transform.position = fromLocation;
         }
