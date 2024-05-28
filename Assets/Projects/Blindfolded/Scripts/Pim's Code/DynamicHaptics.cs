@@ -6,7 +6,8 @@ using UnityEngine;
 public class DynamicHaptics : MonoBehaviour
 {
     /// <summary>
-    ///This might need to be a ontriggerstay. 
+    ///Feedback of the whitecane when it touches a collider
+    ///To refine this maybe use HapticsSDK
     /// </summary>
     /// <param name="other"></param>
     private void OnTriggerStay(Collider other)

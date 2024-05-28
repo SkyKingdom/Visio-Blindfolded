@@ -83,6 +83,9 @@ public class MinigamesManager : Manager
        
     }
 
+    /// <summary>
+    /// Clears the minigames list
+    /// </summary>
     public void ClearList() 
     {
         alreadyPlayed.Clear();

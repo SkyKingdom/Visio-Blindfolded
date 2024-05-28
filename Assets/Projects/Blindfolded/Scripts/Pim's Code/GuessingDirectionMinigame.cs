@@ -27,13 +27,18 @@ public class GuessingDirectionMinigame : Minigame
     private bool isPlayingVoicePrompt = false;
 
 
-
+    /// <summary>
+    /// Constructor of the minigame
+    /// </summary>
     GuessingDirectionMinigame()
     {
         timer = new Timer();
         waitingTimer = new Timer();
     }
 
+    /// <summary>
+    /// Called whenever the minigame is initialized
+    /// </summary>
     public override void EntryPoint()
     {
         //Put audio for the beginning here.
@@ -276,7 +281,7 @@ public class GuessingDirectionMinigame : Minigame
                     case (int)Side.front:
 
                         UIFrontPressed = true;
-
+                        
                         break;
                     case (int)Side.back:
 
