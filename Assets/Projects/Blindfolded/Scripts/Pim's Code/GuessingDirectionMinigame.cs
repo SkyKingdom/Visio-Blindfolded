@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using UnityEngine;
+using UnityEngine.Rendering;
 using UnityEngine.SocialPlatforms.Impl;
 
 public class GuessingDirectionMinigame : Minigame
@@ -11,17 +12,19 @@ public class GuessingDirectionMinigame : Minigame
     [SerializeField] private string[] sounds;
     public LayerMask canHit;
     private Timer timer;
-    private Timer waitingTimer;
+    [SerializeField] private Timer waitingTimer;
+    [SerializeField] GameObject[] UIButtons;
+    private Canvas UICanvas;
+    private bool isLeft;
+    private bool isRight;
+    private bool isFront;
+    private bool isBack;
+    private bool UIFrontPressed = false, UIBackPressed = false, UILeftPressed = false, UIRightPressed = false;
+    private bool canGuess = false;
+    private bool isPlayingAudio = false;
+    [SerializeField] private LineRenderer line;
 
-    public bool isLeft;
-    public bool isRight;
-    public bool isFront;
-    public bool isBack;
-
-    public bool canGuess = false;
-    public bool isPlayingAudio = false;
-
-    public bool isPlayingVoicePrompt = false;
+    private bool isPlayingVoicePrompt = false;
 
 
 
@@ -29,7 +32,6 @@ public class GuessingDirectionMinigame : Minigame
     {
         timer = new Timer();
         waitingTimer = new Timer();
-
     }
 
     public override void EntryPoint()
@@ -43,6 +45,9 @@ public class GuessingDirectionMinigame : Minigame
         waitingTimer.SetTimer(explainingAudio + 1);
     }
 
+    /// <summary>
+    /// Acts like a update method. Refer to the Minigame class and the minigames manager class.
+    /// </summary>
     public override void CurrentlyRunning()
     {
 
@@ -63,6 +68,10 @@ public class GuessingDirectionMinigame : Minigame
 
     }
 
+    /// <summary>
+    /// Called whenever a certain action has been completed within the minigame.
+    /// For example guessing the sound in this method.
+    /// </summary>
     public override void RelocateToNode()
     {
         GameManager.GetManager<AudioManager>().ClearAllSounds();
@@ -74,10 +83,8 @@ public class GuessingDirectionMinigame : Minigame
         float soundTime = GameManager.GetManager<AudioManager>().PlaySound(sounds[randomSound], locationToFind.position, false, randomVolume);
         //Add voice prompt
         print("Sounds length: " + GameManager.GetManager<AudioManager>().audioSources.Count);
-        if (GameManager.GetManager<AudioManager>().IsInList(sounds[randomSound]))
-        {
-            timer.SetTimer(soundTime);
-        }
+        timer.SetTimer(soundTime);
+
 
     }
 
@@ -86,15 +93,15 @@ public class GuessingDirectionMinigame : Minigame
     {
         Vector3 directionToPlayer = GameManager.instance.player.transform.position - locationToFind.position;
         RaycastHit hit;
-      
+
         //Add a LayerMask to detect the player better.
-        if (Physics.Raycast(locationToFind.position,  directionToPlayer, out hit, 100, canHit))
+        if (Physics.Raycast(locationToFind.position, directionToPlayer, out hit, 100, canHit))
         {
-            
+
             Debug.LogError(hit.collider.transform.name);
             if (hit.collider.transform == GameManager.instance.player.transform)
             {
-               
+
                 //// Determine if the player is on the left, right, front, or back side
                 Vector3 objectForward = transform.forward;
                 float dotProductForward = Vector3.Dot(objectForward, directionToPlayer);
@@ -145,10 +152,18 @@ public class GuessingDirectionMinigame : Minigame
         }
     }
 
+    /// <summary>
+    /// When the player can choose an option this will handle the input.
+    /// </summary>
     private void PlayerInput()
     {
         if (canGuess == true)
         {
+            foreach (GameObject item in UIButtons)
+            {
+                item.SetActive(true);
+            }
+            line.gameObject.SetActive(true);
             //Get OVRInput
             if (!isPlayingVoicePrompt && OVRInput.GetDown(OVRInput.Button.PrimaryIndexTrigger) ||
                 !isPlayingVoicePrompt && OVRInput.GetDown(OVRInput.Button.SecondaryIndexTrigger) ||
@@ -178,13 +193,23 @@ public class GuessingDirectionMinigame : Minigame
                     Debug.Log("Incorrect guess.");
                     canGuess = false;
                     waitingTimer.SetTimer(soundTime);
-
                 }
             }
         }
+        else
+        {
+
+            foreach (GameObject item in UIButtons)
+            {
+                item.SetActive(false);
+            }
+            line.gameObject.SetActive(false);
+        }
     }
 
-
+    /// <summary>
+    /// Method for exeuting the voice prompt
+    /// </summary>
     public void PlayVoicePrompt()
     {
         isPlayingVoicePrompt = true;
@@ -192,7 +217,10 @@ public class GuessingDirectionMinigame : Minigame
         StartCoroutine(WaitForVoicePromptToEnd());
 
     }
-
+    /// <summary>
+    /// IEnumrator executing code after the first voice prompt is done.
+    /// </summary>
+    /// <returns></returns>
     IEnumerator WaitForVoicePromptToEnd()
     {
         float soundTime = GameManager.GetManager<AudioManager>().PlaySound("voicestart", new Vector3(GameManager.instance.player.transform.position.x, GameManager.instance.player.transform.position.y + 5, GameManager.instance.player.transform.position.z), false, 100);
@@ -202,7 +230,11 @@ public class GuessingDirectionMinigame : Minigame
     }
 
 
-
+    /// <summary>
+    /// Method for waiting for any possible voice prompt.
+    /// </summary>
+    /// <param name="time"></param>
+    /// <returns></returns>
     IEnumerator GenericVoicePrompt(float time)
     {
         isPlayingVoicePrompt = true;
@@ -210,6 +242,107 @@ public class GuessingDirectionMinigame : Minigame
         isPlayingVoicePrompt = false;
     }
 
+    /// <summary>
+    /// Reset the game with this method.
+    /// </summary>
+    public override void Reset()
+    {
+        base.Reset();
+        isLeft = false;
+        isRight = false;
+        isFront = false;
+        isBack = false;
+        GameManager.GetManager<AudioManager>().ClearAllSounds();
+        canGuess = false;
+        isPlayingAudio = false;
+        isPlayingVoicePrompt = false;
+        timer.StopTimer();
+        waitingTimer.StopTimer();
+    }
 
+
+    /// <summary>
+    /// Method for handling optional UI input.
+    /// </summary>
+    /// <param name="_value"></param>
+    public void HandleUIButton(int _value)
+    {
+        if (canGuess)
+        {
+            if (!isPlayingVoicePrompt)
+            {
+                switch (_value)
+                {
+                    case (int)Side.front:
+
+                        UIFrontPressed = true;
+
+                        break;
+                    case (int)Side.back:
+
+                        UIBackPressed = true;
+
+                        break;
+                    case (int)Side.left:
+
+                        UILeftPressed = true;
+
+                        break;
+                    case (int)Side.right:
+
+                        UIRightPressed = true;
+
+                        break;
+                    default:
+                        break;
+                }
+
+                if (UIRightPressed && isRight ||
+                    UILeftPressed && isLeft ||
+                    UIFrontPressed && isFront ||
+                    UIBackPressed && isBack)
+                {
+                    float soundTime = GameManager.GetManager<AudioManager>().PlaySound("voiceguessright", new Vector3(GameManager.instance.player.transform.position.x, GameManager.instance.player.transform.position.y + 5, GameManager.instance.player.transform.position.z), false, 100);
+                    Debug.Log("Correct guess!"); //add voice prompts for feedback
+                    currentScore++;
+                    canGuess = false;
+                    if (currentScore >= maxScore)
+                    {
+                        GameManager.GetManager<AudioManager>().PlaySound("directionend", GameManager.instance.player.transform.position, false, 1f);
+                        OnMinigameComplete.Invoke();
+                        GameManager.GetManager<MinigamesManager>().DisableMinigame();
+                    }
+                    waitingTimer.SetTimer(soundTime);
+                }
+                else
+                {
+                    float soundTime = GameManager.GetManager<AudioManager>().PlaySound("voiceguesswrong", new Vector3(GameManager.instance.player.transform.position.x, GameManager.instance.player.transform.position.y + 5, GameManager.instance.player.transform.position.z), false, 100);
+                    Debug.Log("Incorrect guess.");
+                    canGuess = false;
+                    waitingTimer.SetTimer(soundTime);
+                }
+                UIRightPressed = false;
+                UILeftPressed = false;
+                UIFrontPressed = false;
+                UIBackPressed = false;
+
+
+            }
+
+
+        }
+
+
+    }
+    /// <summary>
+    /// Enum for the sides.
+    /// </summary>
+    public enum Side
+    {
+        front,
+        back,
+        left,
+        right
+    }
 
 }

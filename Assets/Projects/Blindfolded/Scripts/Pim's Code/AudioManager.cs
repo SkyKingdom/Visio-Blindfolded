@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using Unity.VisualScripting.FullSerializer;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class AudioManager : Manager
 {
@@ -23,8 +25,11 @@ public class AudioManager : Manager
         SphereCollider collider = source.AddComponent<SphereCollider>();
         LayerMask mask = 2;
         collider.transform.gameObject.layer = mask;
-        
-        // SteamAudioSource steamAudio = source.AddComponent<SteamAudioSource>();
+
+        AudioMixerGroup[] group = GameManager.instance.mixer.FindMatchingGroups("Group1");
+        audioSource.outputAudioMixerGroup = group[0];
+        AtmokySource atmoky = audioSource.AddComponent<AtmokySource>();
+        //Added atmoky settings.
         audioSource.spatialize = true;
         audioSource.spatialBlend = 1;
         //Min Distance is the same as it was before i started this project.
@@ -54,15 +59,18 @@ public class AudioManager : Manager
         }
         audioSource.rolloffMode = AudioRolloffMode.Logarithmic;
         audioSources.Add(source);
-        if (fromLocation != null)
+        if (fromLocation != null || fromLocation != Vector3.zero)
         {
             source.transform.position = fromLocation;
         }
         return audioSource.clip.length;
     }
 
-
-    public void RemoveFromlist(GameObject source) 
+    /// <summary>
+    /// Remove sound from the list. (Used to check if specific sounds are playing)
+    /// </summary>
+    /// <param name="source"></param>
+    public void RemoveFromlist(GameObject source)
     {
         if (IsInList(source.GetComponent<AudioSource>().name))
         {
@@ -87,8 +95,12 @@ public class AudioManager : Manager
             }
         }
     }
-
-    public GameObject getAudioByName(string name) 
+    /// <summary>
+    /// Get the audio by name
+    /// </summary>
+    /// <param name="name"></param>
+    /// <returns></returns>
+    public GameObject getAudioByName(string name)
     {
         for (int i = 0; i < audioSources.Count; i++)
         {
@@ -103,7 +115,12 @@ public class AudioManager : Manager
         return null;
     }
 
-    public bool IsInList(string name) 
+    /// <summary>
+    /// Check if a certain sound is playing (which is being played in the scene)
+    /// </summary>
+    /// <param name="name"></param>
+    /// <returns></returns>
+    public bool IsInList(string name)
     {
         for (int i = 0; i < audioSources.Count; i++)
         {
@@ -119,6 +136,9 @@ public class AudioManager : Manager
     }
 
 
+    /// <summary>
+    /// Clear all sounds in the scene for cleanup
+    /// </summary>
     public void ClearAllSounds()
     {
         Debug.Log("Cleared all sounds");

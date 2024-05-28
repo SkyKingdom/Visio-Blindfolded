@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 using UnityEngine.SceneManagement;
+using UnityEngine.Audio;
 
 public class GameManager : MonoBehaviour
 {
@@ -16,10 +17,11 @@ public class GameManager : MonoBehaviour
     [Header("-----------------------------------------------------------------------")]
     [Header("Minigame Manager Variables")]
     [Space(5)]
-    public Minigame[] minigames;
+    public List<Minigame> minigames;
     public Minigame currentMinigame;
     public List<GameObject> nodes;
     public bool startOnAwake;
+    public AudioMixer mixer;
     //Maybe something like a node group (to randomize nodes in a certain area.
 
     [Header("-----------------------------------------------------------------------")]
@@ -52,6 +54,8 @@ public class GameManager : MonoBehaviour
     public int SelectingNodeFailCheck;
     public int masterNodeStoryLength;
     public int masterCurrentStoryLength;
+
+
 #if UNITY_EDITOR
     [CustomEditor(typeof(GameManager))]
     public class NodeManagerEditor : Editor
@@ -84,9 +88,16 @@ public class GameManager : MonoBehaviour
     }
 
 
+    /// <summary>
+    /// First method being run when application launches.
+    /// Setting instance of this class and making the manager instances.
+    /// </summary>
     GameManager()
     {
-        instance = this;
+        if (instance == null)
+        {
+            instance = this;
+        }
 
         managers = new Manager[]
         {
@@ -97,11 +108,10 @@ public class GameManager : MonoBehaviour
         };
     }
 
-    public void Awake()
-    {
-        DontDestroyOnLoad(this);
-    }
-
+   
+    /// <summary>
+    /// Debug method for checking audio sources.
+    /// </summary>
     public void OutputAudioSources() 
     {
         for (int i = 0; i < GetManager<AudioManager>().audioSources.Count; i++)
@@ -114,6 +124,11 @@ public class GameManager : MonoBehaviour
         print(GetManager<AudioManager>().audioSources.Count + "| Audiosources count");
     }
 
+    /// <summary>
+    /// Get a managar in the manager list.
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    /// <returns></returns>
     public static T GetManager<T>() where T : Manager
     {
         for (int i = 0; i < managers.Length; i++)
@@ -125,10 +140,23 @@ public class GameManager : MonoBehaviour
         }
         return default;
     }
+    
+    /// <summary>
+    /// Awake, Called after constructor.
+    /// </summary>
+    public void Awake()
+    {
+        for (int i = 0; i < managers.Length; i++)
+        {
+            managers[i].Awake();
+        }
+    }
 
     // Start is called before the first frame update
     public void Start()
     {
+
+       
         for (int i = 0; i < managers.Length; i++)
         {
             managers[i].Start();
@@ -149,11 +177,18 @@ public class GameManager : MonoBehaviour
         OutputAudioSources();
     }
 
+    /// <summary>
+    /// Debug method for calling a minigame.
+    /// </summary>
     public void StartMiniGame()
     {
         GetManager<MinigamesManager>().PickRandom();
     }
 }
+
+/// <summary>
+/// Enum of Levels being used for the sceneloader
+/// </summary>
 public class Levels 
 {
     public enum levels 

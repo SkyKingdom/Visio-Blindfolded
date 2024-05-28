@@ -1,0 +1,169 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5044964349113388459
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7292813552303935756}
+  - component: {fileID: 3631604457695971953}
+  - component: {fileID: 3382632136551186850}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7292813552303935756
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5044964349113388459}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -12.681484, y: -3.8881714, z: -9.1275015}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3631604457695971953
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5044964349113388459}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b54f51255482a72408b5eca1eb153916, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  minigames:
+  - {fileID: 0}
+  currentMinigame: {fileID: 0}
+  nodes:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  startOnAwake: 0
+  mixer: {fileID: 24100000, guid: 2e02fee98b16f7f4eacf377d1893062f, type: 2}
+  Seed: 0
+  AutoGenerateSeed: 1
+  StoryPrompts:
+  - {fileID: 11400000, guid: ccb4da9e92c042d419cf44ae0e87231a, type: 2}
+  - {fileID: 11400000, guid: 3be2b3740c0b54b489ba96a090a9ef94, type: 2}
+  - {fileID: 11400000, guid: 973605b207deb074c8d75c8548e4d54c, type: 2}
+  NodePromtListLength: 0
+  StoryProgressionNumber: 0
+  StoryHasReachedWaypoint: 1
+  CurrentObjectiveNodeString: 
+  CurrentStoryNodeTask: {fileID: 0}
+  CurrentStoryEndNode: {fileID: 0}
+  ThisStoryTaskList: []
+  RandomSelectedMasterNode: 0
+  masternodeSO: {fileID: 0}
+  SelectingNodeFailCheck: 0
+  masterNodeStoryLength: 0
+  masterCurrentStoryLength: 0
+--- !u!114 &3382632136551186850
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5044964349113388459}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 220e3f537a5b4b348aafd6aead7d47c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioGroups:
+  - name: tickingtimer
+    clips:
+    - {fileID: 8300000, guid: 09d2ab4e42485984ea0ef9d6234f0bcf, type: 3}
+  - name: confirmsound
+    clips:
+    - {fileID: 8300000, guid: 4f49c983c21107e48aecd917000d72be, type: 3}
+  - name: crow
+    clips:
+    - {fileID: 8300000, guid: 62088e56f95d88142b95c307a7cdb2d5, type: 3}
+  - name: open_door
+    clips:
+    - {fileID: 8300000, guid: 771a1e41222411a4c8ff48c7123145cc, type: 3}
+  - name: drums
+    clips:
+    - {fileID: 8300000, guid: 3d290799a5af9f04d8b636664a1e0d4a, type: 3}
+  - name: piano
+    clips:
+    - {fileID: 8300000, guid: 4dfd78274a5e09046b149d3fe0d8fa78, type: 3}
+    - {fileID: 8300000, guid: e47d2e8301f266143a1e8cae8d63c815, type: 3}
+  - name: xylophone
+    clips:
+    - {fileID: 8300000, guid: 51a1e40baaf360e4c9dafd681f728186, type: 3}
+    - {fileID: 8300000, guid: 7372f6b088b437946a470b57749cafef, type: 3}
+  - name: guitar
+    clips:
+    - {fileID: 8300000, guid: e869f008519849f4d99505c53dbfdcb3, type: 3}
+  - name: djembe
+    clips:
+    - {fileID: 8300000, guid: 556bb67c723b7fd429bfc65a2c45cd10, type: 3}
+  - name: voicestart
+    clips:
+    - {fileID: 8300000, guid: bbb66ca1b8c5b7c4bbb8b60fa1054026, type: 3}
+  - name: voiceguessright
+    clips:
+    - {fileID: 8300000, guid: 606d7948f9fb78449b3ab66d7fd7e464, type: 3}
+  - name: voiceguesswrong
+    clips:
+    - {fileID: 8300000, guid: 225aac903bc62204dbbac17cbb6293f3, type: 3}
+  - name: directionexplain
+    clips:
+    - {fileID: 8300000, guid: 90b4a6a1d0421ee4aaea2ec41ab17057, type: 3}
+  - name: directionend
+    clips:
+    - {fileID: 8300000, guid: a4f9fac38f00a834499b4245f7615c3f, type: 3}
