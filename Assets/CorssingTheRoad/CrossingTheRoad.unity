@@ -2598,15 +2598,49 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   carPrefabs:
-  - {fileID: 2383870008951422323, guid: 0bdab39f9a1eb44489bcf000686e4989, type: 3}
-  - {fileID: 2383870008951422323, guid: 56ddc8a3c785e224384e65d1c7cc6e01, type: 3}
-  - {fileID: 2383870008951422323, guid: a683519e0584a9045905b24767f9af71, type: 3}
-  - {fileID: 2383870008951422323, guid: 2bfc07f2c2e67c04288d864418235ce6, type: 3}
+  - {fileID: 159240, guid: 44e7f5e473d61e144bfb79b854a743c4, type: 3}
+  - {fileID: 100848, guid: aed502683c9d9b540b8e9f801bfebaf8, type: 3}
+  - {fileID: 1959030373088092, guid: fc4245223e4122142bb14239d44230ef, type: 3}
+  - {fileID: 1959030373088092, guid: 34941e62fdb557544ada8af1b5333ae0, type: 3}
+  - {fileID: 1646981259178978, guid: 0ae65270c30153049ab49eb3ebf070d6, type: 3}
+  - {fileID: 1646981259178978, guid: 2dc42346e5313b34c93d598a61994629, type: 3}
+  - {fileID: 1646981259178978, guid: 512151c1530b99343a884b12ee9c5e1e, type: 3}
+  - {fileID: 1646981259178978, guid: ab26596a331d7ee43a3e9d29e2be9f84, type: 3}
+  - {fileID: 1646981259178978, guid: f463242ba59e68243b7a693d4f0cfc18, type: 3}
+  - {fileID: 1646981259178978, guid: 50477af197889084e8a6d97f2b73b73b, type: 3}
+  - {fileID: 100010, guid: b3f4ad6e44f81784ba0ebe95aadf2a7d, type: 3}
+  - {fileID: 100010, guid: de535534204e83f4e84497ac553192eb, type: 3}
+  - {fileID: 100010, guid: 3cfde9a41ff096140a1bfec6f262d0f0, type: 3}
+  - {fileID: 100010, guid: e1697ef5073defa458e40968ffff2b30, type: 3}
+  - {fileID: 100010, guid: d267fbb9e36c6e4458c9a8756d725a79, type: 3}
+  - {fileID: 100010, guid: 12dd350c4c7e7754b807b38a22b4d078, type: 3}
+  - {fileID: 100010, guid: 11a57a102cdb5e642899ceab079f1938, type: 3}
+  - {fileID: 100014, guid: b836817eff26a034bbd13884590ce648, type: 3}
+  - {fileID: 100014, guid: 025a3497fa872fe4ebfed7edb8eb310c, type: 3}
+  - {fileID: 100014, guid: a8a6e2e210e71bc4ab5ba85122928ac8, type: 3}
+  - {fileID: 100010, guid: fc2b2b65264c13f48a615fa7dbc2ef24, type: 3}
+  - {fileID: 100010, guid: b1969db97c2d8604ba4bfe3000a13858, type: 3}
+  - {fileID: 100010, guid: 675baac8bae68964e948aabc6ff2857c, type: 3}
+  - {fileID: 100010, guid: a7b60e70606f80245b2f8bc7ce2fadb6, type: 3}
+  - {fileID: 100010, guid: 1dabf884aa0716149a1bc775f0b620d8, type: 3}
+  - {fileID: 100010, guid: a7cd9ad30e9d4c146986aa1e6694b9e5, type: 3}
+  - {fileID: 100010, guid: f0ffa104f4ba20b40a0421d7c2b5f098, type: 3}
+  - {fileID: 100010, guid: fba5e236738a7c940b3a8d031c307794, type: 3}
+  - {fileID: 100014, guid: 636cb627739652c418fcc4f683a138b1, type: 3}
+  - {fileID: 100014, guid: f119644f5530c1044aa946bb6b18bb13, type: 3}
+  - {fileID: 100014, guid: 1508f459923b7df4889f466e17864ab4, type: 3}
   carSounds:
   - {fileID: 8300000, guid: ce4e91af71eb1f14280bb9e5d98350a5, type: 3}
   - {fileID: 8300000, guid: e698c6e96d7108141aa6f691cc897d1b, type: 3}
   - {fileID: 8300000, guid: 1ddf75c4b5cd9b9469f634ec80086bef, type: 3}
-  - {fileID: 8300000, guid: 2883b27e450c9164496330700b848f3f, type: 3}
+  - {fileID: 8300000, guid: f42ee6c61e2b5a049b588a485b2f267f, type: 3}
+  - {fileID: 8300000, guid: 1a39652b55ef6dc4c894ece2783c58c7, type: 3}
+  - {fileID: 8300000, guid: 316224186e8ae6543990a05f4dc13981, type: 3}
+  - {fileID: 8300000, guid: 5c224246aabdf2147b24b920563d9f85, type: 3}
+  - {fileID: 8300000, guid: ff89099d49f4dfb46981d1be1b34544d, type: 3}
+  - {fileID: 8300000, guid: c0191f5eddde47443a5bfd777e6d37b6, type: 3}
+  - {fileID: 8300000, guid: b049660b860c8334a852b54855bce599, type: 3}
+  - {fileID: 8300000, guid: 2b9be05b0a886f147b9ac9a64d6a22fe, type: 3}
   spawnPoints:
   - {fileID: 647612536}
   spawnPointParameters:
@@ -3554,6 +3588,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2842684577991408114, guid: 4a567030bafa5fb47b29977b4ea9d656,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: LoadNextLevel
+      objectReference: {fileID: 0}
+    - target: {fileID: 2842684577991408114, guid: 4a567030bafa5fb47b29977b4ea9d656,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: ButtonsController, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 3423982951580374772, guid: 4a567030bafa5fb47b29977b4ea9d656,
         type: 3}
