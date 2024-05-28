@@ -45,6 +45,9 @@ public class GuessingDirectionMinigame : Minigame
         waitingTimer.SetTimer(explainingAudio + 1);
     }
 
+    /// <summary>
+    /// Acts like a update method. Refer to the Minigame class and the minigames manager class.
+    /// </summary>
     public override void CurrentlyRunning()
     {
 
@@ -65,6 +68,10 @@ public class GuessingDirectionMinigame : Minigame
 
     }
 
+    /// <summary>
+    /// Called whenever a certain action has been completed within the minigame.
+    /// For example guessing the sound in this method.
+    /// </summary>
     public override void RelocateToNode()
     {
         GameManager.GetManager<AudioManager>().ClearAllSounds();
@@ -145,6 +152,9 @@ public class GuessingDirectionMinigame : Minigame
         }
     }
 
+    /// <summary>
+    /// When the player can choose an option this will handle the input.
+    /// </summary>
     private void PlayerInput()
     {
         if (canGuess == true)
@@ -197,7 +207,9 @@ public class GuessingDirectionMinigame : Minigame
         }
     }
 
-
+    /// <summary>
+    /// Method for exeuting the voice prompt
+    /// </summary>
     public void PlayVoicePrompt()
     {
         isPlayingVoicePrompt = true;
@@ -205,7 +217,10 @@ public class GuessingDirectionMinigame : Minigame
         StartCoroutine(WaitForVoicePromptToEnd());
 
     }
-
+    /// <summary>
+    /// IEnumrator executing code after the first voice prompt is done.
+    /// </summary>
+    /// <returns></returns>
     IEnumerator WaitForVoicePromptToEnd()
     {
         float soundTime = GameManager.GetManager<AudioManager>().PlaySound("voicestart", new Vector3(GameManager.instance.player.transform.position.x, GameManager.instance.player.transform.position.y + 5, GameManager.instance.player.transform.position.z), false, 100);
@@ -215,7 +230,11 @@ public class GuessingDirectionMinigame : Minigame
     }
 
 
-
+    /// <summary>
+    /// Method for waiting for any possible voice prompt.
+    /// </summary>
+    /// <param name="time"></param>
+    /// <returns></returns>
     IEnumerator GenericVoicePrompt(float time)
     {
         isPlayingVoicePrompt = true;
@@ -223,7 +242,9 @@ public class GuessingDirectionMinigame : Minigame
         isPlayingVoicePrompt = false;
     }
 
-
+    /// <summary>
+    /// Reset the game with this method.
+    /// </summary>
     public override void Reset()
     {
         base.Reset();
@@ -240,7 +261,10 @@ public class GuessingDirectionMinigame : Minigame
     }
 
 
-
+    /// <summary>
+    /// Method for handling optional UI input.
+    /// </summary>
+    /// <param name="_value"></param>
     public void HandleUIButton(int _value)
     {
         if (canGuess)
@@ -272,8 +296,6 @@ public class GuessingDirectionMinigame : Minigame
                     default:
                         break;
                 }
-
-
 
                 if (UIRightPressed && isRight ||
                     UILeftPressed && isLeft ||
@@ -312,7 +334,9 @@ public class GuessingDirectionMinigame : Minigame
 
 
     }
-
+    /// <summary>
+    /// Enum for the sides.
+    /// </summary>
     public enum Side
     {
         front,

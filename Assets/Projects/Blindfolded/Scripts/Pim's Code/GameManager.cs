@@ -88,6 +88,10 @@ public class GameManager : MonoBehaviour
     }
 
 
+    /// <summary>
+    /// First method being run when application launches.
+    /// Setting instance of this class and making the manager instances.
+    /// </summary>
     GameManager()
     {
         if (instance == null)
@@ -105,7 +109,9 @@ public class GameManager : MonoBehaviour
     }
 
    
-
+    /// <summary>
+    /// Debug method for checking audio sources.
+    /// </summary>
     public void OutputAudioSources() 
     {
         for (int i = 0; i < GetManager<AudioManager>().audioSources.Count; i++)
@@ -118,6 +124,11 @@ public class GameManager : MonoBehaviour
         print(GetManager<AudioManager>().audioSources.Count + "| Audiosources count");
     }
 
+    /// <summary>
+    /// Get a managar in the manager list.
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    /// <returns></returns>
     public static T GetManager<T>() where T : Manager
     {
         for (int i = 0; i < managers.Length; i++)
@@ -130,6 +141,9 @@ public class GameManager : MonoBehaviour
         return default;
     }
     
+    /// <summary>
+    /// Awake, Called after constructor.
+    /// </summary>
     public void Awake()
     {
         for (int i = 0; i < managers.Length; i++)
@@ -163,11 +177,18 @@ public class GameManager : MonoBehaviour
         OutputAudioSources();
     }
 
+    /// <summary>
+    /// Debug method for calling a minigame.
+    /// </summary>
     public void StartMiniGame()
     {
         GetManager<MinigamesManager>().PickRandom();
     }
 }
+
+/// <summary>
+/// Enum of Levels being used for the sceneloader
+/// </summary>
 public class Levels 
 {
     public enum levels 

@@ -26,7 +26,6 @@ public class AudioManager : Manager
         LayerMask mask = 2;
         collider.transform.gameObject.layer = mask;
 
-        // Instead of doing this, use audiomixer
         AudioMixerGroup[] group = GameManager.instance.mixer.FindMatchingGroups("Group1");
         audioSource.outputAudioMixerGroup = group[0];
         AtmokySource atmoky = audioSource.AddComponent<AtmokySource>();
@@ -67,7 +66,10 @@ public class AudioManager : Manager
         return audioSource.clip.length;
     }
 
-
+    /// <summary>
+    /// Remove sound from the list. (Used to check if specific sounds are playing)
+    /// </summary>
+    /// <param name="source"></param>
     public void RemoveFromlist(GameObject source)
     {
         if (IsInList(source.GetComponent<AudioSource>().name))
@@ -93,7 +95,11 @@ public class AudioManager : Manager
             }
         }
     }
-
+    /// <summary>
+    /// Get the audio by name
+    /// </summary>
+    /// <param name="name"></param>
+    /// <returns></returns>
     public GameObject getAudioByName(string name)
     {
         for (int i = 0; i < audioSources.Count; i++)
@@ -109,6 +115,11 @@ public class AudioManager : Manager
         return null;
     }
 
+    /// <summary>
+    /// Check if a certain sound is playing (which is being played in the scene)
+    /// </summary>
+    /// <param name="name"></param>
+    /// <returns></returns>
     public bool IsInList(string name)
     {
         for (int i = 0; i < audioSources.Count; i++)
@@ -125,6 +136,9 @@ public class AudioManager : Manager
     }
 
 
+    /// <summary>
+    /// Clear all sounds in the scene for cleanup
+    /// </summary>
     public void ClearAllSounds()
     {
         Debug.Log("Cleared all sounds");
