@@ -11,8 +11,8 @@ public class TaskVerifier : MonoBehaviour
     bool NodeContacted = false;
     [SerializeField] bool isMinigame;
     [SerializeField] string roomName;
-    [SerializeField] string minigameName;
-    [SerializeField] bool isTriggerd = false;
+    [SerializeField] Minigame minigameName;
+    [SerializeField] public bool isTriggerd = false;
     [SerializeField] bool IsTeleport = false;
     [SerializeField] Levels.levels destination;
 
@@ -24,7 +24,7 @@ public class TaskVerifier : MonoBehaviour
             NodeContacted = true;
             if (isMinigame && !isTriggerd)
             {
-                GameManager.GetManager<MinigamesManager>().PickByName(minigameName);
+                GameManager.GetManager<MinigamesManager>().PickByName(minigameName.minigameName);
                 isTriggerd = true;
             }
             else if (!RequireEventCompleted || RequireEventCompleted && EventCompleted)
@@ -54,7 +54,7 @@ public class TaskVerifier : MonoBehaviour
 
         }
 
-       
+
 
     }
 

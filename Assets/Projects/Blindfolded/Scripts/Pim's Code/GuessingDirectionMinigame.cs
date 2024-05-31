@@ -9,11 +9,11 @@ using UnityEngine.SocialPlatforms.Impl;
 public class GuessingDirectionMinigame : Minigame
 {
 
-    [SerializeField] private string[] sounds;
+    public string[] sounds;
     public LayerMask canHit;
     private Timer timer;
-    [SerializeField] private Timer waitingTimer;
-    [SerializeField] GameObject[] UIButtons;
+    private Timer waitingTimer;
+    public GameObject[] UIButtons;
     private Canvas UICanvas;
     private bool isLeft;
     private bool isRight;
@@ -22,7 +22,7 @@ public class GuessingDirectionMinigame : Minigame
     private bool UIFrontPressed = false, UIBackPressed = false, UILeftPressed = false, UIRightPressed = false;
     private bool canGuess = false;
     private bool isPlayingAudio = false;
-    [SerializeField] private LineRenderer line;
+    public LineRenderer line;
 
     private bool isPlayingVoicePrompt = false;
 
@@ -250,9 +250,9 @@ public class GuessingDirectionMinigame : Minigame
     /// <summary>
     /// Reset the game with this method.
     /// </summary>
-    public override void Reset()
+    public override void ResetGame()
     {
-        base.Reset();
+        base.ResetGame();
         isLeft = false;
         isRight = false;
         isFront = false;
@@ -281,7 +281,7 @@ public class GuessingDirectionMinigame : Minigame
                     case (int)Side.front:
 
                         UIFrontPressed = true;
-                        
+
                         break;
                     case (int)Side.back:
 
