@@ -31,7 +31,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0.000000021855694, y: 0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8566034834312636329}
@@ -106,8 +106,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.1551619, y: 1.9021007, z: 2.2515168}
-  m_Center: {x: 0.00000014901161, y: 0.9559218, z: -0.000000059604645}
+  m_Size: {x: 1.1551619, y: 1.8663924, z: 2.2515168}
+  m_Center: {x: 0.00000011920929, y: 0.973776, z: -0.00000011920929}
 --- !u!114 &5246737162564518435
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -123,12 +123,12 @@ MonoBehaviour:
   speed: 0
   minSpeed: 1
   maxSpeed: 5
-  stopDistance: 2
-  playerDistance: 1
+  stopDistance: 1.5
+  playerDistance: 0.7
   accelerationRate: 0.1
   isMoving: 1
   isThere: 1
-  carFront: 1
+  carFront: 0.8
   carFrontEmpty: {fileID: 1025213387735715088, guid: 0bdab39f9a1eb44489bcf000686e4989,
     type: 3}
 --- !u!82 &3858768521798106386
@@ -253,7 +253,7 @@ Transform:
   m_GameObject: {fileID: 7530617004000130745}
   serializedVersion: 2
   m_LocalRotation: {x: -0.000000021855694, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.969, z: -0.09}
+  m_LocalPosition: {x: 0, y: 0.91, z: -0.09}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

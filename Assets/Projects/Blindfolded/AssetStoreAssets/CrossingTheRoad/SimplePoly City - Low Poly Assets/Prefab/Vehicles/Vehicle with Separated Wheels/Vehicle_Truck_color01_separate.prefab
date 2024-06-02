@@ -610,7 +610,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1, y: 1, z: 1}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8349585579907260089}
@@ -638,12 +638,12 @@ MonoBehaviour:
   speed: 0
   minSpeed: 1
   maxSpeed: 5
-  stopDistance: 7
-  playerDistance: 1
+  stopDistance: 5
+  playerDistance: 3
   accelerationRate: 0.1
   isMoving: 1
   isThere: 1
-  carFront: 2.5
+  carFront: 2
   carFrontEmpty: {fileID: 7969982552498628960}
 --- !u!65 &3004303437671575953
 BoxCollider:
@@ -788,7 +788,7 @@ Transform:
   m_GameObject: {fileID: 7969982552498628960}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.65, z: 2.42}
+  m_LocalPosition: {x: 0, y: 1.65, z: 1.66}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
