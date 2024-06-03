@@ -429,7 +429,7 @@ GameObject:
   - component: {fileID: 4898577183833068481}
   m_Layer: 0
   m_Name: Vehicle_SUV_color03_separate
-  m_TagString: Untagged
+  m_TagString: Car
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

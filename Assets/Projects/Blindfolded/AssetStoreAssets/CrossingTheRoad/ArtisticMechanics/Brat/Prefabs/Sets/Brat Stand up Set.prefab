@@ -1342,7 +1342,7 @@ GameObject:
   - component: {fileID: 661210471702390000}
   m_Layer: 0
   m_Name: Brat Stand up Set
-  m_TagString: Untagged
+  m_TagString: Car
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

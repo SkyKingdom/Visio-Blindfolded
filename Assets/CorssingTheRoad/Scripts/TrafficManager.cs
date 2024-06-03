@@ -10,7 +10,7 @@ public class SpawnPointParameters
     public float initialSpawnDelay = 1f;        //If we want to have an increase
     public float spawnDelayIncreaseRate = 0.1f; //If we want to make it easier for the player we can increase the spawn delay overtime
                                                 //This way the traffic gets less with time passing and it is not fully random
-    public float spawnDistance = 1f;            // Distance at which the traffic manager checks for space to spawn a new car
+    public float spawnDistance = 2f;            // Distance at which the traffic manager checks for space to spawn a new car
 
 }
 
@@ -85,13 +85,13 @@ public class TrafficManager : MonoBehaviour
         if (!Physics.Raycast(spawnPoints[index].position, spawnPoints[index].forward, out hit, spawnPointParameters[index].spawnDistance))
         {
             // There's enough space to spawn a car
-            Debug.DrawRay(spawnPoints[index].position, spawnPoints[index].forward * spawnPointParameters[index].spawnDistance, Color.green);
+            //Debug.DrawRay(spawnPoints[index].position, spawnPoints[index].forward * spawnPointParameters[index].spawnDistance, Color.green);
             return true;
         }
         else
         {
             // There's not enough space to spawn a car
-            Debug.DrawRay(spawnPoints[index].position, spawnPoints[index].forward * hit.distance, Color.black);
+            //Debug.DrawRay(spawnPoints[index].position, spawnPoints[index].forward * hit.distance, Color.black);
             return false;
         }
     }
@@ -122,6 +122,20 @@ public class TrafficManager : MonoBehaviour
             audioSource.clip = randomCarSound;
             audioSource.loop = true; //Loop audio insurance
             audioSource.Play();
+        }
+    }
+
+    private void OnDrawGizmos()
+    {
+        if (spawnPoints == null || spawnPointParameters == null) return;
+
+        for (int i = 0; i < spawnPoints.Length; i++)
+        {
+            if (spawnPoints[i] != null)
+            {
+                Gizmos.color = CheckSpaceForCar(i) ? Color.green : Color.black;
+                Gizmos.DrawRay(spawnPoints[i].position, spawnPoints[i].forward * spawnPointParameters[i].spawnDistance);
+            }
         }
     }
 }
