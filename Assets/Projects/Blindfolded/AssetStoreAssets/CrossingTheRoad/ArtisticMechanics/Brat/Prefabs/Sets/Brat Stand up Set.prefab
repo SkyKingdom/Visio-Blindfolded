@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 442190}
   - component: {fileID: 3355186}
   - component: {fileID: 2329436}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Rear Axle_a
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 460962}
   - component: {fileID: 3301500}
   - component: {fileID: 2320260}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: MUTT Rear Brakes_n
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -177,7 +177,7 @@ GameObject:
   - component: {fileID: 433564}
   - component: {fileID: 3347778}
   - component: {fileID: 2372120}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Front Left Brake Calliper_a
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -260,7 +260,7 @@ GameObject:
   - component: {fileID: 400660}
   - component: {fileID: 3386696}
   - component: {fileID: 2327078}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Stand Up_o
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -343,7 +343,7 @@ GameObject:
   - component: {fileID: 454260}
   - component: {fileID: 3393218}
   - component: {fileID: 2365252}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Front Axle_a
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -426,7 +426,7 @@ GameObject:
   - component: {fileID: 418820}
   - component: {fileID: 3326760}
   - component: {fileID: 2336348}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: MUTT Front Brakes_n
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -509,7 +509,7 @@ GameObject:
   - component: {fileID: 419178}
   - component: {fileID: 3345012}
   - component: {fileID: 2325320}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: MUTT Front Mudguard_n
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -592,7 +592,7 @@ GameObject:
   - component: {fileID: 442124}
   - component: {fileID: 3388520}
   - component: {fileID: 2337134}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: SCRAMBLER Seat_o
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -675,7 +675,7 @@ GameObject:
   - component: {fileID: 429508}
   - component: {fileID: 3391580}
   - component: {fileID: 2382686}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: CLASSIC Right Front Suspension_n
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -758,7 +758,7 @@ GameObject:
   - component: {fileID: 453072}
   - component: {fileID: 3378090}
   - component: {fileID: 2341678}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: BOBBER Front Rim_o
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -841,7 +841,7 @@ GameObject:
   - component: {fileID: 420820}
   - component: {fileID: 3360422}
   - component: {fileID: 2357384}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: CLASSIC Front Tyre_n
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -924,7 +924,7 @@ GameObject:
   - component: {fileID: 429074}
   - component: {fileID: 3366718}
   - component: {fileID: 2334136}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Battery_o
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1007,7 +1007,7 @@ GameObject:
   - component: {fileID: 488898}
   - component: {fileID: 3317640}
   - component: {fileID: 2365788}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Front Right Brake Calliper_a
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1090,7 +1090,7 @@ GameObject:
   - component: {fileID: 448508}
   - component: {fileID: 3377898}
   - component: {fileID: 2345334}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: CLASSIC Engine_a
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1173,7 +1173,7 @@ GameObject:
   - component: {fileID: 427952}
   - component: {fileID: 3378238}
   - component: {fileID: 2394566}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: CLASSIC Left Front Suspension_n
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1256,7 +1256,7 @@ GameObject:
   - component: {fileID: 495864}
   - component: {fileID: 3356384}
   - component: {fileID: 2394074}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: MUTT Taillights_o
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1340,7 +1340,7 @@ GameObject:
   - component: {fileID: 278243453359203303}
   - component: {fileID: 6083513118942935369}
   - component: {fileID: 661210471702390000}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Brat Stand up Set
   m_TagString: Car
   m_Icon: {fileID: 0}
@@ -1406,7 +1406,7 @@ MonoBehaviour:
   speed: 0
   minSpeed: 1
   maxSpeed: 5
-  stopDistance: 1.8
+  stopDistance: 0.9
   playerDistance: 1
   accelerationRate: 0.1
   isMoving: 1
@@ -1433,8 +1433,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.60905, y: 0.89883924, z: 1.7099673}
-  m_Center: {x: -0.0008261204, y: 0.45569807, z: 0.0016094247}
+  m_Size: {x: 0.60905, y: 0.89883924, z: 2.002446}
+  m_Center: {x: -0.0008261204, y: 0.45569807, z: -0.14463016}
 --- !u!82 &661210471702390000
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1543,7 +1543,7 @@ GameObject:
   - component: {fileID: 415558}
   - component: {fileID: 3372542}
   - component: {fileID: 2317260}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Rear Brake Calliper_a
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1626,7 +1626,7 @@ GameObject:
   - component: {fileID: 488204}
   - component: {fileID: 3319632}
   - component: {fileID: 2351222}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: MUTT Rear Mudguard_n
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1709,7 +1709,7 @@ GameObject:
   - component: {fileID: 457884}
   - component: {fileID: 3336580}
   - component: {fileID: 2364870}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: TRACKER Left exhaust_a
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1792,7 +1792,7 @@ GameObject:
   - component: {fileID: 456812}
   - component: {fileID: 3312548}
   - component: {fileID: 2398868}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: CLASSIC Rear Tyre_n
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1875,7 +1875,7 @@ GameObject:
   - component: {fileID: 470604}
   - component: {fileID: 3357644}
   - component: {fileID: 2356492}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: BOBBER Chassis_o
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1958,7 +1958,7 @@ GameObject:
   - component: {fileID: 464750}
   - component: {fileID: 3397382}
   - component: {fileID: 2315098}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: MUTT Headlights_a
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2041,7 +2041,7 @@ GameObject:
   - component: {fileID: 443746}
   - component: {fileID: 3391190}
   - component: {fileID: 2312772}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: MUTT Left Back Suspension_n
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2124,7 +2124,7 @@ GameObject:
   - component: {fileID: 467646}
   - component: {fileID: 3383808}
   - component: {fileID: 2329012}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: MUTT Right Back Suspension_n
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2207,7 +2207,7 @@ GameObject:
   - component: {fileID: 489212}
   - component: {fileID: 3341734}
   - component: {fileID: 2379660}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: TRACKER Rear Rim_n
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2290,7 +2290,7 @@ GameObject:
   - component: {fileID: 482270}
   - component: {fileID: 3315770}
   - component: {fileID: 2384120}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: TRACKER Gastank_a
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2373,7 +2373,7 @@ GameObject:
   - component: {fileID: 466078}
   - component: {fileID: 3320292}
   - component: {fileID: 2347144}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: BOBBER Steering_o
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2456,7 +2456,7 @@ GameObject:
   - component: {fileID: 411948}
   - component: {fileID: 3362854}
   - component: {fileID: 2383378}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: SCRAMBLER Right exhaust_o
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2537,7 +2537,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5591549967228025946}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: CarFront
   m_TagString: Untagged
   m_Icon: {fileID: 7866945982896999795, guid: 0000000000000000d000000000000000, type: 0}

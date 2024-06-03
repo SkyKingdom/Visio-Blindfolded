@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6524910}
   - component: {fileID: 5246737162564518435}
   - component: {fileID: 3858768521798106386}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Motor
   m_TagString: Car
   m_Icon: {fileID: 0}
@@ -102,12 +102,12 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.1551619, y: 1.8663924, z: 2.2515168}
-  m_Center: {x: 0.00000011920929, y: 0.973776, z: -0.00000011920929}
+  m_Size: {x: 1.1551619, y: 1.8663925, z: 2.9452288}
+  m_Center: {x: 0.00000012772423, y: 0.9737761, z: -0.34685573}
 --- !u!114 &5246737162564518435
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -123,7 +123,7 @@ MonoBehaviour:
   speed: 0
   minSpeed: 1
   maxSpeed: 5
-  stopDistance: 1.5
+  stopDistance: 0.5
   playerDistance: 0.7
   accelerationRate: 0.1
   isMoving: 1
@@ -237,7 +237,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8566034834312636329}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: CarFront
   m_TagString: Untagged
   m_Icon: {fileID: 7866945982896999795, guid: 0000000000000000d000000000000000, type: 0}

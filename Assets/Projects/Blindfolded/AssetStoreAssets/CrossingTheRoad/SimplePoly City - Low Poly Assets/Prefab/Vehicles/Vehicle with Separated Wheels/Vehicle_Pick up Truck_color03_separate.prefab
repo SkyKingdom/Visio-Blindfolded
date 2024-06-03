@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 400000}
   - component: {fileID: 3300000}
   - component: {fileID: 2300000}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Wheel_RR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 400002}
   - component: {fileID: 3300002}
   - component: {fileID: 2300002}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Wheel_RL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -177,7 +177,7 @@ GameObject:
   - component: {fileID: 400004}
   - component: {fileID: 3300004}
   - component: {fileID: 2300004}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Wheel_FR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -260,7 +260,7 @@ GameObject:
   - component: {fileID: 400006}
   - component: {fileID: 3300006}
   - component: {fileID: 2300006}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Wheel_FL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -343,7 +343,7 @@ GameObject:
   - component: {fileID: 400010}
   - component: {fileID: 3300008}
   - component: {fileID: 2300008}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Car Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -427,7 +427,7 @@ GameObject:
   - component: {fileID: 4437455366493992492}
   - component: {fileID: 8638233515999310206}
   - component: {fileID: 9057195168446092722}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Vehicle_Pick up Truck_color03_separate
   m_TagString: Car
   m_Icon: {fileID: 0}
@@ -470,13 +470,13 @@ MonoBehaviour:
   speed: 0
   minSpeed: 1
   maxSpeed: 5
-  stopDistance: 2.5
+  stopDistance: 1.3
   playerDistance: 1.5
   accelerationRate: 0.1
   isMoving: 1
   isThere: 1
   carFront: 1
-  carFrontEmpty: {fileID: 0}
+  carFrontEmpty: {fileID: 7299010138004333905}
 --- !u!65 &8638233515999310206
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -604,7 +604,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3082198529973058139}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: CarFront
   m_TagString: Untagged
   m_Icon: {fileID: 7866945982896999795, guid: 0000000000000000d000000000000000, type: 0}

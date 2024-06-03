@@ -12,6 +12,7 @@ public class SpawnPointParameters
                                                 //This way the traffic gets less with time passing and it is not fully random
     public float spawnDistance = 2f;            // Distance at which the traffic manager checks for space to spawn a new car
 
+    public Vector3 spawnBoxSize = new Vector3(1f, 1f, 2f); // Size of the box to check for space
 }
 
 public class TrafficManager : MonoBehaviour
@@ -20,8 +21,7 @@ public class TrafficManager : MonoBehaviour
     public AudioClip[] carSounds;    //Car Sounds List
     public Transform[] spawnPoints;  //Option to add more lanes
     public SpawnPointParameters[] spawnPointParameters; // Parameters for each spawn point
-
-
+    //public LayerMask carLayerMask;   // Layer mask for cars to ensure raycast only checks cars
     void Start()
     {
         StartCoroutine(SpawnCars());
@@ -77,24 +77,51 @@ public class TrafficManager : MonoBehaviour
         //return Mathf.Clamp(initialSpawnDelay + time, minSpawnDelay, maxSpawnDelay); //No increase but idk
         //return Random.Range(minSpawnDelay, maxSpawnDelay); //I think that's the best way to do it
     }
-
+    
+    //In the end i had to add a tag compare in the overlap box (btw all models need colldiers)
     private bool CheckSpaceForCar(int index)
     {
-        // Cast a ray forward to check for space
-        RaycastHit hit;
-        if (!Physics.Raycast(spawnPoints[index].position, spawnPoints[index].forward, out hit, spawnPointParameters[index].spawnDistance))
+        foreach (var car in Physics.OverlapBox(spawnPoints[index].position, spawnPointParameters[index].spawnBoxSize / 2)) //The spawn box size in the inspector has to be 4 or 5 as
+                                                                                                                           //some models are quite big and need more space for their
+                                                                                                                           //sphere collider to detect the car in front
         {
-            // There's enough space to spawn a car
-            //Debug.DrawRay(spawnPoints[index].position, spawnPoints[index].forward * spawnPointParameters[index].spawnDistance, Color.green);
-            return true;
+            if (car.CompareTag("Car"))
+            {
+                return false; // Return false if any car collider is detected within the spawn area
+            }
         }
-        else
-        {
-            // There's not enough space to spawn a car
-            //Debug.DrawRay(spawnPoints[index].position, spawnPoints[index].forward * hit.distance, Color.black);
-            return false;
-        }
+        return true; // Return true if no car collider is detected within the spawn area
     }
+    //Then i changed to this but cars were still spawning in each other
+
+    //private bool CheckSpaceForCar(int index)
+    //{
+    //    // Use Physics.OverlapBox to check for space around the spawn point
+    //    Vector3 boxCenter = spawnPoints[index].position + spawnPoints[index].forward * (spawnPointParameters[index].spawnBoxSize.z / 2);
+    //    Collider[] hitColliders = Physics.OverlapBox(boxCenter, spawnPointParameters[index].spawnBoxSize / 2, spawnPoints[index].rotation, carLayerMask);
+
+    //    return hitColliders.Length == 0;
+    //}
+
+    //At first i was checkign wih a raycast but the cars are different sizes and the ray wasnt enough adn cars were spawning in each other
+
+    //private bool CheckSpaceForCar(int index) 
+    //{
+    //    // Cast a ray forward to check for space
+    //    RaycastHit hit;
+    //    if (!Physics.Raycast(spawnPoints[index].position, spawnPoints[index].forward, out hit, spawnPointParameters[index].spawnDistance))
+    //    {
+    //        // There's enough space to spawn a car
+    //        //Debug.DrawRay(spawnPoints[index].position, spawnPoints[index].forward * spawnPointParameters[index].spawnDistance, Color.green);
+    //        return true;
+    //    }
+    //    else
+    //    {
+    //        // There's not enough space to spawn a car
+    //        //Debug.DrawRay(spawnPoints[index].position, spawnPoints[index].forward * hit.distance, Color.black);
+    //        return false;
+    //    }
+    //}
 
     private void SpawnCar(int index)
     {
@@ -124,6 +151,21 @@ public class TrafficManager : MonoBehaviour
             audioSource.Play();
         }
     }
+    //That was for the gizmos for the first spawn space enough detection ray
+
+    //private void OnDrawGizmos() 
+    //{
+    //    if (spawnPoints == null || spawnPointParameters == null) return;
+
+    //    for (int i = 0; i < spawnPoints.Length; i++)
+    //    {
+    //        if (spawnPoints[i] != null)
+    //        {
+    //            Gizmos.color = CheckSpaceForCar(i) ? Color.green : Color.black;
+    //            Gizmos.DrawRay(spawnPoints[i].position, spawnPoints[i].forward * spawnPointParameters[i].spawnDistance);
+    //        }
+    //    }
+    //}
 
     private void OnDrawGizmos()
     {
@@ -133,8 +175,9 @@ public class TrafficManager : MonoBehaviour
         {
             if (spawnPoints[i] != null)
             {
-                Gizmos.color = CheckSpaceForCar(i) ? Color.green : Color.black;
-                Gizmos.DrawRay(spawnPoints[i].position, spawnPoints[i].forward * spawnPointParameters[i].spawnDistance);
+                Gizmos.color = CheckSpaceForCar(i) ? Color.green : Color.red;
+                Vector3 boxCenter = spawnPoints[i].position + spawnPoints[i].forward * (spawnPointParameters[i].spawnBoxSize.z / 2);
+                Gizmos.DrawWireCube(boxCenter, spawnPointParameters[i].spawnBoxSize);
             }
         }
     }

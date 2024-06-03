@@ -42,9 +42,19 @@ public class CarController : MonoBehaviour
     {
         if (ScreensActivation.instance.isActive)
         {
-            // Check for obstacles (cars) in front of the car
+            //// Check for obstacles (cars) in front of the car. At first I made it with a ray cast but then i realized cars are different heights and the ray misses
+            //RaycastHit hit;
+            //if (Physics.Raycast(transform.position, transform.forward, out hit, stopDistance))
+            //{
+            //    if (hit.collider.CompareTag("Car"))
+            //    {
+            //        // If the distance to the car in front is less than stopDistance, stop the car
+            //        isMoving = false;
+            //    }
+            //}
+            // Check for obstacles (cars) in front of the car using sphere cast
             RaycastHit hit;
-            if (Physics.Raycast(transform.position, transform.forward, out hit, stopDistance))
+            if (Physics.SphereCast(transform.position, carFront, transform.forward, out hit, stopDistance))
             {
                 if (hit.collider.CompareTag("Car"))
                 {
@@ -52,6 +62,7 @@ public class CarController : MonoBehaviour
                     isMoving = false;
                 }
             }
+
             else
             {
                 // If there are no obstacles ahead, accelerate the car
@@ -101,9 +112,13 @@ public class CarController : MonoBehaviour
     }
     void OnDrawGizmos()
     {
-        // Draw the raycast in the scene view for debugging
+        //// Draw the raycast in the scene view for debugging (it was aray cast before a sphere)
+        //Gizmos.color = Color.red;
+        //Gizmos.DrawRay(transform.position, transform.forward * stopDistance);
+
+        // Draw the sphere cast for car detection in the scene view for debugging
         Gizmos.color = Color.red;
-        Gizmos.DrawRay(transform.position, transform.forward * stopDistance);
+        Gizmos.DrawWireSphere(transform.position + transform.forward * stopDistance, carFront);
 
         // Draw the sphere cast in the scene view for debugging
         Gizmos.color = Color.blue;

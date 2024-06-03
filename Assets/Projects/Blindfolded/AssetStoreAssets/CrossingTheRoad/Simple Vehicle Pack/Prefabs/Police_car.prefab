@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4786165216473404}
   - component: {fileID: 33846728464820042}
   - component: {fileID: 23872015978594554}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Object005
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 4760845229251968}
   - component: {fileID: 33183683889693866}
   - component: {fileID: 23454689495253346}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Object015
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -179,7 +179,7 @@ GameObject:
   - component: {fileID: 4652618803402950}
   - component: {fileID: 33730543002999836}
   - component: {fileID: 23008349884360502}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Object017
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -263,7 +263,7 @@ GameObject:
   - component: {fileID: 4003348016058852}
   - component: {fileID: 33231969638477902}
   - component: {fileID: 23628172322287596}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: police_car
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -348,7 +348,7 @@ GameObject:
   - component: {fileID: 7901512416898490247}
   - component: {fileID: 7287954261495886525}
   - component: {fileID: 305973756480008400}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Police_car
   m_TagString: Car
   m_Icon: {fileID: 0}
@@ -391,13 +391,13 @@ MonoBehaviour:
   speed: 0
   minSpeed: 1
   maxSpeed: 5
-  stopDistance: 2.5
+  stopDistance: 1.4
   playerDistance: 1.5
   accelerationRate: 0.1
   isMoving: 1
   isThere: 1
   carFront: 1
-  carFrontEmpty: {fileID: 0}
+  carFrontEmpty: {fileID: 2399805333617714662}
 --- !u!65 &7287954261495886525
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -527,7 +527,7 @@ GameObject:
   - component: {fileID: 4955056900105520}
   - component: {fileID: 33264542208718286}
   - component: {fileID: 23306454348383526}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Object016
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -609,7 +609,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 342531558488733152}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: CarFront
   m_TagString: Untagged
   m_Icon: {fileID: 7866945982896999795, guid: 0000000000000000d000000000000000, type: 0}

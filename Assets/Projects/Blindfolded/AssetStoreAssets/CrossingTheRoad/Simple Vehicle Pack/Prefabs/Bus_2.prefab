@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4745988817294862}
   - component: {fileID: 33804035194329962}
   - component: {fileID: 23391265087605912}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Object019
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 4209524850194694}
   - component: {fileID: 33370332262914146}
   - component: {fileID: 23994141604240628}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Object021
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -177,7 +177,7 @@ GameObject:
   - component: {fileID: 4742112200795446}
   - component: {fileID: 33213555919764264}
   - component: {fileID: 23066306808717816}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Object022
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -260,7 +260,7 @@ GameObject:
   - component: {fileID: 4230925047676480}
   - component: {fileID: 33624357935085284}
   - component: {fileID: 23829453484136236}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Object018
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -344,7 +344,7 @@ GameObject:
   - component: {fileID: 5631258064613087505}
   - component: {fileID: 3830538173005099042}
   - component: {fileID: 3256401041481087157}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Bus_2
   m_TagString: Car
   m_Icon: {fileID: 0}
@@ -387,7 +387,7 @@ MonoBehaviour:
   speed: 0
   minSpeed: 1
   maxSpeed: 5
-  stopDistance: 3.7
+  stopDistance: 2
   playerDistance: 2.2
   accelerationRate: 0.1
   isMoving: 1
@@ -524,7 +524,7 @@ GameObject:
   - component: {fileID: 4890977168923924}
   - component: {fileID: 33529158119910470}
   - component: {fileID: 23794533550789092}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Object020
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -605,7 +605,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7832707209782989772}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: CarFront
   m_TagString: Untagged
   m_Icon: {fileID: 7866945982896999795, guid: 0000000000000000d000000000000000, type: 0}

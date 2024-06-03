@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4555913831123744}
   - component: {fileID: 33449832448892400}
   - component: {fileID: 23115644487780148}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Object010
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 4700048429678634}
   - component: {fileID: 33314167155619540}
   - component: {fileID: 23942942443588636}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Object012
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -179,7 +179,7 @@ GameObject:
   - component: {fileID: 2685539878741558733}
   - component: {fileID: 5992437632085029695}
   - component: {fileID: 2728229539182024254}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Car_2
   m_TagString: Car
   m_Icon: {fileID: 0}
@@ -222,13 +222,13 @@ MonoBehaviour:
   speed: 0
   minSpeed: 1
   maxSpeed: 5
-  stopDistance: 2.5
+  stopDistance: 1.4
   playerDistance: 1.5
   accelerationRate: 0.1
   isMoving: 1
   isThere: 1
   carFront: 1
-  carFrontEmpty: {fileID: 0}
+  carFrontEmpty: {fileID: 375968149269912463}
 --- !u!65 &5992437632085029695
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -358,7 +358,7 @@ GameObject:
   - component: {fileID: 4026899674362240}
   - component: {fileID: 33854244447227960}
   - component: {fileID: 23541928347256236}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Object014
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -441,7 +441,7 @@ GameObject:
   - component: {fileID: 4056998221344212}
   - component: {fileID: 33610123856757994}
   - component: {fileID: 23636691086772800}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Object013
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -524,7 +524,7 @@ GameObject:
   - component: {fileID: 4451881958030448}
   - component: {fileID: 33415225244959392}
   - component: {fileID: 23416682001265046}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Object011
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -605,7 +605,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4962900431282606033}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: CarFront
   m_TagString: Untagged
   m_Icon: {fileID: 7866945982896999795, guid: 0000000000000000d000000000000000, type: 0}
