@@ -6,7 +6,7 @@ public class MinigamesManager : Manager
 {
     //List to track which minigames have already been played.
     private List<int> alreadyPlayed = new List<int>();
-
+    
     public override void Start()
     {
         //Can test the alreadyPlayed list here.
@@ -34,14 +34,16 @@ public class MinigamesManager : Manager
     //Pick a minigame by name
     public void PickByName(string name) 
     {
-        for (int i = 0; i < gameManager.minigames.Count; i++)
+        for (int i = 0; i < gameManager.minigames.Length; i++)
         {
-        
-            if (gameManager.minigames[i].name == name)
+            Debug.LogWarning("Minigames array: " + gameManager.minigames[i].ToString());
+            if (gameManager.minigames[i].minigameName == name)
             {
                 gameManager.currentMinigame = gameManager.minigames[i];
                 alreadyPlayed.Add(i);
                 gameManager.currentMinigame.EntryPoint();
+
+                
             }
         }
 
@@ -49,13 +51,12 @@ public class MinigamesManager : Manager
         {
             Debug.LogError("Minigame with the given name does not exist");
         }
-    
     }
 
     //Disables the currently running minigame
     public void DisableMinigame()
     {
-        gameManager.currentMinigame.Reset();
+        gameManager.currentMinigame.ResetGame();
         ClearList();
         gameManager.currentMinigame = null;
     }
@@ -63,7 +64,7 @@ public class MinigamesManager : Manager
     //Rolls a minigame till it finds one that has not been done already.
     public int RollTillValid()
     {
-        int random = Random.Range(0, gameManager.minigames.Count);
+        int random = Random.Range(0, gameManager.minigames.Length);
         if (alreadyPlayed.Count > 0)
         {
             for (int i = 0; i < alreadyPlayed.Count; i++)
@@ -83,6 +84,9 @@ public class MinigamesManager : Manager
        
     }
 
+    /// <summary>
+    /// Clears the minigames list
+    /// </summary>
     public void ClearList() 
     {
         alreadyPlayed.Clear();

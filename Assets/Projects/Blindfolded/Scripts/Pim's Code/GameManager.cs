@@ -17,7 +17,7 @@ public class GameManager : MonoBehaviour
     [Header("-----------------------------------------------------------------------")]
     [Header("Minigame Manager Variables")]
     [Space(5)]
-    public List<Minigame> minigames;
+    public Minigame[] minigames;
     public Minigame currentMinigame;
     public List<GameObject> nodes;
     public bool startOnAwake;
