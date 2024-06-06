@@ -6,7 +6,7 @@ public class MinigamesManager : Manager
 {
     //List to track which minigames have already been played.
     private List<int> alreadyPlayed = new List<int>();
-
+    
     public override void Start()
     {
         //Can test the alreadyPlayed list here.
@@ -42,6 +42,8 @@ public class MinigamesManager : Manager
                 gameManager.currentMinigame = gameManager.minigames[i];
                 alreadyPlayed.Add(i);
                 gameManager.currentMinigame.EntryPoint();
+
+                
             }
         }
 
