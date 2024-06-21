@@ -17,7 +17,7 @@ public class GameManager : MonoBehaviour
     [Header("-----------------------------------------------------------------------")]
     [Header("Minigame Manager Variables")]
     [Space(5)]
-    public Minigame[] minigames;
+    public List<Minigame> minigames = new();
     public Minigame currentMinigame;
     public List<GameObject> nodes;
     public bool startOnAwake;
@@ -82,7 +82,7 @@ public class GameManager : MonoBehaviour
 #endif
 
 
-    public static void SceneLoader(Levels.levels level) 
+    public static void SceneLoader(Levels.levels level)
     {
         SceneManager.LoadScene((int)level);
     }
@@ -108,15 +108,15 @@ public class GameManager : MonoBehaviour
         };
     }
 
-   
+
     /// <summary>
     /// Debug method for checking audio sources.
     /// </summary>
-    public void OutputAudioSources() 
+    public void OutputAudioSources()
     {
         for (int i = 0; i < GetManager<AudioManager>().audioSources.Count; i++)
         {
-            if (GetManager<AudioManager>().audioSources[i]!= null)
+            if (GetManager<AudioManager>().audioSources[i] != null)
             {
                 print(GetManager<AudioManager>().audioSources[i].ToString() + " | AudioSource active");
             }
@@ -140,7 +140,7 @@ public class GameManager : MonoBehaviour
         }
         return default;
     }
-    
+
     /// <summary>
     /// Awake, Called after constructor.
     /// </summary>
@@ -156,7 +156,7 @@ public class GameManager : MonoBehaviour
     public void Start()
     {
 
-       
+
         for (int i = 0; i < managers.Length; i++)
         {
             managers[i].Start();
@@ -175,6 +175,14 @@ public class GameManager : MonoBehaviour
             managers[i].Update();
         }
         OutputAudioSources();
+
+
+        if (OVRInput.Get(OVRInput.Button.Start) && OVRInput.Get(OVRInput.Button.One))
+        {
+            RestartAndroid();
+        }
+
+
     }
 
     /// <summary>
@@ -184,18 +192,42 @@ public class GameManager : MonoBehaviour
     {
         GetManager<MinigamesManager>().PickRandom();
     }
+
+#if UNITY_ANDROID
+    private static void RestartAndroid()
+    {
+        if (Application.isEditor) return;
+
+        using (var unityPlayer = new AndroidJavaClass("com.unity3d.player.UnityPlayer"))
+        {
+            const int kIntent_FLAG_ACTIVITY_CLEAR_TASK = 0x00008000;
+            const int kIntent_FLAG_ACTIVITY_NEW_TASK = 0x10000000;
+
+            var currentActivity = unityPlayer.GetStatic<AndroidJavaObject>("currentActivity");
+            var pm = currentActivity.Call<AndroidJavaObject>("getPackageManager");
+            var intent = pm.Call<AndroidJavaObject>("getLaunchIntentForPackage", Application.identifier);
+
+            intent.Call<AndroidJavaObject>("setFlags", kIntent_FLAG_ACTIVITY_NEW_TASK | kIntent_FLAG_ACTIVITY_CLEAR_TASK);
+            currentActivity.Call("startActivity", intent);
+            currentActivity.Call("finish");
+            var process = new AndroidJavaClass("android.os.Process");
+            int pid = process.CallStatic<int>("myPid");
+            process.CallStatic("killProcess", pid);
+        }
+    }
+#endif
 }
 
 /// <summary>
 /// Enum of Levels being used for the sceneloader
 /// </summary>
-public class Levels 
+public class Levels
 {
-    public enum levels 
+    public enum levels
     {
         //Scenes should be in order as the build settings.
         Main,
         Crossing
     }
- 
+
 }

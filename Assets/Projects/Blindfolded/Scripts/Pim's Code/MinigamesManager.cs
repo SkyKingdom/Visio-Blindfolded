@@ -34,17 +34,24 @@ public class MinigamesManager : Manager
     //Pick a minigame by name
     public void PickByName(string name) 
     {
-        for (int i = 0; i < gameManager.minigames.Length; i++)
+        for (int i = 0; i < gameManager.minigames.Count; i++)
         {
-            Debug.LogWarning("Minigames array: " + gameManager.minigames[i].ToString());
-            if (gameManager.minigames[i].minigameName == name)
+            Debug.LogError("Minigames array: " + gameManager.minigames[i].minigameName);
+            Debug.LogError("Minigame name: " + name);
+            if (gameManager.minigames[i] != null)
             {
-                gameManager.currentMinigame = gameManager.minigames[i];
-                alreadyPlayed.Add(i);
-                gameManager.currentMinigame.EntryPoint();
-
-                
+                if (gameManager.minigames[i].minigameName == name)
+                {
+                    gameManager.currentMinigame = gameManager.minigames[i];
+                    alreadyPlayed.Add(i);
+                    gameManager.currentMinigame.EntryPoint();
+                }
             }
+            else
+            {
+                Debug.LogError("There is a minigame null, checking for more");
+            }
+          
         }
 
         if (gameManager.currentMinigame == null)
@@ -64,7 +71,7 @@ public class MinigamesManager : Manager
     //Rolls a minigame till it finds one that has not been done already.
     public int RollTillValid()
     {
-        int random = Random.Range(0, gameManager.minigames.Length);
+        int random = Random.Range(0, gameManager.minigames.Count);
         if (alreadyPlayed.Count > 0)
         {
             for (int i = 0; i < alreadyPlayed.Count; i++)

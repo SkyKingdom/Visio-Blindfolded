@@ -40,9 +40,7 @@ public class DynamicHaptics : MonoBehaviour
             default:
                 break;
         }
-
     }
-
     /// <summary>
     /// 
     /// </summary>
