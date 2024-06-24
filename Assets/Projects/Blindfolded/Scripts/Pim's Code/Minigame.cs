@@ -18,7 +18,7 @@ public abstract class Minigame : MonoBehaviour
     public Transform[] locationsToFind;
     public string minigameName;
 
-
+   
 
     public virtual void EntryPoint() { }
 

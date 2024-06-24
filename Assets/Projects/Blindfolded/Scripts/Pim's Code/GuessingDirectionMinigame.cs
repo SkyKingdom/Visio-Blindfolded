@@ -33,20 +33,6 @@ public class GuessingDirectionMinigame : Minigame
     private bool isPlayingVoicePrompt = false;
 
 
-    public void Start()
-    {
-        Debug.LogError("Minigames Update Init");
-        if (GameManager.instance.minigames != null)
-        {
-            Debug.LogError("Minigames Update Null check");
-            for (int i = 0; i < GameManager.instance.minigames.Count; i++)
-            {
-                Debug.LogError("Minigames Update  Adding");
-                GameManager.instance.minigames.Add(gameObject.GetComponent<GuessingDirectionMinigame>());
-            }
-        }
-    }
-
 
     /// <summary>
     /// Constructor of the minigame
@@ -55,6 +41,16 @@ public class GuessingDirectionMinigame : Minigame
     {
         timer = new Timer();
         waitingTimer = new Timer();
+    }
+
+    public void Start()
+    {
+        GameManager.instance.ClearMinigames();
+        GameManager.instance.AddMinigameToList(gameObject);
+        for (int i = 0; i < GameManager.instance.GetMinigamesList().Count; i++)
+        {
+            Debug.LogError(GameManager.instance.GetMinigamesList()[i].name);
+        }
     }
     // <summary>
     // Called whenever the minigame is initialized
@@ -91,8 +87,8 @@ public class GuessingDirectionMinigame : Minigame
         if (waitingTimer.isActive && waitingTimer.TimerDone())
         {
             RelocateToNode();
-            waitingTimer.StopTimer();
             controllerReference.Acceleration = 0.1f;
+            waitingTimer.StopTimer();
         }
         PlayerInput();
         OVRInput.Update();

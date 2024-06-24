@@ -14,10 +14,11 @@ public class GameManager : MonoBehaviour
     [Header("Player Reference")]
     [Space(5)]
     public GameObject player;
+
     [Header("-----------------------------------------------------------------------")]
     [Header("Minigame Manager Variables")]
     [Space(5)]
-    public List<Minigame> minigames = new();
+    private List<Minigame> minigames;
     public Minigame currentMinigame;
     public List<GameObject> nodes;
     public bool startOnAwake;
@@ -94,6 +95,7 @@ public class GameManager : MonoBehaviour
     /// </summary>
     GameManager()
     {
+        
         if (instance == null)
         {
             instance = this;
@@ -122,6 +124,20 @@ public class GameManager : MonoBehaviour
             }
         }
         print(GetManager<AudioManager>().audioSources.Count + "| Audiosources count");
+    }
+
+    public void AddMinigameToList(GameObject minigameObject) 
+    {
+        minigames.Add(minigameObject.GetComponent<Minigame>());
+    }
+
+    public void ClearMinigames() 
+    {
+        minigames.Clear();
+    }
+    public List<Minigame> GetMinigamesList() 
+    {
+        return minigames;
     }
 
     /// <summary>

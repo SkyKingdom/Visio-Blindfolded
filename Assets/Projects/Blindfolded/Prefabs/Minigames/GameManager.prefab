@@ -92,24 +92,30 @@ MonoBehaviour:
   - {fileID: 0}
   startOnAwake: 0
   mixer: {fileID: 24100000, guid: 2e02fee98b16f7f4eacf377d1893062f, type: 2}
-  Seed: 0
+  Seed: 1372651333
   AutoGenerateSeed: 1
   StoryPrompts:
   - {fileID: 11400000, guid: ccb4da9e92c042d419cf44ae0e87231a, type: 2}
   - {fileID: 11400000, guid: 3be2b3740c0b54b489ba96a090a9ef94, type: 2}
   - {fileID: 11400000, guid: 973605b207deb074c8d75c8548e4d54c, type: 2}
-  NodePromtListLength: 0
-  StoryProgressionNumber: 0
-  StoryHasReachedWaypoint: 1
-  CurrentObjectiveNodeString: 
-  CurrentStoryNodeTask: {fileID: 0}
-  CurrentStoryEndNode: {fileID: 0}
-  ThisStoryTaskList: []
-  RandomSelectedMasterNode: 0
+  NodePromtListLength: 3
+  StoryProgressionNumber: 1
+  StoryHasReachedWaypoint: 0
+  CurrentObjectiveNodeString: Node_1
+  CurrentStoryNodeTask: {fileID: 11400000, guid: 3be2b3740c0b54b489ba96a090a9ef94,
+    type: 2}
+  CurrentStoryEndNode: {fileID: 11400000, guid: 8864a1252fcef7046828461295c7a104,
+    type: 2}
+  ThisStoryTaskList:
+  - {fileID: 11400000, guid: 3be2b3740c0b54b489ba96a090a9ef94, type: 2}
+  - {fileID: 11400000, guid: 962e3b37e374f644ca4c7bbec1203e84, type: 2}
+  - {fileID: 11400000, guid: 85a426ae7d510764d9e76b6951aa456f, type: 2}
+  - {fileID: 11400000, guid: 8864a1252fcef7046828461295c7a104, type: 2}
+  RandomSelectedMasterNode: 1
   masternodeSO: {fileID: 0}
   SelectingNodeFailCheck: 0
-  masterNodeStoryLength: 0
-  masterCurrentStoryLength: 0
+  masterNodeStoryLength: 3
+  masterCurrentStoryLength: 3
 --- !u!114 &3382632136551186850
 MonoBehaviour:
   m_ObjectHideFlags: 0
