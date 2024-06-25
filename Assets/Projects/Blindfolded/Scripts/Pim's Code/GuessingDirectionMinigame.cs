@@ -76,11 +76,10 @@ public class GuessingDirectionMinigame : Minigame
         float explainingAudio = GameManager.GetManager<AudioManager>().PlaySound("directionexplain", new Vector3(GameManager.instance.player.transform.position.x
             , GameManager.instance.player.transform.position.y + 2
             , GameManager.instance.player.transform.position.z)
-            , false, 100);
+            , false, 85);
         StartCoroutine(GenericVoicePrompt(explainingAudio));
         waitingTimer.SetTimer(explainingAudio + 1);
         controllerReference = FindAnyObjectByType<OVRPlayerController>().GetComponent<OVRPlayerController>();
-
     }
 
 
@@ -119,7 +118,7 @@ public class GuessingDirectionMinigame : Minigame
     {
         GameManager.GetManager<AudioManager>().ClearAllSounds();
         int randomSound = UnityEngine.Random.Range(0, sounds.Length);
-        int randomVolume = UnityEngine.Random.Range(50, 100);
+        int randomVolume = UnityEngine.Random.Range(90, 100);
         print("gets here IsRunning");
         int random = UnityEngine.Random.Range(0, locationsToFind.Length);
         locationToFind = locationsToFind[random];
@@ -226,13 +225,13 @@ public class GuessingDirectionMinigame : Minigame
                     isBack && OVRInput.GetDown(OVRInput.Button.One))
                 {
                     float soundTime = GameManager.GetManager<AudioManager>().PlaySound("voiceguessright", new Vector3(GameManager.instance.player.transform.position.x,
-                        GameManager.instance.player.transform.position.y + 5, GameManager.instance.player.transform.position.z), false, 100);
+                        GameManager.instance.player.transform.position.y + 5, GameManager.instance.player.transform.position.z), false, 85);
                     Debug.Log("Correct guess!"); //add voice prompts for feedback
                     currentScore++;
                     canGuess = false;
                     if (currentScore >= maxScore)
                     {
-                        GameManager.GetManager<AudioManager>().PlaySound("directionend", GameManager.instance.player.transform.position, false, 100);
+                        GameManager.GetManager<AudioManager>().PlaySound("directionend", GameManager.instance.player.transform.position, false, 85);
                         OnMinigameComplete.Invoke();
                         GameManager.GetManager<MinigamesManager>().DisableMinigame();
                     }
@@ -241,7 +240,7 @@ public class GuessingDirectionMinigame : Minigame
                 else
                 {
                     float soundTime = GameManager.GetManager<AudioManager>().PlaySound("voiceguesswrong", new Vector3(GameManager.instance.player.transform.position.x,
-                        GameManager.instance.player.transform.position.y + 5, GameManager.instance.player.transform.position.z), false, 100);
+                        GameManager.instance.player.transform.position.y + 5, GameManager.instance.player.transform.position.z), false, 85);
                     Debug.Log("Incorrect guess.");
                     canGuess = false;
                     waitingTimer.SetTimer(soundTime);
@@ -276,7 +275,7 @@ public class GuessingDirectionMinigame : Minigame
     IEnumerator WaitForVoicePromptToEnd()
     {
         float soundTime = GameManager.GetManager<AudioManager>().PlaySound("voicestart", new Vector3(GameManager.instance.player.transform.position.x,
-            GameManager.instance.player.transform.position.y + 5, GameManager.instance.player.transform.position.z), false, 100);
+            GameManager.instance.player.transform.position.y + 5, GameManager.instance.player.transform.position.z), false, 85);
         yield return new WaitForSeconds(soundTime); // Wait for the voice prompt to finish playing
         isPlayingVoicePrompt = false;
         canGuess = true;
@@ -356,13 +355,13 @@ public class GuessingDirectionMinigame : Minigame
                     UIBackPressed && isBack)
                 {
                     float soundTime = GameManager.GetManager<AudioManager>().PlaySound("voiceguessright", new Vector3(GameManager.instance.player.transform.position.x,
-                        GameManager.instance.player.transform.position.y + 5, GameManager.instance.player.transform.position.z), false, 100);
+                        GameManager.instance.player.transform.position.y + 5, GameManager.instance.player.transform.position.z), false, 85);
                     Debug.Log("Correct guess!"); //add voice prompts for feedback
                     currentScore++;
                     canGuess = false;
                     if (currentScore >= maxScore)
                     {
-                        GameManager.GetManager<AudioManager>().PlaySound("directionend", GameManager.instance.player.transform.position, false, 100);
+                        GameManager.GetManager<AudioManager>().PlaySound("directionend", GameManager.instance.player.transform.position, false, 85);
                         OnMinigameComplete.Invoke();
                         GameManager.GetManager<MinigamesManager>().DisableMinigame();
                     }
@@ -371,7 +370,7 @@ public class GuessingDirectionMinigame : Minigame
                 else
                 {
                     float soundTime = GameManager.GetManager<AudioManager>().PlaySound("voiceguesswrong", new Vector3(GameManager.instance.player.transform.position.x,
-                        GameManager.instance.player.transform.position.y + 5, GameManager.instance.player.transform.position.z), false, 100);
+                        GameManager.instance.player.transform.position.y + 5, GameManager.instance.player.transform.position.z), false, 85);
                     Debug.Log("Incorrect guess.");
                     canGuess = false;
                     waitingTimer.SetTimer(soundTime);

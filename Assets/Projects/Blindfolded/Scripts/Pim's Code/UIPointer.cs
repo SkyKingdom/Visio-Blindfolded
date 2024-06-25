@@ -46,7 +46,7 @@ public class UIPointer : MonoBehaviour
                     }
 
                  
-                    if (OVRInput.GetDown(OVRInput.Button.PrimaryIndexTrigger))
+                    if (OVRInput.GetDown(OVRInput.Button.SecondaryIndexTrigger))
                     {
                         button.onClick.Invoke();
                     }
