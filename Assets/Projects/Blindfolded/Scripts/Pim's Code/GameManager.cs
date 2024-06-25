@@ -95,6 +95,7 @@ public class GameManager : MonoBehaviour
     /// </summary>
     GameManager()
     {
+        minigames = new List<Minigame>();
         
         if (instance == null)
         {

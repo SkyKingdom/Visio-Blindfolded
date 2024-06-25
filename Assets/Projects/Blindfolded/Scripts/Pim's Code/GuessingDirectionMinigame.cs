@@ -31,7 +31,7 @@ public class GuessingDirectionMinigame : Minigame
     public EventSystem eventSystem;
     private bool onlyOnce = false;
     private bool isPlayingVoicePrompt = false;
-
+    private bool executeOnce = false;
 
 
     /// <summary>
@@ -45,13 +45,28 @@ public class GuessingDirectionMinigame : Minigame
 
     public void Start()
     {
-        GameManager.instance.ClearMinigames();
-        GameManager.instance.AddMinigameToList(gameObject);
-        for (int i = 0; i < GameManager.instance.GetMinigamesList().Count; i++)
+        Debug.LogError("Execute this");
+      
+    }
+
+    public void Update()
+    {
+        if (!executeOnce )
         {
-            Debug.LogError(GameManager.instance.GetMinigamesList()[i].name);
+            if (GameManager.instance != null)
+            {
+                GameManager.instance.ClearMinigames();
+                GameManager.instance.AddMinigameToList(gameObject);
+                for (int i = 0; i < GameManager.instance.GetMinigamesList().Count; i++)
+                {
+                    Debug.LogError(GameManager.instance.GetMinigamesList()[i].name);
+                }
+                executeOnce = true;
+            }
         }
     }
+
+
     // <summary>
     // Called whenever the minigame is initialized
     /// </summary>
