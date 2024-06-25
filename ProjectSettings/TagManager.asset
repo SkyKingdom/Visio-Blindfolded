@@ -12,6 +12,7 @@ TagManager:
   - FinishZone
   - DestroyPoint
   - Car
+  - LaserPointer
   layers:
   - Default
   - TransparentFX

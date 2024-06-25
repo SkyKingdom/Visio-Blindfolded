@@ -7,10 +7,10 @@ public class ActivatePortal : MonoBehaviour
     private Collider triggerCollider; // Reference to the Collider component
     private Timer animationTimer;
     [SerializeField] private Levels.levels level;
-    
+
     private void Start()
     {
-      animationTimer = new Timer();
+        animationTimer = new Timer();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -21,6 +21,7 @@ public class ActivatePortal : MonoBehaviour
             //Add audio effect.
             vfx.Play();
             animationTimer.SetTimer(2);
+            ToggleMovement(other.GetComponent<OVRPlayerController>(), false);
         }
     }
 
@@ -31,6 +32,19 @@ public class ActivatePortal : MonoBehaviour
         {
             animationTimer.StopTimer();
             GameManager.SceneLoader(level);
+        }
+    }
+
+
+    public void ToggleMovement(OVRPlayerController controller, bool toggle)
+    {
+        if (toggle)
+        {
+            controller.Acceleration = 0.1f;
+        }
+        else
+        {
+            controller.Acceleration = 0f;
         }
     }
 }
