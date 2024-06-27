@@ -6,11 +6,14 @@ public class ActivatePortal : MonoBehaviour
     public VisualEffect vfx; // Reference to your Visual Effect Graph component
     private Collider triggerCollider; // Reference to the Collider component
     private Timer animationTimer;
+    private Timer waitTimer;
     [SerializeField] private Levels.levels level;
+    private OVRPlayerController playerController;
 
     private void Start()
     {
         animationTimer = new Timer();
+        waitTimer = new Timer();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -21,7 +24,8 @@ public class ActivatePortal : MonoBehaviour
             //Add audio effect.
             vfx.Play();
             animationTimer.SetTimer(2);
-            ToggleMovement(other.GetComponent<OVRPlayerController>(), false);
+            waitTimer.SetTimer(0.5f);
+            playerController = other.GetComponent<OVRPlayerController>();
         }
     }
 
@@ -32,6 +36,12 @@ public class ActivatePortal : MonoBehaviour
         {
             animationTimer.StopTimer();
             GameManager.SceneLoader(level);
+        }
+
+        if (waitTimer.isActive && waitTimer.TimerDone())
+        {
+            waitTimer.StopTimer();
+            ToggleMovement(playerController , false);
         }
     }
 
