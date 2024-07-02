@@ -49,7 +49,7 @@ public class MinigamesManager : Manager
             }
             else
             {
-                Debug.LogError("There is a minigame null, checking for more");
+                Debug.LogError("There is a minigame returning null, checking for more");
             }
           
         }
