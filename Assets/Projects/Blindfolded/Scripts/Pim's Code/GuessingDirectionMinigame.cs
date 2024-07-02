@@ -43,12 +43,10 @@ public class GuessingDirectionMinigame : Minigame
         waitingTimer = new Timer();
     }
 
-    public void Start()
-    {
-        Debug.LogError("Execute this");
-      
-    }
-
+    
+    /// <summary>
+    /// Adds this minigame to the gamemanager
+    /// </summary>
     public void Update()
     {
         if (!executeOnce )
@@ -68,7 +66,7 @@ public class GuessingDirectionMinigame : Minigame
 
 
     // <summary>
-    // Called whenever the minigame is initialized
+    // Called whenever the minigame is initialized.
     /// </summary>
     public override void EntryPoint()
     {
@@ -383,6 +381,9 @@ public class GuessingDirectionMinigame : Minigame
         }
     }
 
+    /// <summary>
+    /// Quits the application, does not work in the editor.
+    /// </summary>
     public void QuitGame()
     {
         if (OVRInput.GetDown(OVRInput.Button.Start))

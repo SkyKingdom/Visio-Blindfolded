@@ -11,6 +11,10 @@ public class UIPointer : MonoBehaviour
     public EventSystem eventSystem;
     public LayerMask uiLayer; 
 
+
+    /// <summary>
+    /// Raycast for the UI laserpointer.
+    /// </summary>
     private void Update()
     {
       
