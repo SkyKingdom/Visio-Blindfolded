@@ -127,15 +127,26 @@ public class GameManager : MonoBehaviour
         print(GetManager<AudioManager>().audioSources.Count + "| Audiosources count");
     }
 
+    /// <summary>
+    /// Adds a minigame to the minigames list.
+    /// </summary>
+    /// <param name="minigameObject"></param>
     public void AddMinigameToList(GameObject minigameObject) 
     {
         minigames.Add(minigameObject.GetComponent<Minigame>());
     }
+    /// <summary>
+    /// Clears the minigame list.
+    /// </summary>
 
     public void ClearMinigames() 
     {
         minigames.Clear();
     }
+    /// <summary>
+    /// Returns the minigame list.
+    /// </summary>
+    /// <returns></returns>
     public List<Minigame> GetMinigamesList() 
     {
         return minigames;
@@ -172,8 +183,6 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     public void Start()
     {
-
-
         for (int i = 0; i < managers.Length; i++)
         {
             managers[i].Start();
@@ -210,6 +219,9 @@ public class GameManager : MonoBehaviour
         GetManager<MinigamesManager>().PickRandom();
     }
 
+    /// <summary>
+    /// Restarts the application, only works in the android environment.
+    /// </summary>
 #if UNITY_ANDROID
     private static void RestartAndroid()
     {
