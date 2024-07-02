@@ -57,6 +57,9 @@ public class GameManager : MonoBehaviour
     public int masterCurrentStoryLength;
 
 
+    /// <summary>
+    /// Debugs for nodesystem
+    /// </summary>
 #if UNITY_EDITOR
     [CustomEditor(typeof(GameManager))]
     public class NodeManagerEditor : Editor
@@ -83,6 +86,11 @@ public class GameManager : MonoBehaviour
 #endif
 
 
+
+    /// <summary>
+    /// Scene loader to load any scene.
+    /// </summary>
+    /// <param name="level"></param>
     public static void SceneLoader(Levels.levels level)
     {
         SceneManager.LoadScene((int)level);
